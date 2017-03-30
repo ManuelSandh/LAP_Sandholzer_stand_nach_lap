@@ -22,3 +22,15 @@ C:\Users\Mani\Documents\Visual Studio 2015\Projects\CardGame\CardGame\CardGame.D
 C:\Users\Mani\Documents\Visual Studio 2015\Projects\CardGame\CardGame\CardGame.DAL\obj\Debug\CardGame.DAL.csprojResolveAssemblyReference.cache
 C:\Users\Mani\Documents\Visual Studio 2015\Projects\CardGame\CardGame\CardGame.DAL\obj\Debug\CardGame.DAL.dll
 C:\Users\Mani\Documents\Visual Studio 2015\Projects\CardGame\CardGame\CardGame.DAL\obj\Debug\CardGame.DAL.pdb
+C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\bin\Debug\CardGame.DAL.dll.config
+C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\bin\Debug\CardGame.DAL.dll
+C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\bin\Debug\CardGame.DAL.pdb
+C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\bin\Debug\CardGame.Log.dll
+C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\bin\Debug\EntityFramework.dll
+C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\bin\Debug\CardGame.Log.pdb
+C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\bin\Debug\EntityFramework.xml
+C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\obj\Debug\CardGame.DAL.csprojResolveAssemblyReference.cache
+C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\obj\Debug\CardGame.DAL.dll
+C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\obj\Debug\CardGame.DAL.pdb
