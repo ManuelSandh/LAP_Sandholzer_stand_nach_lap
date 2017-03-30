@@ -24,7 +24,7 @@
 
                     @if (User.Identity.Name == "" || User.Identity.Name == null)
                     {
-                        <li>@Html.ActionLink("Login", "Login", "Account")</li>
+                        <li>@Html.ActionLink("Login", "_Login", "Account")</li>
                     }
 
                     else

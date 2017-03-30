@@ -15,13 +15,13 @@ namespace CardGame.Web.Controllers
     {
         // GET: Account
         [HttpGet]
-        public ActionResult Login()
+        public ActionResult _Login()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Login(User login)
+        public ActionResult _Login(User login)
         {
             bool hasAccess = AuthManager.AuthUser(login.Email, login.Password);
             login.Role = UserManager.GetRoleNamesByEMail(login.Email);
@@ -79,7 +79,7 @@ namespace CardGame.Web.Controllers
 
             AuthManager.Register(dbUser);
 
-            return RedirectToAction("Login");
+            return RedirectToAction("_Login");
         }
     }
 }

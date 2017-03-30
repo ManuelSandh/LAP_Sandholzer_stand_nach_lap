@@ -211,7 +211,7 @@
     <Content Include="Views\Card\Overview.cshtml" />
     <Content Include="Views\Card\Details.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Shared\_Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>

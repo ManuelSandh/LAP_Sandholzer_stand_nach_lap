@@ -18,7 +18,7 @@ namespace CardGame.DAL.Logic
                 {
                     if (db.tblperson.Any(n => n.email == regUser.email))
                     {
-                        throw new Exception("UserAlreadxExists");
+                        throw new Exception("UserAlreadyExists");
                     }
                     //Salt erzeugen
                     string salt = Helper.GenerateSalt();
@@ -79,8 +79,7 @@ namespace CardGame.DAL.Logic
             }
             catch (Exception e)
             {
-
-                throw;
+                
             }
         }
     }

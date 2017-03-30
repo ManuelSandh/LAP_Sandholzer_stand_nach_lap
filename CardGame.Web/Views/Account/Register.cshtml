@@ -7,18 +7,20 @@
 
 @using (Html.BeginForm())
 {
-    @Html.LabelFor(u => u.Firstname)
-    @Html.EditorFor(u => u.Firstname)
-    <br />
-    @Html.LabelFor(u => u.Lastname)
-    @Html.EditorFor(u => u.Lastname)
-    <br />
-    @Html.LabelFor(u => u.Email)
-    @Html.EditorFor(u => u.Email)
-    <br />
-    @Html.LabelFor(u => u.Password)
-    @Html.EditorFor(u => u.Password)
-    <br />
+
+    <fieldset>
+        @Html.LabelFor(u => u.Firstname)
+        @Html.EditorFor(u => u.Firstname)
+        <br />
+        @Html.LabelFor(u => u.Lastname)
+        @Html.EditorFor(u => u.Lastname)
+        <br />
+        @Html.LabelFor(u => u.Email)
+        @Html.EditorFor(u => u.Email)
+        <br />
+        @Html.LabelFor(u => u.Password)
+        @Html.EditorFor(u => u.Password)
+    </fieldset>
 
     <input type="submit" class="btn btn-default" />
 }
