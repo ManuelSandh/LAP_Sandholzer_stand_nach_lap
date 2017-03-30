@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    @if (User.Identity.Name == "")
+    {
+        <h1>Bitte einloggen</h1>
+    }
+
+    else
+    {
+        <h1>Welcome @ViewBag.Firstname @ViewBag.Lastname</h1>
+    }
+    @{ 
+        if (User.IsInRole("admin"))
+        {
+            <h1>You are an Admin</h1>
+        }
+    }
+     
+</div>

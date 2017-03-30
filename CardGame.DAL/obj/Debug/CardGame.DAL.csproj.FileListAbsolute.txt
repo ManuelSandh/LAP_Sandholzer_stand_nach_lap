@@ -1,0 +1,24 @@
+C:\Users\Martin Hengsberger\Documents\GitHub\CardGame\CardGame\CardGame.DAL\bin\Debug\CardGame.DAL.dll.config
+C:\Users\Martin Hengsberger\Documents\GitHub\CardGame\CardGame\CardGame.DAL\bin\Debug\CardGame.DAL.dll
+C:\Users\Martin Hengsberger\Documents\GitHub\CardGame\CardGame\CardGame.DAL\bin\Debug\CardGame.DAL.pdb
+C:\Users\Martin Hengsberger\Documents\GitHub\CardGame\CardGame\CardGame.DAL\bin\Debug\CardGame.Log.dll
+C:\Users\Martin Hengsberger\Documents\GitHub\CardGame\CardGame\CardGame.DAL\bin\Debug\EntityFramework.dll
+C:\Users\Martin Hengsberger\Documents\GitHub\CardGame\CardGame\CardGame.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Martin Hengsberger\Documents\GitHub\CardGame\CardGame\CardGame.DAL\bin\Debug\CardGame.Log.pdb
+C:\Users\Martin Hengsberger\Documents\GitHub\CardGame\CardGame\CardGame.DAL\bin\Debug\EntityFramework.xml
+C:\Users\Martin Hengsberger\Documents\GitHub\CardGame\CardGame\CardGame.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Martin Hengsberger\Documents\GitHub\CardGame\CardGame\CardGame.DAL\obj\Debug\CardGame.DAL.csprojResolveAssemblyReference.cache
+C:\Users\Martin Hengsberger\Documents\GitHub\CardGame\CardGame\CardGame.DAL\obj\Debug\CardGame.DAL.dll
+C:\Users\Martin Hengsberger\Documents\GitHub\CardGame\CardGame\CardGame.DAL\obj\Debug\CardGame.DAL.pdb
+C:\Users\Mani\Documents\Visual Studio 2015\Projects\CardGame\CardGame\CardGame.DAL\bin\Debug\CardGame.DAL.dll.config
+C:\Users\Mani\Documents\Visual Studio 2015\Projects\CardGame\CardGame\CardGame.DAL\bin\Debug\CardGame.DAL.dll
+C:\Users\Mani\Documents\Visual Studio 2015\Projects\CardGame\CardGame\CardGame.DAL\bin\Debug\CardGame.DAL.pdb
+C:\Users\Mani\Documents\Visual Studio 2015\Projects\CardGame\CardGame\CardGame.DAL\bin\Debug\CardGame.Log.dll
+C:\Users\Mani\Documents\Visual Studio 2015\Projects\CardGame\CardGame\CardGame.DAL\bin\Debug\EntityFramework.dll
+C:\Users\Mani\Documents\Visual Studio 2015\Projects\CardGame\CardGame\CardGame.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Mani\Documents\Visual Studio 2015\Projects\CardGame\CardGame\CardGame.DAL\bin\Debug\CardGame.Log.pdb
+C:\Users\Mani\Documents\Visual Studio 2015\Projects\CardGame\CardGame\CardGame.DAL\bin\Debug\EntityFramework.xml
+C:\Users\Mani\Documents\Visual Studio 2015\Projects\CardGame\CardGame\CardGame.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Mani\Documents\Visual Studio 2015\Projects\CardGame\CardGame\CardGame.DAL\obj\Debug\CardGame.DAL.csprojResolveAssemblyReference.cache
+C:\Users\Mani\Documents\Visual Studio 2015\Projects\CardGame\CardGame\CardGame.DAL\obj\Debug\CardGame.DAL.dll
+C:\Users\Mani\Documents\Visual Studio 2015\Projects\CardGame\CardGame\CardGame.DAL\obj\Debug\CardGame.DAL.pdb
