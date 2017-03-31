@@ -82,8 +82,11 @@ namespace CardGame.Web.Controllers
             //dbUser.tblrole.FirstOrDefault().rolename = "user";
 
             AuthManager.Register(dbUser);
+             
 
-            return RedirectToAction("_Login");
+           return RedirectToAction("_Login");
+           
+          
         }
     }
 }

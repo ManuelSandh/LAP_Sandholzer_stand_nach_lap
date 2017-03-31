@@ -398,3 +398,75 @@
     <Stack>   bei CardGame.DAL.Logic.AuthManager.Register(tblperson regUser) in C:\Users\Mani\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\Logic\AuthManager.cs:Zeile 21.</Stack>
   </Exception>
 </Xcpt>
+<Xcpt>
+  <Time>31.03.2017 11:56:08</Time>
+  <Exception>
+    <Source>CardGame.DAL</Source>
+    <Message>UserAlreadyExists</Message>
+    <Stack>   bei CardGame.DAL.Logic.AuthManager.Register(tblperson regUser) in C:\Users\Mani\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\Logic\AuthManager.cs:Zeile 21.</Stack>
+  </Exception>
+</Xcpt>
+<Xcpt>
+  <Time>31.03.2017 11:59:03</Time>
+  <Exception>
+    <Source>CardGame.DAL</Source>
+    <Message>UserAlreadyExists</Message>
+    <Stack>   bei CardGame.DAL.Logic.AuthManager.Register(tblperson regUser) in C:\Users\Mani\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\Logic\AuthManager.cs:Zeile 21.</Stack>
+  </Exception>
+</Xcpt>
+<Xcpt>
+  <Time>31.03.2017 12:00:58</Time>
+  <Exception>
+    <Source>CardGame.DAL</Source>
+    <Message>UserAlreadyExists</Message>
+    <Stack>   bei CardGame.DAL.Logic.AuthManager.Register(tblperson regUser) in C:\Users\Mani\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\Logic\AuthManager.cs:Zeile 21.</Stack>
+  </Exception>
+</Xcpt>
+<Xcpt>
+  <Time>31.03.2017 12:03:00</Time>
+  <Exception>
+    <Source>CardGame.DAL</Source>
+    <Message>UserAlreadyExists</Message>
+    <Stack>   bei CardGame.DAL.Logic.AuthManager.Register(tblperson regUser) in C:\Users\Mani\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\Logic\AuthManager.cs:Zeile 21.</Stack>
+  </Exception>
+</Xcpt>
+<Xcpt>
+  <Time>31.03.2017 12:03:31</Time>
+  <Exception>
+    <Source>CardGame.DAL</Source>
+    <Message>UserAlreadyExists</Message>
+    <Stack>   bei CardGame.DAL.Logic.AuthManager.Register(tblperson regUser) in C:\Users\Mani\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\Logic\AuthManager.cs:Zeile 21.</Stack>
+  </Exception>
+</Xcpt>
+<Xcpt>
+  <Time>31.03.2017 12:04:09</Time>
+  <Exception>
+    <Source>CardGame.DAL</Source>
+    <Message>UserAlreadyExists</Message>
+    <Stack>   bei CardGame.DAL.Logic.AuthManager.Register(tblperson regUser) in C:\Users\Mani\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\Logic\AuthManager.cs:Zeile 21.</Stack>
+  </Exception>
+</Xcpt>
+<Info>
+  <Time>31.03.2017 12:04:25</Time>
+  <Info>Entered Pass = as</Info>
+</Info>
+<Info>
+  <Time>31.03.2017 12:04:25</Time>
+  <Info>HashPass = 09A29D03BB521F1F71534A731F386E18503798C9C177D55035FDAB56606BA5D0AD81C3DAEC0EA517CEB585BDDFB934B9CFA2FDC044BEA50CAEE94D64519EE0F6</Info>
+</Info>
+<Xcpt>
+  <Time>31.03.2017 12:04:33</Time>
+  <Exception>
+    <Source>CardGame.DAL</Source>
+    <Message>UserAlreadyExists</Message>
+    <Stack>   bei CardGame.DAL.Logic.AuthManager.Register(tblperson regUser) in C:\Users\Mani\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\Logic\AuthManager.cs:Zeile 21.</Stack>
+  </Exception>
+</Xcpt>
+<Xcpt>
+  <Time>31.03.2017 12:04:36</Time>
+  <Exception>
+    <Source>CardGame.DAL</Source>
+    <Message>UserAlreadyExists</Message>
+    <Stack>   bei CardGame.DAL.Logic.AuthManager.Register(tblperson regUser) in C:\Users\Mani\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\Logic\AuthManager.cs:Zeile 21.</Stack>
+  </Exception>
+</Xcpt>

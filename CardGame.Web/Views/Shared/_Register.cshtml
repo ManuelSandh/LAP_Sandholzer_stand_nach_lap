@@ -1,4 +1,4 @@
-﻿@model CardGame.Web.Models.User
+﻿@model CardGame.Web.Models.Register
 @{
     ViewBag.Title = "Register";
 }
@@ -20,6 +20,9 @@
         <br />
         @Html.LabelFor(u => u.Password)
         @Html.EditorFor(u => u.Password)
+        <br />
+        @Html.LabelFor(u => u.confirmPassword)
+        @Html.EditorFor(u => u.confirmPassword)
     </fieldset>
 
     <input type="submit" class="btn btn-default" />
