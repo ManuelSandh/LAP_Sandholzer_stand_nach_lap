@@ -1,9 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@model CardGame.Web.Models.User
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>Clonestone</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link href="~/Content/MyStyle.css" rel="stylesheet" type="text/css" />
@@ -17,25 +19,27 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Clonestone", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse" id="menueleiste">
                 <ul class="nav navbar-nav navbar-right">
 
-                    @if (User.Identity.Name == "" || User.Identity.Name == null)
-                    {
-                        <li>@Html.ActionLink("Login", "_Login", "Account")</li>
-                    }
+    @if (User.Identity.Name == "" || User.Identity.Name == null)
+    {
+        
+        <li>@Html.ActionLink("Login", "_Login", "Account")</li>
+        <li>@Html.ActionLink("Registrieren", "_Register", "Account")</li>
 
-                    else
-                    {
-                       
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                        <li>@Html.ActionLink("Statistic", "Statistics", "Home")</li>
-                        <li>@Html.ActionLink("Cards", "Overview", "Card")</li>
-                        <li>@Html.ActionLink("Users", "Index", "User")</li>
+    }
+
+    else
+    {
+        //TODO Die Action Links vervollständigen
+                        <li>@Html.ActionLink("Shop", "Not implement", "Not implement")</li>
+                        <li>@Html.ActionLink("Deckbuilder", "Not implement", "Not implement")</li>
+                            @*<li>@Html.ActionLink("Statistic", "Statistics", "Home")</li>*@
+                            @*<li>@Html.ActionLink("Cards", "Overview", "Card")</li>*@
+                            @*<li>@Html.ActionLink("Users", "Index", "User")</li>*@
                         <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
                     }
 
@@ -47,7 +51,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year powered by MTP Sandholzer</p>
         </footer>
     </div>
 

@@ -35,8 +35,7 @@ namespace CardGame.DAL.Logic
             }
             catch (Exception e)
             {
-                throw;
-                //Writer.LogError(e);            
+                Writer.LogError(e);            
             }
 
             return true;
@@ -79,7 +78,8 @@ namespace CardGame.DAL.Logic
             }
             catch (Exception e)
             {
-                
+                Writer.LogError(e);
+                return false;
             }
         }
     }

@@ -8,3 +8,7 @@ C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.Log\bin\Debug\CardGam
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.Log\obj\Debug\CardGame.Log.csprojResolveAssemblyReference.cache
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.Log\obj\Debug\CardGame.Log.dll
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.Log\obj\Debug\CardGame.Log.pdb
+C:\Users\Mani\Documents\GitHub\LAP_Sandholzer\CardGame.Log\bin\Debug\CardGame.Log.dll
+C:\Users\Mani\Documents\GitHub\LAP_Sandholzer\CardGame.Log\bin\Debug\CardGame.Log.pdb
+C:\Users\Mani\Documents\GitHub\LAP_Sandholzer\CardGame.Log\obj\Debug\CardGame.Log.dll
+C:\Users\Mani\Documents\GitHub\LAP_Sandholzer\CardGame.Log\obj\Debug\CardGame.Log.pdb

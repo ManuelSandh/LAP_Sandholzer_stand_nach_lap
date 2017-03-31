@@ -34,3 +34,15 @@ C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\bin\Debug\EntityF
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\obj\Debug\CardGame.DAL.csprojResolveAssemblyReference.cache
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\obj\Debug\CardGame.DAL.dll
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\obj\Debug\CardGame.DAL.pdb
+C:\Users\Mani\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\bin\Debug\CardGame.DAL.dll.config
+C:\Users\Mani\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\bin\Debug\CardGame.DAL.dll
+C:\Users\Mani\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\bin\Debug\CardGame.DAL.pdb
+C:\Users\Mani\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\bin\Debug\CardGame.Log.dll
+C:\Users\Mani\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\bin\Debug\EntityFramework.dll
+C:\Users\Mani\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Mani\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\bin\Debug\CardGame.Log.pdb
+C:\Users\Mani\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\bin\Debug\EntityFramework.xml
+C:\Users\Mani\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Mani\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\obj\Debug\CardGame.DAL.csprojResolveAssemblyReference.cache
+C:\Users\Mani\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\obj\Debug\CardGame.DAL.dll
+C:\Users\Mani\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\obj\Debug\CardGame.DAL.pdb

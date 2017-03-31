@@ -26,7 +26,7 @@ namespace CardGame.Web.Controllers
             bool hasAccess = AuthManager.AuthUser(login.Email, login.Password);
             login.Role = UserManager.GetRoleNamesByEMail(login.Email);
 
-            if (hasAccess)
+            if (hasAccess && login.Role != "")
             {
                 var authTicket = new FormsAuthenticationTicket(
                                 1,                              //Ticketversion
@@ -43,6 +43,10 @@ namespace CardGame.Web.Controllers
 
                 System.Web.HttpContext.Current.Response.Cookies.Add(authCookie);
             }
+            else
+            {
+                return View(login);
+            }
 
             return RedirectToAction("Index", "Home");
         }
@@ -54,13 +58,13 @@ namespace CardGame.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult Register()
+        public ActionResult _Register()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Register(User regUser)
+        public ActionResult _Register(User regUser)
         {
             var dbUser = new tblperson();
 
