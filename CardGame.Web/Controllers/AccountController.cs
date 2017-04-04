@@ -13,15 +13,15 @@ namespace CardGame.Web.Controllers
 {
     public class AccountController : Controller
     {
-        // GET: Account
-        [HttpGet]
-        public ActionResult _Login()
+        //GET: Account
+       [HttpGet]
+        public ActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult _Login(User login)
+        public ActionResult Login(User login)
         {
             bool hasAccess = AuthManager.AuthUser(login.Email, login.Password);
             login.Role = UserManager.GetRoleNamesByEMail(login.Email);
@@ -42,6 +42,7 @@ namespace CardGame.Web.Controllers
                 var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
 
                 System.Web.HttpContext.Current.Response.Cookies.Add(authCookie);
+                
             }
             else
             {
@@ -58,13 +59,13 @@ namespace CardGame.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult _Register()
+        public ActionResult Register()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult _Register(User regUser)
+        public ActionResult Register(User regUser)
         {
             var dbUser = new tblperson();
 
@@ -74,17 +75,16 @@ namespace CardGame.Web.Controllers
             dbUser.email = regUser.Email;
             dbUser.password = regUser.Password;
             dbUser.salt = regUser.Salt;
-            dbUser.userrole = "player";
+            dbUser.userrole = "user";
             dbUser.currencybalance = 100;
 
             //dbUser.tblrole = new List<tblrole>();
             //dbUser.tblrole.Add(new tblrole());
             //dbUser.tblrole.FirstOrDefault().rolename = "user";
 
-            AuthManager.Register(dbUser);
-             
+            AuthManager.Register(dbUser);             
 
-           return RedirectToAction("_Login");
+           return RedirectToAction("Index", "Home");
            
           
         }

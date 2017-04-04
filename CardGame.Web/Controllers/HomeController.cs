@@ -25,23 +25,7 @@ namespace CardGame.Web.Controllers
 
             return View();
         }
-
-        [Authorize(Roles = "user,admin")]
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        [Authorize(Roles = "admin")]
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-
+        
         public ActionResult Statistics()
         {
             Statistic s = new Statistic();
@@ -55,5 +39,9 @@ namespace CardGame.Web.Controllers
         }
 
 
+        public ActionResult Shop()
+        {
+            return View();
+        }
     }
 }
