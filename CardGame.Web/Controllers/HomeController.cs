@@ -18,8 +18,9 @@ namespace CardGame.Web.Controllers
                 ViewBag.Username = User.Identity.Name;
 
                 var dbUser = UserManager.GetUserByEmail(User.Identity.Name);
-                ViewBag.Firstname = dbUser.firstname;
-                ViewBag.Lastname = dbUser.lastname;
+                ViewBag.Gamertag = dbUser.gamertag;
+                ViewBag.CurrencyBalance = dbUser.currencybalance;
+                
             }
             
 

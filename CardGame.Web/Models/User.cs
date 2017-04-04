@@ -14,6 +14,9 @@ namespace CardGame.Web.Models
         [Required(ErrorMessage = "Email muss angegeben werden")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
+        [Required(ErrorMessage = "Bitte geben Sie einen Gamertag an")]
+        public string Gamertag { get; set; }
+
         [Required(ErrorMessage = "Kennwort muss angegeben werden")]
         [DataType(DataType.Password)]
         public string Password { get; set; }

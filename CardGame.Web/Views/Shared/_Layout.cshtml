@@ -20,46 +20,49 @@
                 </button>
                 @Html.ActionLink("Clonestone", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse" >
-                <ul class="nav navbar-nav navbar-right">
-
+            <div class="navbar-collapse collapse">
+                
                     @if (User.Identity.Name == "" || User.Identity.Name == null)
                     {
-                        <li>@Html.ActionLink("Login", "Login", "Account")</li>
-                        <li>@Html.ActionLink("Registrieren", "Register", "Account")</li>
+                        <ul class="nav navbar-nav navbar-right" style="margin-top:6px;">
+                            <li>@Html.ActionLink("Login", "Login", "Account")</li>
+                            <li>@Html.ActionLink("Registrieren", "Register", "Account")</li>
+                           </ul>
                     }
-
                     else
                     {
-                        <li id="welcomeMessage">Willkommen @ViewBag.Firstname @ViewBag.Lastname</li>
-                        //TODO Die Action Links vervollständigen
-                        <li>@Html.ActionLink("Shop", "Shop", "Home")</li>
-                        <li>@Html.ActionLink("Deckbuilder", "Not implement", "Not implement")</li>
-                        @*<li>@Html.ActionLink("Statistic", "Statistics", "Home")</li>*@
-                        @*<li>@Html.ActionLink("Cards", "Overview", "Card")</li>*@
-                        @*<li>@Html.ActionLink("Users", "Index", "User")</li>*@
-                        <li>@Html.ActionLink("Logout", "Logout", "Account")</li>                        
+                        <ul class="nav navbar-nav navbar-right" style="margin-top:6px;">
+                            @*TODO Die Action Links vervollständigen*@
+                            <li>@Html.ActionLink("Shop", "Shop", "Home")</li>
+                            <li>@Html.ActionLink("Deckbuilder", "Not implement", "Not implement")</li>
+                            @*<li>@Html.ActionLink("Statistic", "Statistics", "Home")</li>*@
+                            @*<li>@Html.ActionLink("Cards", "Overview", "Card")</li>*@
+                            @*<li>@Html.ActionLink("Users", "Index", "User")</li>*@
+                            <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
+                        </ul>
+                        <p class="DiamantAnzeige"><img src="~/Content/Images/Diamant.png" />                        @ViewBag.CurrencyBalance</p>
                     }
 
-                </ul>
+
+
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()        
-        <hr />
-        
-    </div>
-    <div class="navbar-fixed-bottom center visible-lg visible-md visible-sm" id="footer">
-        <div class="navbar-collapse collapse">
-            <div class="footer-nav">
-                <p>&copy; @DateTime.Now.Year powered by MTP Sandholzer</p>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+
+        </div>
+        <div class="navbar-fixed-bottom center visible-lg visible-md visible-sm" id="footer">
+            <div class="navbar-collapse collapse">
+                <div class="footer-nav">
+                    <p>&copy; @DateTime.Now.Year powered by MTP Sandholzer</p>
                 </div>
             </div>
         </div>
 
-                @Scripts.Render("~/bundles/jquery")
-                @Scripts.Render("~/bundles/bootstrap")
-                @RenderSection("scripts", required: false)
-</body>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
 </html>

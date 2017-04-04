@@ -1,31 +1,54 @@
 ﻿@font-face {
-         font-family: 'Xena';
-         src: url('../fonts/Xena.ttf') format('truetype');
-        }
-* {
-         font-family: Xena;
-        } 
+    font-family: 'Xena';
+    src: url('../fonts/Xena.ttf') format('truetype');
+}
 
-body {    
+* {
+    font-family: Xena;
+}
+
+body {
     background-image: url("Images/Background.jpg");
-    background-repeat: no-repeat;  
+    background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center center;
-    background-size: cover;    
+    background-size: cover;
 }
 
-#footer{   
-    text-align:left;
-    width:auto;  
-    position:fixed;
-    bottom:0.1%;   
-    color:white;
-}
-#menueleiste{
-     /*font-size:20px;*/
-     color:grey !important;   
+#footer {
+    text-align: left;
+    width: auto;
+    position: fixed;
+    bottom: 0.1%;
+    color: white;
 }
 
-#welcomeMessage{
+#menueleiste {
+    background-color: #231514;
+    font-size: 15px;
+}
 
+#Gamer {
+}
+
+.DiamantAnzeige {
+    margin-top: 15px;
+    text-align: center;
+    color: #fff;
+}
+
+.navbar {
+    height: 10px !important;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #6C89C1;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+    color: #6B90DB;
+}
+.navbar-brand{
+    margin-top: 10px !important;
+    color:#6C89C1 !important;
 }
