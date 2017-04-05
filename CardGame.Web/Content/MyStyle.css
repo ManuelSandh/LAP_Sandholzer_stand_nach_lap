@@ -45,10 +45,27 @@ body {
     color: #6C89C1;
 }
 
-.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
-    color: #6B90DB;
-}
-.navbar-brand{
+    .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+        color: #6B90DB;
+    }
+
+.navbar-brand {
     margin-top: 10px !important;
-    color:#6C89C1 !important;
+    color: #6C89C1 !important;
+}
+
+#LoginForm,
+#RegisterForm {
+    text-align: center;
+    margin-top: 70px;
+    float: right;
+    color: #6C89C1;
+}
+
+.valimassage {
+    margin-top: 5px;
+}
+
+.CardPacks{
+    
 }

@@ -6,19 +6,20 @@
 
 
 @using (Html.BeginForm("Login", "Account", FormMethod.Post))
-{   
+{
     <fieldset id="LoginForm">
-        <h2>Login</h2>
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
         <div class="editor-field">
-            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { placeholder = "Benutzername" } })
-          @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-        </div>
+            <div>@Html.LabelFor(model => model.Email)</div>
+            <div>@Html.EditorFor(model => model.Email)</div>
+            <p class="valimassage">@Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-warning" })</p></div>
+        <br />
         <div class="editor-field">
-            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { placeholder = "Passwort" } })
-            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            <div>@Html.LabelFor(model => model.Password)</div>
+            <div>@Html.EditorFor(model => model.Password)</div>
+            <p class="valimassage">@Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-warning" })</p> 
         </div>
+        <br/>
         <p id="LoginFormBtn">
             <button type="submit" class="btn btn-default btn-responsive">Login</button>
         </p>

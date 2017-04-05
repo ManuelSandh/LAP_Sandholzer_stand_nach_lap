@@ -3,30 +3,36 @@
     ViewBag.Title = "Register";
 }
 
-<h2>Register</h2>
 
-@using (Html.BeginForm())
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post))
 {
 
-    <fieldset>
-        @Html.LabelFor(u => u.Firstname)
-        @Html.EditorFor(u => u.Firstname)
-        <br />
-        @Html.LabelFor(u => u.Lastname)
-        @Html.EditorFor(u => u.Lastname)
-        <br />
-        @Html.LabelFor(u => u.Gamertag)
-        @Html.EditorFor(u => u.Gamertag)
-        <br />
-        @Html.LabelFor(u => u.Email)
-        @Html.EditorFor(u => u.Email)
-        <br />
-        @Html.LabelFor(u => u.Password)
-        @Html.EditorFor(u => u.Password)
-        <br />
-        @Html.LabelFor(u => u.confirmPassword)
-        @Html.EditorFor(u => u.confirmPassword)
-    </fieldset>
+    <fieldset id="RegisterForm">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    <input type="submit" class="btn btn-default" />
+        <div>@Html.LabelFor(u => u.Firstname)</div>
+        <div>@Html.EditorFor(u => u.Firstname)</div>
+        <br />
+        <div>@Html.LabelFor(u => u.Lastname)</div>
+        <div>@Html.EditorFor(u => u.Lastname)</div>
+        <br />
+        <div>@Html.LabelFor(u => u.Gamertag)</div>
+        <div>@Html.EditorFor(u => u.Gamertag)</div>
+        <br />
+        <div>@Html.LabelFor(u => u.Email)</div>
+        <div>@Html.EditorFor(u => u.Email)</div>
+        <br />
+        <div>@Html.LabelFor(u => u.Password)</div>
+        <div>@Html.EditorFor(u => u.Password)</div>
+        <br />
+        <div>@Html.Label("Confirm password")</div>
+        <div>@Html.EditorFor(u => u.confirmPassword)</div>
+        <br />
+        <p id="RegisterFormBtn">
+            <button type="submit" class="btn btn-default btn-responsive">Register</button>
+        </p>
+    </fieldset>
 }
+
+
