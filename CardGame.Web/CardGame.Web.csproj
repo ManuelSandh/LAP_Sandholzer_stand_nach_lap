@@ -173,6 +173,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\Background.jpg" />
+    <Content Include="Content\Images\btn.png" />
+    <Content Include="Content\Images\Button_hp.png" />
     <Content Include="Content\Images\Card Pack.png" />
     <Content Include="Content\Images\CS_Logo.png" />
     <Content Include="Content\Images\Diamant.png" />

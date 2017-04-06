@@ -82,7 +82,10 @@ namespace CardGame.Web.Controllers
             //dbUser.tblrole.Add(new tblrole());
             //dbUser.tblrole.FirstOrDefault().rolename = "user";
 
-            AuthManager.Register(dbUser);             
+            AuthManager.Register(dbUser);
+        
+            
+            //TODO: wenn Registrierung (Validierung) passt, weiter zur Index(eingeloggt), wenn nicht Validierungsmessage       
 
            return RedirectToAction("Index", "Home");
            

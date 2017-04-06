@@ -64,8 +64,22 @@ body {
 
 .valimassage {
     margin-top: 5px;
+    color:white;
 }
 
 .CardPacks{
     
 }
+
+.btn.btn-submit{
+    background:url(../Content/Images/Button_hp.png);
+    background-repeat:no-repeat;
+    height:40px;
+    width:160px;   
+    padding-right: 22px;
+    padding-top: 5px;
+    text-align:center;
+    color: #FBCB74;
+    
+}
+
