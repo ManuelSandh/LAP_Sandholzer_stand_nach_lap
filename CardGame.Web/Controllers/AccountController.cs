@@ -14,27 +14,50 @@ namespace CardGame.Web.Controllers
     public class AccountController : Controller
     {
         //GET: Account
-       [HttpGet]
+        [HttpGet]
         public ActionResult Login()
         {
             return View();
         }
 
-        [HttpPost]
-        public ActionResult Login(User login)
-        {
-            bool hasAccess = AuthManager.AuthUser(login.Email, login.Password);
-            login.Role = UserManager.GetRoleNamesByEMail(login.Email);
+        //TODO : wenn das Passwort falsch ist Fehlermeldung
 
-            if (hasAccess && login.Role != "")
+
+
+        [HttpPost]
+        public ActionResult Login(Login login)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(login);
+            }
+            else
+            {
+                string rolle = UserManager.GetRoleNamesByEMail(login.Email);
+
+                //Authentifizierung
+                if(!auth(login.Email, login.Password, rolle))
+                {
+                    return View(login);
+                }
+            }
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        bool auth(string email, string passwort, string rolle)
+        {
+            bool hasAccess = AuthManager.AuthUser(email, passwort);
+            
+            if (hasAccess && rolle != "")
             {
                 var authTicket = new FormsAuthenticationTicket(
                                 1,                              //Ticketversion
-                                login.Email,                    //UserIdentifizierung
+                                email,                    //UserIdentifizierung
                                 DateTime.Now,                   //Zeitpunkt der Erstellung
                                 DateTime.Now.AddMinutes(20),    //Gültigkeitsdauer
                                 true,                           //Persistentes Ticket über Sessions hinweg
-                                login.Role            //Userrolle(n)
+                                rolle            //Userrolle(n)
                                 );
 
                 string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
@@ -42,15 +65,13 @@ namespace CardGame.Web.Controllers
                 var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
 
                 System.Web.HttpContext.Current.Response.Cookies.Add(authCookie);
-                
-            }
-            else
-            {
-                return View(login);
+
+                return true;
             }
 
-            return RedirectToAction("Index", "Home");
-        }
+            return false;
+        }   
+
 
         public ActionResult Logout()
         {
@@ -65,8 +86,13 @@ namespace CardGame.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Register(User regUser)
-        {
+        public ActionResult Register(Register regUser)
+        {   
+            if (!ModelState.IsValid)
+            {
+                return View(regUser);
+            }
+
             var dbUser = new tblperson();
 
             dbUser.firstname = regUser.Firstname;
@@ -83,13 +109,14 @@ namespace CardGame.Web.Controllers
             //dbUser.tblrole.FirstOrDefault().rolename = "user";
 
             AuthManager.Register(dbUser);
-        
             
-            //TODO: wenn Registrierung (Validierung) passt, weiter zur Index(eingeloggt), wenn nicht Validierungsmessage       
-
-           return RedirectToAction("Index", "Home");
-           
-          
+            //Authentifizierung
+            if (!auth(dbUser.email, dbUser.password, dbUser.userrole))
+            {
+                return View(regUser);
+            }
+            
+            return RedirectToAction("Index", "Home");
         }
     }
 }

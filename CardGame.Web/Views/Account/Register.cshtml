@@ -13,21 +13,27 @@
 
         <div>@Html.LabelFor(u => u.Firstname)</div>
         <div>@Html.EditorFor(u => u.Firstname)</div>
+<p class="valimassage">@Html.ValidationMessageFor(model => model.Firstname, "", new { @class = "text-warning" })</p>
         <br />
         <div>@Html.LabelFor(u => u.Lastname)</div>
         <div>@Html.EditorFor(u => u.Lastname)</div>
+        <p class="valimassage">@Html.ValidationMessageFor(model => model.Lastname, "", new { @class = "text-warning" })</p>
         <br />
         <div>@Html.LabelFor(u => u.Gamertag)</div>
         <div>@Html.EditorFor(u => u.Gamertag)</div>
+        <p class="valimassage">@Html.ValidationMessageFor(model => model.Gamertag, "", new { @class = "text-warning" })</p>
         <br />
         <div>@Html.LabelFor(u => u.Email)</div>
         <div>@Html.EditorFor(u => u.Email)</div>
+        <p class="valimassage">@Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-warning" })</p>
         <br />
         <div>@Html.LabelFor(u => u.Password)</div>
         <div>@Html.EditorFor(u => u.Password)</div>
+        <p class="valimassage">@Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-warning" })</p>
         <br />
         <div>@Html.Label("Confirm password")</div>
         <div>@Html.EditorFor(u => u.confirmPassword)</div>
+        <p class="valimassage">@Html.ValidationMessageFor(model => model.confirmPassword, "", new { @class = "text-warning" })</p>
         <br />
         <p>
             <input type="submit" class="btn btn-submit" value="Register">

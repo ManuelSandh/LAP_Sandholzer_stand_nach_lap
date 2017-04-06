@@ -24,17 +24,17 @@ namespace CardGame.Web.Controllers
 
             foreach (var c in dbUserlist)
             {
-                User user = new User();
-                user.ID = c.idperson;
-                user.Firstname = c.firstname;
-                user.Lastname = c.lastname;
-                user.Email = c.email;
-                user.Role = c.userrole;
-                user.Password = c.password;
-                user.Salt = c.salt;
+                Register reguser = new Register();
+                reguser.ID = c.idperson;
+                reguser.Firstname = c.firstname;
+                reguser.Lastname = c.lastname;
+                reguser.Email = c.email;
+                reguser.Role = c.userrole;
+                reguser.Password = c.password;
+                reguser.Salt = c.salt;
 
 
-                UserList.Add(user);
+                UserList.Add(reguser);
             }
 
             return View(UserList);
