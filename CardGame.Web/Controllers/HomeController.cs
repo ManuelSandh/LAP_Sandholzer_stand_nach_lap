@@ -44,5 +44,16 @@ namespace CardGame.Web.Controllers
         {
             return View();
         }
+
+
+        public ActionResult Impressum()
+        {
+            return View();
+        }
+
+        public ActionResult AGB()
+        {
+            return View();
+        }
     }
 }

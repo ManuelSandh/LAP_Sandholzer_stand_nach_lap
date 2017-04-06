@@ -40,7 +40,7 @@
                             @*<li>@Html.ActionLink("Users", "Index", "User")</li>*@
                             <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
                         </ul>
-                        <p class="DiamantAnzeige"><img src="~/Content/Images/Diamant.png" />                        @ViewBag.CurrencyBalance</p>
+                        <p class="DiamantAnzeige"><img src="~/Content/Images/Diamant.png" />@ViewBag.CurrencyBalance</p>
                     }
 
 
@@ -50,19 +50,52 @@
         </div>
         <div class="container body-content">
             @RenderBody()
-            <hr />
-
         </div>
-        <div class="navbar-fixed-bottom center visible-lg visible-md visible-sm" id="footer">
+        <div class="navbar-fixed-bottom center visible-lg visible-md visible-sm">
             <div class="navbar-collapse collapse">
                 <div class="footer-nav">
-                    <p>&copy; @DateTime.Now.Year powered by MTP Sandholzer</p>
+                    <div id="footer">
+                        <a href="@Url.Action("Impressum","Home")">Impressum</a> 
+                        <a href="@Url.Action("AGB","Home")">AGB's</a> 
+                    </div>                  
                 </div>
             </div>
         </div>
-
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")
         @RenderSection("scripts", required: false)
+
+    <script type="text/javascript">
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "positionClass": "toast-top-right",
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "3000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+        $(document).ready(function () {
+
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <text>
+            toastr.error("", "@TempData["ErrorMessage"]");
+            </text>
+            }
+
+            @if (TempData["ConfirmMessage"] != null)
+            {
+                <text>
+            toastr.success("", "@TempData["ConfirmMessage"]");
+            </text>
+            }
+
+            });
+    </script>
     </body>
 </html>

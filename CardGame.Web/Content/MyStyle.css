@@ -15,13 +15,15 @@ body {
     background-size: cover;
 }
 
-#footer {
+#footer{
     text-align: left;
     width: auto;
     position: fixed;
     bottom: 0.1%;
     color: white;
 }
+
+
 
 #menueleiste {
     background-color: #231514;
@@ -79,7 +81,12 @@ body {
     padding-right: 22px;
     padding-top: 5px;
     text-align:center;
-    color: #FBCB74;
-    
+    color: #FBCB74;    
+}
+
+.AGBHeader{
+    margin-top:80px;
+    color: #6B90DB;
+    text-align:center;
 }
 
