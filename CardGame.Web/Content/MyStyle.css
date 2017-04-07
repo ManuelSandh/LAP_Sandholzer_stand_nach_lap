@@ -17,9 +17,10 @@ body {
 
 #footer{
     text-align: left;
+    font-size: 20px;
     width: auto;
     position: fixed;
-    bottom: 0.1%;
+    bottom: 1%;
     color: white;
 }
 
@@ -27,7 +28,7 @@ body {
 
 #menueleiste {
     background-color: #231514;
-    font-size: 15px;
+    font-size: 22px;
 }
 
 #Gamer {
@@ -58,8 +59,9 @@ body {
 
 #LoginForm,
 #RegisterForm {
+    font-size:16px !important;
     text-align: center;
-    margin-top: 70px;
+    /*margin-top: 70px;*/    
     float: right;
     color: #6C89C1;
 }
@@ -76,10 +78,11 @@ body {
 .btn.btn-submit{
     background:url(../Content/Images/Button_hp.png);
     background-repeat:no-repeat;
+    font-size:16px;
     height:40px;
     width:160px;   
     padding-right: 22px;
-    padding-top: 5px;
+    padding-top: 2px;
     text-align:center;
     color: #FBCB74;    
 }
@@ -88,5 +91,23 @@ body {
     margin-top:80px;
     color: #6B90DB;
     text-align:center;
+}
+
+.AGBBody{
+    color:#6B90DB;
+}
+
+.ImpressumHeader{
+    margin-top:80px;
+    color:#6B90DB;
+}
+
+.ImpressumBody{
+    font-size:20px;
+    color:#6B90DB;
+}
+
+.editorFields{
+    margin-top:10px;
 }
 

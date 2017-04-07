@@ -47,7 +47,7 @@ namespace CardGame.Web.Controllers
 
 
         public ActionResult Impressum()
-        {
+        {            
             return View();
         }
 
