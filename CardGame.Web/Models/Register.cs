@@ -8,17 +8,17 @@ namespace CardGame.Web.Models
 {
     public class Register : Login
     {
-        [Required(ErrorMessage = "Please enter your firstname!")]
+        [Required(ErrorMessage = "Bitte geben Sie Ihren Vornamen ein!")]
         public string Firstname { get; set; }
 
-        [Required(ErrorMessage = "Please enter your lastname!")]
+        [Required(ErrorMessage = "Bitte geben Sie Ihren Nachnamen ein!")]
         public string Lastname { get; set; }
 
-        [Required(ErrorMessage = "Create a Gamertag!")]
+        [Required(ErrorMessage = "Erstellen Sie einen Gamertag!")]
         public string Gamertag { get; set; }
 
         [DataType(DataType.Password)]
-        [Compare("Password", ErrorMessage = "Confirm password doesn't match!")]
+        [Compare("Password", ErrorMessage = "Die Passwörter stimmen nicht überein!")]
         public string confirmPassword { get; set; }
     }
 }

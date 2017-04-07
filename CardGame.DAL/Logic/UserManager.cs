@@ -68,5 +68,20 @@ namespace CardGame.DAL.Logic
             return role;
         }
 
+
+        public static string getGamerTagByEmail(string email)
+        {
+            string gamerTag = "";
+
+            using (var db = new ClonestoneFSEntities())
+            {
+                tblperson dbUser = db.tblperson.Where(u => u.email == email).FirstOrDefault();
+
+                gamerTag = dbUser.gamertag;
+
+                return gamerTag;
+            }
+
+        }
     }
 }

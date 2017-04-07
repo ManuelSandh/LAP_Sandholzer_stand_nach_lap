@@ -8,11 +8,11 @@ namespace CardGame.Web.Models
 {
     public class Login : User
     {
-        [Required(ErrorMessage = "Please enter your Email!")]
+        [Required(ErrorMessage = "Bitte geben Sie Ihre Email Adresse ein")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Please enter your Password!")]
+        [Required(ErrorMessage = "Bitte geben Sie Ihr Passwort ein!")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
     }

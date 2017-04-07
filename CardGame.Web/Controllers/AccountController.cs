@@ -19,9 +19,9 @@ namespace CardGame.Web.Controllers
         {
             return View();
         }
-
-        //TODO : wenn das Passwort falsch ist Fehlermeldung
-
+        
+        //TempData["ErrorMessage"] = "Fehlermeldungstext";
+        //TempData["ConfirmMessage"] = "Bestätigungstext";
 
 
         [HttpPost]
@@ -29,8 +29,7 @@ namespace CardGame.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
-                //TempData["ErrorMessage"] = "Fehlermeldungstext";
-                //TempData["ConfirmMessage"] = "Bestätigungstext";
+                
                 return View(login);
             }
             else
@@ -40,15 +39,16 @@ namespace CardGame.Web.Controllers
                 //Authentifizierung
                 if (!hasAccess)
                 {
+                    TempData["ErrorMessage"] = "Email oder Passwort falsch!";
                     return View(login);
                 }
             }
 
             string rolle = UserManager.GetRoleNamesByEMail(login.Email);
             auth(login.Email, login.Password, rolle);
-
+            string gamertag = UserManager.getGamerTagByEmail(login.Email);
             
-            TempData["ConfirmMessage"] = "Erfolgreich eingeloggt";
+            TempData["ConfirmMessage"] = "Willkomen" + " "+ gamertag;
 
             return RedirectToAction("Index", "Home");
         }
@@ -75,6 +75,7 @@ namespace CardGame.Web.Controllers
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
+            TempData["ConfirmMessage"] = "Erfolgreich ausgeloggt";
             return RedirectToAction("Index", "Home");
         }
 
@@ -96,7 +97,7 @@ namespace CardGame.Web.Controllers
 
             dbUser.firstname = regUser.Firstname;
             dbUser.lastname = regUser.Lastname;
-
+            dbUser.gamertag = regUser.Gamertag;
             dbUser.email = regUser.Email;
             dbUser.password = regUser.Password;
             dbUser.salt = regUser.Salt;
@@ -118,7 +119,7 @@ namespace CardGame.Web.Controllers
 
             auth(dbUser.email, dbUser.password, dbUser.userrole);
             
-            TempData["ConfirmMessage"] = "Register finished";
+            TempData["ConfirmMessage"] = "Erfolgreich registriert";
             return RedirectToAction("Index", "Home");
         }
     }

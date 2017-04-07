@@ -69,7 +69,7 @@
         toastr.options = {
             "closeButton": true,
             "debug": false,
-            "positionClass": "toast-top-right",
+            "positionClass": "toast-bottom-right",
             "onclick": null,
             "showDuration": "300",
             "hideDuration": "1000",
@@ -83,7 +83,7 @@
 
             @if (TempData["ErrorMessage"] != null)
             {
-                <text>
+                <text>            
             toastr.error("", "@TempData["ErrorMessage"]");
             </text>
             }
@@ -94,7 +94,6 @@
             toastr.success("", "@TempData["ConfirmMessage"]");
             </text>
             }
-
             });
     </script>
     </body>
