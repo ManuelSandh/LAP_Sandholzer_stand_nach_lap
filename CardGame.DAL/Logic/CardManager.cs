@@ -72,5 +72,17 @@ namespace CardGame.DAL.Logic
 
             return card;
         }
+
+        public static List<tbldeck> GetAllDecks()
+        {
+            List<tbldeck> ReturnList = null;
+
+            using (var db = new ClonestoneFSEntities())
+            {                
+                ReturnList = db.tbldeck.ToList();
+            }
+            return ReturnList;
+
+        }
     }
 }

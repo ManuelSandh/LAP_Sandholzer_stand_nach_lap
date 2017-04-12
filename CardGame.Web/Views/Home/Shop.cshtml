@@ -2,8 +2,22 @@
 @{
     ViewBag.Title = "Shop";
 }
-<div>
-    <img class="deckPics" src="~/Content/Images/Card Pack.png" />
-    <img class="deckPics" src="~/Content/Images/Card Pack.png" />
-    <img class="deckPics" src="~/Content/Images/Card Pack.png" />
-</div>
+
+@foreach (var item in Model)
+{
+    <div class="CardPacksBackground">
+        <div class="col-md-4">
+            <img class="CardPacks" src="~/Content/Images/Card Pack.png" />
+            @item.deckname
+        </div>
+        <div class="col-md-4">
+            <img class="CardPacks" src="~/Content/Images/Card Pack.png" />
+            @item.deckname
+        </div>
+        <div class="col-md-4">
+            <img class="CardPacks" src="~/Content/Images/Card Pack.png" />
+            @item.deckname
+        </div>
+    </div>
+}
+

@@ -5,6 +5,7 @@
 
 * {
     font-family: Mermaid1001;
+    
 }
 
 body {
@@ -15,7 +16,7 @@ body {
     background-size: cover;
 }
 
-#footer{
+#footer {
     text-align: left;
     font-size: 20px;
     width: auto;
@@ -35,7 +36,7 @@ body {
 }
 
 .DiamantAnzeige {
-    margin-top: 15px;
+    margin-top: 10px;
     text-align: center;
     color: #fff;
 }
@@ -59,65 +60,100 @@ body {
 
 #LoginForm,
 #RegisterForm {
-    font-size:16px !important;
+    width:290px;
+    font-size: 16px !important;
     text-align: center;
-    /*margin-top: 70px;*/    
+    margin-top: 70px;
+    padding-top:5px;
     float: right;
     color: #6C89C1;
+    overflow: auto;
+    background-image: url(../Content/Images/Dark-Background.jpg);
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    border: solid #2A292B;
 }
 
 .valimassage {
-    margin-top: 5px;
-    color:white;
+    margin-top: 5px;    
 }
 
-.CardPacks{
-    
+.CardPacks {   
+    width: 160px;
+    height: 220px;    
 }
 
-.btn.btn-submit{
-    background:url(../Content/Images/Button_hp.png);
-    background-repeat:no-repeat;
-    font-size:16px;
-    height:40px;
-    width:160px;   
-    padding-right: 22px;
-    padding-top: 2px;
+.CardPacksBackground{
+    background-image: url(../Content/Images/Dark-Background.jpg);
+    background-repeat: no-repeat;
+    margin-top:150px;
+    opacity: 0.8;
+    border: solid;
+    width:1134px;
+    height:500px;
     text-align:center;
-    color: #FBCB74;    
 }
 
-.AGBHeader{
-    margin-top:80px;
+.btn.btn-submit {
+    background: url(../Content/Images/Button_hp.png);
+    background-repeat: no-repeat;
+    font-size: 16px;
+    height: 40px;
+    width: 160px;    
+    padding-bottom: 8px;
+    text-align: center;
+    color: #FBCB74;
+}
+
+.AGBHeader {
+    margin-top: 20px;
+    /*color: #6B90DB;*/
+    color: #FEE9E4;
+    text-align: center;
+}
+
+.AGBBody {
+    margin-top: 20px;
     color: #6B90DB;
-    text-align:center;
+
 }
 
-.AGBBody{
-    color:#6B90DB;
+.AGBBackGround {
+    margin-top: 80px;
+    text-align: center;
+    height: 640px;
+    width: 1200px;
+    overflow: auto;
+    background-image: url(../Content/Images/Dark-Background.jpg);
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    border: solid;
 }
 
-.ImpressumHeader{
-    margin-top:80px;
-    color:#6B90DB;
+
+.ImpressumHeader {    
+    color: #FEE9E4;
 }
 
-.ImpressumBody{
-    font-size:20px;
-    color:#6B90DB;
+.ImpressumBody {  
+    text-align: center;
+    font-size: 20px;
+    color: #6B90DB;
 }
 
-.editorFields{
-    margin-top:10px;
+.ImpressumBackGround {
+    margin-top: 80px;
+    text-align: center;
+    height: auto;
+    width: auto;
+    overflow: auto;
+    background-image: url(../Content/Images/Dark-Background.jpg);
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    border: solid;
 }
 
-.deckPics{
-    width:180px;
-    height:250px;
+.editorFields {
+    margin-top: 10px;
 }
 
-.AGBBackGround{
-    background-image:url(../Content/Images/Dark-Background.jpg);
-    background-repeat:no-repeat;
-    opacity: 0.9;
-}

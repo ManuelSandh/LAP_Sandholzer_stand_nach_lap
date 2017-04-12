@@ -52,6 +52,7 @@ namespace CardGame.Web.Controllers
             card.Type = CardManager.CardTypes[dbcard.fktype];
 
             return View(card);
-        }
+        }     
+
     }
 }
