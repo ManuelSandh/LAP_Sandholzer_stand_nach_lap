@@ -116,3 +116,8 @@ body {
     height:250px;
 }
 
+.AGBBackGround{
+    background-image:url(../Content/Images/Dark-Background.jpg);
+    background-repeat:no-repeat;
+    opacity: 0.9;
+}
