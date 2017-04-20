@@ -22,14 +22,14 @@ namespace CardGame.Web.Controllers
             foreach (var c in dbCardlist)
             {
                 Card card = new Card();
-                card.ID = c.idcard;
+                card.ID = c.idCard;
                 card.Name = c.cardname;
-                card.Mana = c.mana;
+                card.Mana = c.manacost;
                 card.Attack = c.attack;
                 card.Life = c.life;
                 //card.Type = c.tbltype.typename;
                 //card.Type = CardManager.GetCardTypeById(c.fktype);
-                card.Type = CardManager.CardTypes[c.fktype];
+                card.Type = CardManager.CardTypes[(int)c.fkCardType];
 
                 CardList.Add(card);
             }
@@ -39,17 +39,17 @@ namespace CardGame.Web.Controllers
 
         public ActionResult Details(int id)
         {
-            tblcard dbcard = null;
+            tblCard dbcard = null;
 
             dbcard = CardManager.GetCardById(id);
 
             Card card = new Card();
-            card.ID = dbcard.idcard;
+            card.ID = dbcard.idCard;
             card.Name = dbcard.cardname;
-            card.Mana = dbcard.mana;
+            card.Mana = dbcard.manacost;
             card.Attack = dbcard.attack;
             card.Life = dbcard.life;
-            card.Type = CardManager.CardTypes[dbcard.fktype];
+            card.Type = CardManager.CardTypes[(int)dbcard.fkCardType];
 
             return View(card);
         }     

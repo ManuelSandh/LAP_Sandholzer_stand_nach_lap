@@ -16,28 +16,28 @@ namespace CardGame.DAL.Logic
         static CardManager()
         {
             CardTypes = new Dictionary<int, string>();
-            List<tbltype> cardTypeList = null;
+            List<tblCardType> cardTypeList = null;
 
-            using (var db = new ClonestoneFSEntities())
+            using (var db = new CardGame_v2Entities())
             {
-                cardTypeList = db.tbltype.ToList();
+                cardTypeList = db.tblCardType.ToList();
             }
 
             foreach (var type in cardTypeList)
             {
-                CardTypes.Add(type.idtype, type.typename);
+                CardTypes.Add(type.idCardType, type.typename);
             }
 
             CardTypes.Add(0, "n/a");
         }
 
-        public static List<tblcard> GetAllCards()
+        public static List<tblCard> GetAllCards()
         {
-            List<tblcard> ReturnList = null;
-            using (var db = new ClonestoneFSEntities())
+            List<tblCard> ReturnList = null;
+            using (var db = new CardGame_v2Entities())
             {
-                //ReturnList = db.tblcard.Include(t => t.tbltype).ToList();
-                ReturnList = db.tblcard.ToList();
+                //ReturnList = db.tblCard.Include(t => t.CardType).ToList();
+                ReturnList = db.tblCard.ToList();
             }
             return ReturnList;
 
@@ -48,24 +48,24 @@ namespace CardGame.DAL.Logic
         {
             string TypeName = "n/a";
 
-            using (var db = new ClonestoneFSEntities())
+            using (var db = new CardGame_v2Entities())
             {
-                TypeName = db.tbltype.Find(id).typename;
+                TypeName = db.tblCardType.Find(id).typename;
             }
             return TypeName;
         }
 
-        public static tblcard GetCardById(int id)
+        public static tblCard GetCardById(int id)
         {
-            tblcard card = null;
+            tblCard card = null;
 
-            using (var db = new ClonestoneFSEntities())
+            using (var db = new CardGame_v2Entities())
             {
                 //Extention Method
-                card = db.tblcard.Where(c => c.idcard == id).FirstOrDefault();
+                card = db.tblCard.Where(c => c.idCard == id).FirstOrDefault();
 
                 //Klassisch LINQ
-                //card = (from c in db.tblcard
+                //card = (from c in db.tblCard
                 //        where c.idcard == id
                 //        select c).FirstOrDefault();
             }
@@ -73,16 +73,17 @@ namespace CardGame.DAL.Logic
             return card;
         }
 
-        public static List<tbldeck> GetAllDecks()
+        public static List<tblDeck> GetAllDecks()
         {
-            List<tbldeck> ReturnList = null;
+            List<tblDeck> ReturnList = null;
 
-            using (var db = new ClonestoneFSEntities())
+            using (var db = new CardGame_v2Entities())
             {                
-                ReturnList = db.tbldeck.ToList();
+                ReturnList = db.tblDeck.ToList();
             }
             return ReturnList;
 
         }
     }
 }
+

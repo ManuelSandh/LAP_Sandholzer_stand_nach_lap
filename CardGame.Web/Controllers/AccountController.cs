@@ -19,7 +19,7 @@ namespace CardGame.Web.Controllers
         {
             return View();
         }
-        
+
         //TempData["ErrorMessage"] = "Fehlermeldungstext";
         //TempData["ConfirmMessage"] = "Bestätigungstext";
 
@@ -29,13 +29,13 @@ namespace CardGame.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
-                
+
                 return View(login);
             }
             else
             {
                 bool hasAccess = AuthManager.AuthUser(login.Email, login.Password);
-         
+
                 //Authentifizierung
                 if (!hasAccess)
                 {
@@ -47,14 +47,14 @@ namespace CardGame.Web.Controllers
             string rolle = UserManager.GetRoleNamesByEMail(login.Email);
             auth(login.Email, login.Password, rolle);
             string gamertag = UserManager.getGamerTagByEmail(login.Email);
-            
-            TempData["ConfirmMessage"] = "Willkomen" + " "+ gamertag;
+
+            TempData["ConfirmMessage"] = "Willkomen" + " " + gamertag;
 
             return RedirectToAction("Index", "Home");
         }
 
         void auth(string email, string passwort, string rolle)
-        {  
+        {
             var authTicket = new FormsAuthenticationTicket(
                             1,                              //Ticketversion
                             email,                    //UserIdentifizierung
@@ -87,38 +87,41 @@ namespace CardGame.Web.Controllers
 
         [HttpPost]
         public ActionResult Register(Register regUser)
-        {   
+        {
             if (!ModelState.IsValid)
             {
                 return View(regUser);
             }
 
-            var dbUser = new tblperson();
+            var dbUser = new tblUser();
 
             dbUser.firstname = regUser.Firstname;
             dbUser.lastname = regUser.Lastname;
             dbUser.gamertag = regUser.Gamertag;
             dbUser.email = regUser.Email;
-            dbUser.password = regUser.Password;
-            dbUser.salt = regUser.Salt;
-            dbUser.userrole = "user";
-            dbUser.currencybalance = 100;
+            dbUser.userpassword = regUser.Password;
+            dbUser.usersalt = regUser.Salt;
+            dbUser.fkUserRole = 2;
+            dbUser.currency = 100;
 
             //dbUser.tblrole = new List<tblrole>();
             //dbUser.tblrole.Add(new tblrole());
             //dbUser.tblrole.FirstOrDefault().rolename = "user";
 
             bool isRegistered = AuthManager.Register(dbUser);
-            
+
             //Authentifizierung
             if (!isRegistered)
-            {              
-                
+            {
+
                 return View(regUser);
             }
 
-            auth(dbUser.email, dbUser.password, dbUser.userrole);
-            
+
+
+
+            auth(dbUser.email, dbUser.userpassword, dbUser.tblUserRole.rolename);
+
             TempData["ConfirmMessage"] = "Erfolgreich registriert";
             return RedirectToAction("Index", "Home");
         }

@@ -10,13 +10,13 @@ namespace CardGame.DAL.Logic
 {
     public class AuthManager
     {
-        public static bool Register(tblperson regUser)
+        public static bool Register(tblUser regUser)
         {
             try
             {
-                using (var db = new ClonestoneFSEntities())
+                using (var db = new CardGame_v2Entities())
                 {
-                    if (db.tblperson.Any(n => n.email == regUser.email))
+                    if (db.tblUser.Any(n => n.email == regUser.email))
                     {
                         throw new Exception("UserAlreadyExists");
                     }
@@ -24,12 +24,12 @@ namespace CardGame.DAL.Logic
                     string salt = Helper.GenerateSalt();
 
                     //Passwort Hashen
-                    string hashedAndSaltedPassword = Helper.GenerateHash(regUser.password + salt);
+                    string hashedAndSaltedPassword = Helper.GenerateHash(regUser.userpassword + salt);
 
-                    regUser.password = hashedAndSaltedPassword;
-                    regUser.salt = salt;
+                    regUser.userpassword = hashedAndSaltedPassword;
+                    regUser.usersalt = salt;
 
-                    db.tblperson.Add(regUser);
+                    db.tblUser.Add(regUser);
                     db.SaveChanges();
                 }
             }
@@ -48,16 +48,16 @@ namespace CardGame.DAL.Logic
                 string dbUserPassword = null;
                 string dbUserSalt = null;
 
-                using (var db = new ClonestoneFSEntities())
+                using (var db = new CardGame_v2Entities())
                 {
-                    tblperson dbUser = db.tblperson.Where(u => u.email == email).FirstOrDefault();
+                    tblUser dbUser = db.tblUser.Where(u => u.email == email).FirstOrDefault();
                     if (dbUser == null)
                     {
                         throw new Exception("UserDoesNotExist");
                     }
 
-                    dbUserPassword = dbUser.password;
-                    dbUserSalt = dbUser.salt;
+                    dbUserPassword = dbUser.userpassword;
+                    dbUserSalt = dbUser.usersalt;
 
                     Log.Writer.LogInfo("Entered Pass = " + password);
 

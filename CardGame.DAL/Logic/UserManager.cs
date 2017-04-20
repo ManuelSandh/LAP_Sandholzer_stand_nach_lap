@@ -11,26 +11,26 @@ namespace CardGame.DAL.Logic
 {
     public class UserManager
     {
-        public static List<tblperson> GetAllUser()
+        public static List<tblUser> GetAllUser()
         {
-            List<tblperson> ReturnList = null;
-            using (var db = new ClonestoneFSEntities())
+            List<tblUser> ReturnList = null;
+            using (var db = new CardGame_v2Entities())
             {
                 // TODO - Include
                 // .Include(t => t.tabelle) um einen Join zu machen !
-                ReturnList = db.tblperson.ToList();
+                ReturnList = db.tblUser.ToList();
             }
             return ReturnList;
         }
 
-        public static tblperson GetUserByEmail(string email)
+        public static tblUser GetUserByEmail(string email)
         {
-            tblperson dbUser = null;
+            tblUser dbUser = null;
             try
             {
-                using (var db = new ClonestoneFSEntities())
+                using (var db = new CardGame_v2Entities())
                 {
-                    dbUser = db.tblperson.Where(u => u.email == email).FirstOrDefault();
+                    dbUser = db.tblUser.Where(u => u.email == email).FirstOrDefault();
                     if (dbUser == null)
                     {
                         throw new Exception("UserDoesNotExists");
@@ -51,14 +51,14 @@ namespace CardGame.DAL.Logic
             string role = "";
             try
             {
-                using (var db = new ClonestoneFSEntities())
+                using (var db = new CardGame_v2Entities())
                 {
-                    tblperson dbUser = db.tblperson.Where(u => u.email == email).FirstOrDefault();
+                    tblUser dbUser = db.tblUser.Where(u => u.email == email).FirstOrDefault();
                     if (dbUser == null)
                     {
                         throw new Exception("UserDoesNotExists");
                     }
-                    role = dbUser.userrole;
+                    role = dbUser.tblUserRole.rolename;
                 }
             }
             catch (Exception e)
@@ -73,9 +73,9 @@ namespace CardGame.DAL.Logic
         {
             string gamerTag = "";
 
-            using (var db = new ClonestoneFSEntities())
+            using (var db = new CardGame_v2Entities())
             {
-                tblperson dbUser = db.tblperson.Where(u => u.email == email).FirstOrDefault();
+                tblUser dbUser = db.tblUser.Where(u => u.email == email).FirstOrDefault();
 
                 gamerTag = dbUser.gamertag;
 
@@ -83,5 +83,27 @@ namespace CardGame.DAL.Logic
             }
 
         }
+
+
+        public static tblUserRole getRoleById(int id)
+        {
+
+            using (CardGame_v2Entities cont = new CardGame_v2Entities())
+            {
+                
+
+                var erg = (from u in cont.tblUserRole
+                           where u.idUserrole == id
+                           select u).FirstOrDefault();
+
+                return erg;
+            }
+        }
     }
 }
+
+        
+
+
+
+

@@ -43,6 +43,7 @@ C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\bin\Debug\EntityF
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\bin\Debug\CardGame.Log.pdb
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\bin\Debug\EntityFramework.xml
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\bin\Debug\de\EntityFramework.resources.dll
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\obj\Debug\CardGame.DAL.csprojResolveAssemblyReference.cache
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\obj\Debug\CardGame.DAL.dll
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\obj\Debug\CardGame.DAL.pdb

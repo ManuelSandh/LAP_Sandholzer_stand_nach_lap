@@ -71,31 +71,31 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CardGameModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Model\tblcard.cs">
+    <Compile Include="Model\tblCard.cs">
       <DependentUpon>CardGameModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\tblclass.cs">
+    <Compile Include="Model\tblCardPack.cs">
       <DependentUpon>CardGameModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\tblcollection.cs">
+    <Compile Include="Model\tblCardType.cs">
       <DependentUpon>CardGameModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\tbldeck.cs">
+    <Compile Include="Model\tblDeck.cs">
       <DependentUpon>CardGameModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\tbldeckcard.cs">
+    <Compile Include="Model\tblDeckCard.cs">
       <DependentUpon>CardGameModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\tblorder.cs">
+    <Compile Include="Model\tblUser.cs">
       <DependentUpon>CardGameModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\tblpack.cs">
+    <Compile Include="Model\tblUserCardCollection.cs">
       <DependentUpon>CardGameModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\tblperson.cs">
+    <Compile Include="Model\tblUserRole.cs">
       <DependentUpon>CardGameModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\tbltype.cs">
+    <Compile Include="Model\tblVirtualPurchase.cs">
       <DependentUpon>CardGameModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

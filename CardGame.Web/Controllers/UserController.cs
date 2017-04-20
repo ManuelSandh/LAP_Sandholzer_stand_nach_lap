@@ -25,13 +25,13 @@ namespace CardGame.Web.Controllers
             foreach (var c in dbUserlist)
             {
                 Register reguser = new Register();
-                reguser.ID = c.idperson;
+                reguser.ID = c.idUser;
                 reguser.Firstname = c.firstname;
                 reguser.Lastname = c.lastname;
                 reguser.Email = c.email;
-                reguser.Role = c.userrole;
-                reguser.Password = c.password;
-                reguser.Salt = c.salt;
+                reguser.Role = c.tblUserRole.rolename;
+                reguser.Password = c.userpassword;
+                reguser.Salt = c.usersalt;
 
 
                 UserList.Add(reguser);
