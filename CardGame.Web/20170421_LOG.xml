@@ -1,0 +1,64 @@
+<Xcpt>
+  <Time>21.04.2017 09:19:37</Time>
+  <Exception>
+    <Source>CardGame.DAL</Source>
+    <Message>UserAlreadyExists</Message>
+    <Stack>   bei CardGame.DAL.Logic.AuthManager.Register(tblUser regUser) in C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\Logic\AuthManager.cs:Zeile 21.</Stack>
+  </Exception>
+</Xcpt>
+<Xcpt>
+  <Time>21.04.2017 10:12:31</Time>
+  <Exception>
+    <Source>CardGame.DAL</Source>
+    <Message>UserAlreadyExists</Message>
+    <Stack>   bei CardGame.DAL.Logic.AuthManager.Register(tblUser regUser) in C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\Logic\AuthManager.cs:Zeile 21.</Stack>
+  </Exception>
+</Xcpt>
+<Info>
+  <Time>21.04.2017 10:12:49</Time>
+  <Info>Entered Pass = admin</Info>
+</Info>
+<Info>
+  <Time>21.04.2017 10:12:49</Time>
+  <Info>HashPass = FF9417941E002ACD632B9B4D3520EE948B7CABA22140DFD5DA412372B03F878DDC5C8D8FCD045A6C0BC907FC7BE6C026804467B8B083C9CB80937D16D7E12917</Info>
+</Info>
+<Info>
+  <Time>21.04.2017 10:12:49</Time>
+  <Info>Entered Pass = admin</Info>
+</Info>
+<Info>
+  <Time>21.04.2017 10:12:49</Time>
+  <Info>HashPass = FF9417941E002ACD632B9B4D3520EE948B7CABA22140DFD5DA412372B03F878DDC5C8D8FCD045A6C0BC907FC7BE6C026804467B8B083C9CB80937D16D7E12917</Info>
+</Info>
+<Info>
+  <Time>21.04.2017 10:13:02</Time>
+  <Info>Entered Pass = 123</Info>
+</Info>
+<Info>
+  <Time>21.04.2017 10:13:02</Time>
+  <Info>HashPass = 528E939D15AB368D159DA3A46804735AB1E3FD100EC620368135C66D3FB5B3146A552C5C37E356ABD899B12B9C0B68FBBECE2A61708552A0AFECD5A6AC043D42</Info>
+</Info>
+<Info>
+  <Time>21.04.2017 10:13:02</Time>
+  <Info>Entered Pass = 123</Info>
+</Info>
+<Info>
+  <Time>21.04.2017 10:13:02</Time>
+  <Info>HashPass = 528E939D15AB368D159DA3A46804735AB1E3FD100EC620368135C66D3FB5B3146A552C5C37E356ABD899B12B9C0B68FBBECE2A61708552A0AFECD5A6AC043D42</Info>
+</Info>
+<Info>
+  <Time>21.04.2017 10:54:28</Time>
+  <Info>Entered Pass = admin</Info>
+</Info>
+<Info>
+  <Time>21.04.2017 10:54:29</Time>
+  <Info>HashPass = FF9417941E002ACD632B9B4D3520EE948B7CABA22140DFD5DA412372B03F878DDC5C8D8FCD045A6C0BC907FC7BE6C026804467B8B083C9CB80937D16D7E12917</Info>
+</Info>
+<Info>
+  <Time>21.04.2017 10:54:29</Time>
+  <Info>Entered Pass = admin</Info>
+</Info>
+<Info>
+  <Time>21.04.2017 10:54:29</Time>
+  <Info>HashPass = FF9417941E002ACD632B9B4D3520EE948B7CABA22140DFD5DA412372B03F878DDC5C8D8FCD045A6C0BC907FC7BE6C026804467B8B083C9CB80937D16D7E12917</Info>
+</Info>

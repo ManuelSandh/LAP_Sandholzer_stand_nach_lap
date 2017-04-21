@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CardGame.DAL.Model.tbldeck>
+﻿@model IEnumerable<CardGame.DAL.Model.tblCardPack>
 @{
     ViewBag.Title = "Shop";
 }
@@ -8,15 +8,15 @@
     <div class="CardPacksBackground">
         <div class="col-md-4">
             <img class="CardPacks" src="~/Content/Images/Card Pack.png" />
-            @item.deckname
+            @item.packname
         </div>
         <div class="col-md-4">
             <img class="CardPacks" src="~/Content/Images/Card Pack.png" />
-            @item.deckname
+            @item.packname
         </div>
         <div class="col-md-4">
             <img class="CardPacks" src="~/Content/Images/Card Pack.png" />
-            @item.deckname
+            @item.packname
         </div>
     </div>
 }

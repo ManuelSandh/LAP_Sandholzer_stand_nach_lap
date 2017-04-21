@@ -34,6 +34,7 @@ namespace CardGame.Web.Controllers
             }
             else
             {
+                login.Role = UserManager.GetRoleByEmail(login.Email);
                 bool hasAccess = AuthManager.AuthUser(login.Email, login.Password);
 
                 //Authentifizierung
@@ -42,36 +43,41 @@ namespace CardGame.Web.Controllers
                     TempData["ErrorMessage"] = "Email oder Passwort falsch!";
                     return View(login);
                 }
+                else
+                {
+                    try
+                    {
+                        var authTicket = new FormsAuthenticationTicket(
+                                        1,                              //Ticketversion
+                                        login.Email,                    //UserIdentifizierung
+                                        DateTime.Now,                   //Zeitpunkt der Erstellung
+                                        DateTime.Now.AddMinutes(20),    //Gültigkeitsdauer
+                                        true,                           //Persistentes Ticket über Sessions hinweg
+                                        login.Role            //Userrolle(n)
+                                        );
+
+                        string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
+
+                        var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
+
+                        System.Web.HttpContext.Current.Response.Cookies.Add(authCookie);
+                    }
+                    catch (Exception e)
+                    {
+                        Writer.LogError(e);
+                    }
+                }
+
             }
 
             string rolle = UserManager.GetRoleNamesByEMail(login.Email);
-            auth(login.Email, login.Password, rolle);
+            AuthManager.AuthUser(login.Email, login.Password);
             string gamertag = UserManager.getGamerTagByEmail(login.Email);
 
             TempData["ConfirmMessage"] = "Willkomen" + " " + gamertag;
 
             return RedirectToAction("Index", "Home");
         }
-
-        void auth(string email, string passwort, string rolle)
-        {
-            var authTicket = new FormsAuthenticationTicket(
-                            1,                              //Ticketversion
-                            email,                    //UserIdentifizierung
-                            DateTime.Now,                   //Zeitpunkt der Erstellung
-                            DateTime.Now.AddMinutes(20),    //Gültigkeitsdauer
-                            true,                           //Persistentes Ticket über Sessions hinweg
-                            rolle            //Userrolle(n)
-                            );
-
-            string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
-
-            var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
-
-            System.Web.HttpContext.Current.Response.Cookies.Add(authCookie);
-        }
-
-
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
@@ -101,7 +107,7 @@ namespace CardGame.Web.Controllers
             dbUser.email = regUser.Email;
             dbUser.userpassword = regUser.Password;
             dbUser.usersalt = regUser.Salt;
-            dbUser.fkUserRole = 2;
+            dbUser.fkUserRole = 1;
             dbUser.currency = 100;
 
             //dbUser.tblrole = new List<tblrole>();
@@ -113,14 +119,13 @@ namespace CardGame.Web.Controllers
             //Authentifizierung
             if (!isRegistered)
             {
-
                 return View(regUser);
             }
 
 
 
 
-            auth(dbUser.email, dbUser.userpassword, dbUser.tblUserRole.rolename);
+            //auth(dbUser.email, dbUser.userpassword, dbUser.tblUserRole.rolename);
 
             TempData["ConfirmMessage"] = "Erfolgreich registriert";
             return RedirectToAction("Index", "Home");

@@ -159,6 +159,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -166,6 +167,7 @@
     <Compile Include="Models\Card.cs" />
     <Compile Include="Models\CardPack.cs" />
     <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Register.cs" />
     <Compile Include="Models\Shop.cs" />
     <Compile Include="Models\Statistic.cs" />
@@ -237,6 +239,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Shop\" />
     <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>

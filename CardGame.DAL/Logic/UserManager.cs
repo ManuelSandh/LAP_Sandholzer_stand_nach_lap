@@ -83,21 +83,21 @@ namespace CardGame.DAL.Logic
             }
 
         }
+        
 
-
-        public static tblUserRole getRoleById(int id)
+        public static string GetRoleByEmail(string email)
         {
-
-            using (CardGame_v2Entities cont = new CardGame_v2Entities())
+            string role = "";
+            using (var db = new CardGame_v2Entities())
             {
-                
-
-                var erg = (from u in cont.tblUserRole
-                           where u.idUserrole == id
-                           select u).FirstOrDefault();
-
-                return erg;
+                tblUser dbUser = db.tblUser.Where(u => u.email == email).FirstOrDefault();
+                if (dbUser == null)
+                {
+                    throw new Exception("UserDoesNotExist");
+                }
+                role = dbUser.tblUserRole.rolename;
             }
+            return role;
         }
     }
 }
