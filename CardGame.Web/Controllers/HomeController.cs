@@ -18,8 +18,8 @@ namespace CardGame.Web.Controllers
                 ViewBag.Username = User.Identity.Name;
 
                 var dbUser = UserManager.GetUserByEmail(User.Identity.Name);
-                ViewBag.Gamertag = dbUser.gamertag;
-                ViewBag.CurrencyBalance = dbUser.currency;
+                ViewBag.Gamertag = dbUser.GamerTag;
+                ViewBag.CurrencyBalance = dbUser.AmountMoney;
                 
             }
             

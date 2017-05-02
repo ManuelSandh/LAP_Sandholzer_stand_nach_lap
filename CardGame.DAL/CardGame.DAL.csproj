@@ -57,6 +57,9 @@
     <Compile Include="Logic\Helper.cs" />
     <Compile Include="Logic\ShopManager.cs" />
     <Compile Include="Logic\UserManager.cs" />
+    <Compile Include="Model\Card.cs">
+      <DependentUpon>CardGameModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\CardGameModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -67,36 +70,33 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CardGameModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\CardGameModel.Designer.cs">
+    <Compile Include="Model\cloneStoneModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CardGameModel.edmx</DependentUpon>
+      <DependentUpon>cloneStoneModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Model\tblCard.cs">
+    <Compile Include="Model\CardPack.cs">
       <DependentUpon>CardGameModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\tblCardPack.cs">
+    <Compile Include="Model\CardType.cs">
       <DependentUpon>CardGameModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\tblCardType.cs">
+    <Compile Include="Model\Deck.cs">
       <DependentUpon>CardGameModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\tblDeck.cs">
+    <Compile Include="Model\DeckCard.cs">
       <DependentUpon>CardGameModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\tblDeckCard.cs">
+    <Compile Include="Model\User.cs">
       <DependentUpon>CardGameModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\tblUser.cs">
+    <Compile Include="Model\UserCardCollection.cs">
       <DependentUpon>CardGameModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\tblUserCardCollection.cs">
+    <Compile Include="Model\UserRole.cs">
       <DependentUpon>CardGameModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\tblUserRole.cs">
-      <DependentUpon>CardGameModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\tblVirtualPurchase.cs">
+    <Compile Include="Model\VirtualPurchase.cs">
       <DependentUpon>CardGameModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -104,12 +104,12 @@
   <ItemGroup />
   <ItemGroup>
     <None Include="App.Config" />
-    <EntityDeploy Include="Model\CardGameModel.edmx">
+    <EntityDeploy Include="Model\cloneStoneModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CardGameModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>cloneStoneModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\CardGameModel.edmx.diagram">
-      <DependentUpon>CardGameModel.edmx</DependentUpon>
+    <None Include="Model\cloneStoneModel.edmx.diagram">
+      <DependentUpon>cloneStoneModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -125,12 +125,12 @@
   <ItemGroup>
     <Content Include="Model\CardGameModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CardGameModel.edmx</DependentUpon>
+      <DependentUpon>cloneStoneModel.edmx</DependentUpon>
       <LastGenOutput>CardGameModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Model\CardGameModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CardGameModel.edmx</DependentUpon>
+      <DependentUpon>cloneStoneModel.edmx</DependentUpon>
       <LastGenOutput>CardGameModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>

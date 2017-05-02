@@ -10,13 +10,13 @@ namespace CardGame.DAL.Logic
 {
     public class AuthManager
     {
-        public static bool Register(tblUser regUser)
+        public static bool Register(User regUser)
         {
             try
             {
                 using (var db = new CardGame_v2Entities())
                 {
-                    if (db.tblUser.Any(n => n.email == regUser.email))
+                    if (db.tblUser.Any(n => n.Mail == regUser.Mail))
                     {
                         throw new Exception("UserAlreadyExists");
                     }
@@ -24,10 +24,10 @@ namespace CardGame.DAL.Logic
                     string salt = Helper.GenerateSalt();
 
                     //Passwort Hashen
-                    string hashedAndSaltedPassword = Helper.GenerateHash(regUser.userpassword + salt);
+                    string hashedAndSaltedPassword = Helper.GenerateHash(regUser.Password + salt);
 
-                    regUser.userpassword = hashedAndSaltedPassword;
-                    regUser.usersalt = salt;
+                    regUser.Password = hashedAndSaltedPassword;
+                    regUser.UserSalt = salt;
 
                     db.tblUser.Add(regUser);
                     db.SaveChanges();
@@ -50,14 +50,14 @@ namespace CardGame.DAL.Logic
 
                 using (var db = new CardGame_v2Entities())
                 {
-                    tblUser dbUser = db.tblUser.Where(u => u.email == email).FirstOrDefault();
+                    User dbUser = db.tblUser.Where(u => u.Mail == email).FirstOrDefault();
                     if (dbUser == null)
                     {
                         throw new Exception("UserDoesNotExist");
                     }
 
-                    dbUserPassword = dbUser.userpassword;
-                    dbUserSalt = dbUser.usersalt;
+                    dbUserPassword = dbUser.Password;
+                    dbUserSalt = dbUser.UserSalt;
 
                     Log.Writer.LogInfo("Entered Pass = " + password);
 

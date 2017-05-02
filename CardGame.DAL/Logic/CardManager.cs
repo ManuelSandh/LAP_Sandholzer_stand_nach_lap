@@ -16,7 +16,7 @@ namespace CardGame.DAL.Logic
         static CardManager()
         {
             CardTypes = new Dictionary<int, string>();
-            List<tblCardType> cardTypeList = null;
+            List<CardType> cardTypeList = null;
 
             using (var db = new CardGame_v2Entities())
             {
@@ -25,22 +25,21 @@ namespace CardGame.DAL.Logic
 
             foreach (var type in cardTypeList)
             {
-                CardTypes.Add(type.idCardType, type.typename);
+                CardTypes.Add(type.ID, type.Name);
             }
 
             CardTypes.Add(0, "n/a");
         }
 
-        public static List<tblCard> GetAllCards()
+        public static List<Card> GetAllCards()
         {
-            List<tblCard> ReturnList = null;
+            List<Card> ReturnList = null;
             using (var db = new CardGame_v2Entities())
             {
                 //ReturnList = db.tblCard.Include(t => t.CardType).ToList();
                 ReturnList = db.tblCard.ToList();
             }
             return ReturnList;
-
         }
 
         //Theoretisch überflüssig
@@ -50,39 +49,37 @@ namespace CardGame.DAL.Logic
 
             using (var db = new CardGame_v2Entities())
             {
-                TypeName = db.tblCardType.Find(id).typename;
+                TypeName = db.tblCardType.Find(id).Name;
             }
             return TypeName;
         }
 
-        public static tblCard GetCardById(int id)
+        public static Card GetCardById(int id)
         {
-            tblCard card = null;
+            Card card = null;
 
             using (var db = new CardGame_v2Entities())
             {
                 //Extention Method
-                card = db.tblCard.Where(c => c.idCard == id).FirstOrDefault();
+                card = db.tblCard.Where(c => c.ID == id).FirstOrDefault();
 
                 //Klassisch LINQ
                 //card = (from c in db.tblCard
                 //        where c.idcard == id
                 //        select c).FirstOrDefault();
             }
-
             return card;
         }
 
-        public static List<tblDeck> GetAllDecks()
+        public static List<Deck> GetAllDecks()
         {
-            List<tblDeck> ReturnList = null;
+            List<Deck> ReturnList = null;
 
             using (var db = new CardGame_v2Entities())
             {                
                 ReturnList = db.tblDeck.ToList();
             }
             return ReturnList;
-
         }
     }
 }

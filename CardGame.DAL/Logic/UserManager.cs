@@ -11,9 +11,9 @@ namespace CardGame.DAL.Logic
 {
     public class UserManager
     {
-        public static List<tblUser> GetAllUser()
+        public static List<User> GetAllUser()
         {
-            List<tblUser> ReturnList = null;
+            List<User> ReturnList = null;
             using (var db = new CardGame_v2Entities())
             {
                 // TODO - Include
@@ -23,14 +23,14 @@ namespace CardGame.DAL.Logic
             return ReturnList;
         }
 
-        public static tblUser GetUserByEmail(string email)
+        public static User GetUserByEmail(string email)
         {
-            tblUser dbUser = null;
+            User dbUser = null;
             try
             {
                 using (var db = new CardGame_v2Entities())
                 {
-                    dbUser = db.tblUser.Where(u => u.email == email).FirstOrDefault();
+                    dbUser = db.tblUser.Where(u => u.Mail == email).FirstOrDefault();
                     if (dbUser == null)
                     {
                         throw new Exception("UserDoesNotExists");
@@ -53,12 +53,12 @@ namespace CardGame.DAL.Logic
             {
                 using (var db = new CardGame_v2Entities())
                 {
-                    tblUser dbUser = db.tblUser.Where(u => u.email == email).FirstOrDefault();
+                    User dbUser = db.tblUser.Where(u => u.Mail == email).FirstOrDefault();
                     if (dbUser == null)
                     {
                         throw new Exception("UserDoesNotExists");
                     }
-                    role = dbUser.tblUserRole.rolename;
+                    role = dbUser.UserRole.Name;
                 }
             }
             catch (Exception e)
@@ -75,34 +75,215 @@ namespace CardGame.DAL.Logic
 
             using (var db = new CardGame_v2Entities())
             {
-                tblUser dbUser = db.tblUser.Where(u => u.email == email).FirstOrDefault();
+                User dbUser = db.tblUser.Where(u => u.Mail == email).FirstOrDefault();
 
-                gamerTag = dbUser.gamertag;
+                gamerTag = dbUser.GamerTag;
 
                 return gamerTag;
             }
 
         }
-        
+
 
         public static string GetRoleByEmail(string email)
         {
             string role = "";
             using (var db = new CardGame_v2Entities())
             {
-                tblUser dbUser = db.tblUser.Where(u => u.email == email).FirstOrDefault();
+                User dbUser = db.tblUser.Where(u => u.Mail == email).FirstOrDefault();
                 if (dbUser == null)
                 {
                     throw new Exception("UserDoesNotExist");
                 }
-                role = dbUser.tblUserRole.rolename;
+                role = dbUser.UserRole.Name;
             }
             return role;
         }
+        public static int GetNumDistinctCardsOwnedByEmail(string email)
+        {
+            int numCards = -1;
+            using (var db = new CardGame_v2Entities())
+            {
+                User dbUser = db.tblUser.Where(u => u.Mail == email).FirstOrDefault();
+                if (dbUser == null)
+                {
+                    throw new Exception("UserDoesNotExist");
+                }
+                numCards = dbUser.AllUserCardCollections.Count;
+            }
+            return numCards;
+        }
+
+        public static int GetNumTotalCardsOwnedByEmail(string email)
+        {
+            int numCards = -1;
+            using (var db = new CardGame_v2Entities())
+            {
+                User dbUser = db.tblUser.Where(u => u.Mail == email).FirstOrDefault();
+                if (dbUser == null)
+                {
+                    throw new Exception("UserDoesNotExist");
+                }
+                numCards = 0;
+                foreach (var c in dbUser.AllUserCardCollections)
+                {
+                    numCards += c.NumberOfCards;
+                }
+
+            }
+            return numCards;
+        }
+
+        public static int GetNumDecksOwnedByEmail(string email)
+        {
+            int numDecks = -1;
+            using (var db = new CardGame_v2Entities())
+            {
+                User dbUser = db.tblUser.Where(u => u.Mail == email).FirstOrDefault();
+                if (dbUser == null)
+                {
+                    throw new Exception("UserDoesNotExist");
+                }
+                numDecks = dbUser.AllDecks.Count;
+            }
+            return numDecks;
+        }
+
+        public static int GetBalanceByEmail(string email)
+        {
+            return GetUserByEmail(email).AmountMoney;
+        }
+
+        public static List<Card> GetAllCardsByEmail(string email)
+        {
+            var cardList = new List<Card>();
+
+            try
+            {
+                using (var db = new CardGame_v2Entities())
+                {
+                    var dbUser = db.tblUser.Where(u => u.Mail == email).FirstOrDefault();
+                    if (dbUser == null)
+                    {
+                        throw new Exception("UserDoesNotExist");
+                    }
+                    var dbCardCollection = dbUser.AllUserCardCollections.ToList();
+                    if (dbCardCollection == null)
+                    {
+                        throw new Exception("CardCollectionNotFound");
+                    }
+                    foreach (var cc in dbCardCollection)
+                    {
+                        for (int i = 0; i < cc.NumberOfCards; i++)
+                            cardList.Add(cc.Card);
+                    }
+                    return cardList;
+                }
+            }
+            catch (Exception e)
+            {
+                Writer.LogError(e);
+                return null;
+            }
+        }
+
+        public static bool UpdateBalanceByEmail(string email, int newBalance)
+        {
+            var dbUser = GetUserByEmail(email);
+
+            dbUser.AmountMoney = newBalance;
+            try
+            {
+                using (var db = new CardGame_v2Entities())
+                {
+                    db.Entry(dbUser).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                Writer.LogError(e);
+                return false;
+            }
+        }
+
+        public static bool AddCardsToCollectionByEmail(string email, List<Card> cards)
+        {
+            var dbUser = new User();
+            try
+            {
+                using (var db = new CardGame_v2Entities())
+                {
+                    dbUser = db.tblUser.Where(u => u.Mail == email).FirstOrDefault();
+                    if (dbUser == null)
+                    {
+                        throw new Exception("UserDoesNotExist");
+                    }
+
+                    foreach (var c in cards)
+                    {
+                        var userCC = (from coll in db.tblUserCardCollection
+                                      where coll.ID_Card == c.ID && coll.ID_User == dbUser.ID
+                                      select coll)
+                                     .FirstOrDefault();
+
+                        if (userCC == null) //User does not own card, add to collection
+                        {
+
+                            var cc = new UserCardCollection();
+                            cc.Card = db.tblCard.Find(c.ID);
+                            cc.User = dbUser;
+                            cc.NumberOfCards = 1;
+                            dbUser.AllUserCardCollections.Add(cc);
+                            db.SaveChanges();
+                        }
+                        else //User owns card, add to num
+                        {
+                            userCC.NumberOfCards += 1;
+                            db.Entry(userCC).State = EntityState.Modified;
+                            db.SaveChanges();
+                        }
+                    }
+                    //db.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                Writer.LogError(e);
+                return false;
+            }
+        }
+
+        public static List<Deck> GetAllDecksByEmail(string email)
+        {
+            try
+            {
+                using (var db = new CardGame_v2Entities())
+                {
+                    var dbUser = db.tblUser.Where(u => u.Mail == email).FirstOrDefault();
+                    if (dbUser == null)
+                    {
+                        throw new Exception("UserDoesNotExist");
+                    }
+                    var dbDecks = dbUser.AllDecks.ToList();
+                    if (dbDecks == null)
+                    {
+                        throw new Exception("NoDecksFound");
+                    }
+
+                    return dbDecks;
+                }
+            }
+            catch (Exception e)
+            {
+                Writer.LogError(e);
+                return null;
+            }
+        }
     }
 }
-
-        
 
 
 

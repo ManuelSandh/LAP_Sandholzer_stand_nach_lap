@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8927c968791e4cd3b77aa354274e12ed" Name="Diagram1">
+        <EntityTypeShape EntityType="CardGame_v2Model.Card" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CardGame_v2Model.CardPack" Width="1.5" PointX="3" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CardGame_v2Model.CardType" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CardGame_v2Model.Deck" PointX="5.25" PointY="4.125" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CardGame_v2Model.DeckCard" Width="1.5" PointX="7.5" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CardGame_v2Model.User" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CardGame_v2Model.UserCardCollection" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CardGame_v2Model.UserRole" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CardGame_v2Model.VirtualPurchase" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
+        <AssociationConnector Association="CardGame_v2Model.FK_tblCard_tblCardType" ManuallyRouted="false" />
+        <AssociationConnector Association="CardGame_v2Model.FK_tblDeckCard_tblCard" ManuallyRouted="false" />
+        <AssociationConnector Association="CardGame_v2Model.FK_tblUserCardCollection_tblCard" ManuallyRouted="false" />
+        <AssociationConnector Association="CardGame_v2Model.FK_tblVirtualPurchase_tblCardPack" ManuallyRouted="false" />
+        <AssociationConnector ManuallyRouted="false" Association="CardGame_v2Model.FK_tblDeck_tblUser" />
+        <AssociationConnector ManuallyRouted="false" Association="CardGame_v2Model.FK_tblDeckCard_tblDeck" />
+        <AssociationConnector Association="CardGame_v2Model.FK_tblUser_tblUserRole" ManuallyRouted="false" />
+        <AssociationConnector Association="CardGame_v2Model.FK_tblUserCardCollection_tblUser" ManuallyRouted="false" />
+        <AssociationConnector Association="CardGame_v2Model.FK_tblVirtualPurchase_tblUser" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

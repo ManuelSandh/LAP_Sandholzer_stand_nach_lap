@@ -99,16 +99,17 @@ namespace CardGame.Web.Controllers
                 return View(regUser);
             }
 
-            var dbUser = new tblUser();
+           
+            var dbUser = new DAL.Model.User();
 
-            dbUser.firstname = regUser.Firstname;
-            dbUser.lastname = regUser.Lastname;
-            dbUser.gamertag = regUser.Gamertag;
-            dbUser.email = regUser.Email;
-            dbUser.userpassword = regUser.Password;
-            dbUser.usersalt = regUser.Salt;
-            dbUser.fkUserRole = 1;
-            dbUser.currency = 100;
+            dbUser.FirstName = regUser.Firstname;
+            dbUser.LastName = regUser.Lastname;
+            dbUser.GamerTag = regUser.Gamertag;
+            dbUser.Mail = regUser.Email;
+            dbUser.Password = regUser.Password;
+            dbUser.UserSalt = regUser.Salt;
+            dbUser.ID_UserRole = 1;
+            dbUser.AmountMoney = 100;
 
             //dbUser.tblrole = new List<tblrole>();
             //dbUser.tblrole.Add(new tblrole());

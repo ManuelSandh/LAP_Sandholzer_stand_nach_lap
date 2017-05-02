@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CardGame_v2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Card">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManaCost" Type="Int32" Nullable="false" />
+    <Property Name="Attack" Type="Int32" Nullable="false" />
+    <Property Name="Life" Type="Int32" Nullable="false" />
+    <Property Name="ID_CardType" Type="Int32" />
+    <Property Name="CardImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="CardType" Relationship="Self.FK_tblCard_tblCardType" FromRole="tblCard" ToRole="tblCardType" />
+    <NavigationProperty Name="DeckCard" Relationship="Self.FK_tblDeckCard_tblCard" FromRole="tblCard" ToRole="tblDeckCard" />
+    <NavigationProperty Name="UserCardCollection" Relationship="Self.FK_tblUserCardCollection_tblCard" FromRole="tblCard" ToRole="tblUserCardCollection" />
+  </EntityType>
+  <EntityType Name="CardPack">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PackName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NumCards" Type="Int32" Nullable="false" />
+    <Property Name="PackPrice" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AllVirtualPurchase" Relationship="Self.FK_tblVirtualPurchase_tblCardPack" FromRole="tblCardPack" ToRole="tblVirtualPurchase" />
+  </EntityType>
+  <EntityType Name="CardType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Card" Relationship="Self.FK_tblCard_tblCardType" FromRole="tblCardType" ToRole="tblCard" />
+  </EntityType>
+  <EntityType Name="Deck">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ID_User" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK_tblDeck_tblUser" FromRole="tblDeck" ToRole="tblUser" />
+    <NavigationProperty Name="AllDeckCards" Relationship="Self.FK_tblDeckCard_tblDeck" FromRole="tblDeck" ToRole="tblDeckCard" />
+  </EntityType>
+  <EntityType Name="DeckCard">
+    <Key>
+      <PropertyRef Name="ID_Deck" />
+      <PropertyRef Name="ID_Card" />
+    </Key>
+    <Property Name="ID_Deck" Type="Int32" Nullable="false" />
+    <Property Name="ID_Card" Type="Int32" Nullable="false" />
+    <Property Name="NumberOfCards" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Card" Relationship="Self.FK_tblDeckCard_tblCard" FromRole="tblDeckCard" ToRole="tblCard" />
+    <NavigationProperty Name="Deck" Relationship="Self.FK_tblDeckCard_tblDeck" FromRole="tblDeckCard" ToRole="tblDeck" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GamerTag" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="128" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="UserSalt" Type="String" MaxLength="128" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ID_UserRole" Type="Int32" />
+    <Property Name="Avatar" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="AmountMoney" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AllDecks" Relationship="Self.FK_tblDeck_tblUser" FromRole="tblUser" ToRole="tblDeck" />
+    <NavigationProperty Name="UserRole" Relationship="Self.FK_tblUser_tblUserRole" FromRole="tblUser" ToRole="tblUserRole" />
+    <NavigationProperty Name="AllUserCardCollections" Relationship="Self.FK_tblUserCardCollection_tblUser" FromRole="tblUser" ToRole="tblUserCardCollection" />
+    <NavigationProperty Name="AllVirtualPurchase" Relationship="Self.FK_tblVirtualPurchase_tblUser" FromRole="tblUser" ToRole="tblVirtualPurchase" />
+  </EntityType>
+  <EntityType Name="UserCardCollection">
+    <Key>
+      <PropertyRef Name="ID_User" />
+      <PropertyRef Name="ID_Card" />
+    </Key>
+    <Property Name="ID_User" Type="Int32" Nullable="false" />
+    <Property Name="ID_Card" Type="Int32" Nullable="false" />
+    <Property Name="NumberOfCards" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Card" Relationship="Self.FK_tblUserCardCollection_tblCard" FromRole="tblUserCardCollection" ToRole="tblCard" />
+    <NavigationProperty Name="User" Relationship="Self.FK_tblUserCardCollection_tblUser" FromRole="tblUserCardCollection" ToRole="tblUser" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AllUsers" Relationship="Self.FK_tblUser_tblUserRole" FromRole="tblUserRole" ToRole="tblUser" />
+  </EntityType>
+  <EntityType Name="VirtualPurchase">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_User" Type="Int32" Nullable="false" />
+    <Property Name="ID_CardPack" Type="Int32" Nullable="false" />
+    <Property Name="PurchaseDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="NumberOfPacks" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CardPack" Relationship="Self.FK_tblVirtualPurchase_tblCardPack" FromRole="tblVirtualPurchase" ToRole="tblCardPack" />
+    <NavigationProperty Name="User" Relationship="Self.FK_tblVirtualPurchase_tblUser" FromRole="tblVirtualPurchase" ToRole="tblUser" />
+  </EntityType>
+  <Association Name="FK_tblCard_tblCardType">
+    <End Role="tblCardType" Type="CardGame_v2Model.CardType" Multiplicity="0..1" />
+    <End Role="tblCard" Type="CardGame_v2Model.Card" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCardType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tblCard">
+        <PropertyRef Name="ID_CardType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblDeckCard_tblCard">
+    <End Role="tblCard" Type="CardGame_v2Model.Card" Multiplicity="1" />
+    <End Role="tblDeckCard" Type="CardGame_v2Model.DeckCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCard">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tblDeckCard">
+        <PropertyRef Name="ID_Card" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblUserCardCollection_tblCard">
+    <End Role="tblCard" Type="CardGame_v2Model.Card" Multiplicity="1" />
+    <End Role="tblUserCardCollection" Type="CardGame_v2Model.UserCardCollection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCard">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tblUserCardCollection">
+        <PropertyRef Name="ID_Card" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblVirtualPurchase_tblCardPack">
+    <End Role="tblCardPack" Type="CardGame_v2Model.CardPack" Multiplicity="1" />
+    <End Role="tblVirtualPurchase" Type="CardGame_v2Model.VirtualPurchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCardPack">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tblVirtualPurchase">
+        <PropertyRef Name="ID_CardPack" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblDeck_tblUser">
+    <End Role="tblUser" Type="CardGame_v2Model.User" Multiplicity="1" />
+    <End Role="tblDeck" Type="CardGame_v2Model.Deck" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUser">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tblDeck">
+        <PropertyRef Name="ID_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblDeckCard_tblDeck">
+    <End Role="tblDeck" Type="CardGame_v2Model.Deck" Multiplicity="1" />
+    <End Role="tblDeckCard" Type="CardGame_v2Model.DeckCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblDeck">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tblDeckCard">
+        <PropertyRef Name="ID_Deck" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblUser_tblUserRole">
+    <End Role="tblUserRole" Type="CardGame_v2Model.UserRole" Multiplicity="0..1" />
+    <End Role="tblUser" Type="CardGame_v2Model.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUserRole">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tblUser">
+        <PropertyRef Name="ID_UserRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblUserCardCollection_tblUser">
+    <End Role="tblUser" Type="CardGame_v2Model.User" Multiplicity="1" />
+    <End Role="tblUserCardCollection" Type="CardGame_v2Model.UserCardCollection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUser">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tblUserCardCollection">
+        <PropertyRef Name="ID_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblVirtualPurchase_tblUser">
+    <End Role="tblUser" Type="CardGame_v2Model.User" Multiplicity="1" />
+    <End Role="tblVirtualPurchase" Type="CardGame_v2Model.VirtualPurchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUser">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tblVirtualPurchase">
+        <PropertyRef Name="ID_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CardGame_v2Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblCard" EntityType="CardGame_v2Model.Card" />
+    <EntitySet Name="tblCardPack" EntityType="CardGame_v2Model.CardPack" />
+    <EntitySet Name="tblCardType" EntityType="CardGame_v2Model.CardType" />
+    <EntitySet Name="tblDeck" EntityType="CardGame_v2Model.Deck" />
+    <EntitySet Name="tblDeckCard" EntityType="CardGame_v2Model.DeckCard" />
+    <EntitySet Name="tblUser" EntityType="CardGame_v2Model.User" />
+    <EntitySet Name="tblUserCardCollection" EntityType="CardGame_v2Model.UserCardCollection" />
+    <EntitySet Name="tblUserRole" EntityType="CardGame_v2Model.UserRole" />
+    <EntitySet Name="tblVirtualPurchase" EntityType="CardGame_v2Model.VirtualPurchase" />
+    <AssociationSet Name="FK_tblCard_tblCardType" Association="Self.FK_tblCard_tblCardType">
+      <End Role="tblCardType" EntitySet="tblCardType" />
+      <End Role="tblCard" EntitySet="tblCard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblDeckCard_tblCard" Association="Self.FK_tblDeckCard_tblCard">
+      <End Role="tblCard" EntitySet="tblCard" />
+      <End Role="tblDeckCard" EntitySet="tblDeckCard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblUserCardCollection_tblCard" Association="Self.FK_tblUserCardCollection_tblCard">
+      <End Role="tblCard" EntitySet="tblCard" />
+      <End Role="tblUserCardCollection" EntitySet="tblUserCardCollection" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblVirtualPurchase_tblCardPack" Association="Self.FK_tblVirtualPurchase_tblCardPack">
+      <End Role="tblCardPack" EntitySet="tblCardPack" />
+      <End Role="tblVirtualPurchase" EntitySet="tblVirtualPurchase" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblDeck_tblUser" Association="Self.FK_tblDeck_tblUser">
+      <End Role="tblUser" EntitySet="tblUser" />
+      <End Role="tblDeck" EntitySet="tblDeck" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblDeckCard_tblDeck" Association="Self.FK_tblDeckCard_tblDeck">
+      <End Role="tblDeck" EntitySet="tblDeck" />
+      <End Role="tblDeckCard" EntitySet="tblDeckCard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblUser_tblUserRole" Association="Self.FK_tblUser_tblUserRole">
+      <End Role="tblUserRole" EntitySet="tblUserRole" />
+      <End Role="tblUser" EntitySet="tblUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblUserCardCollection_tblUser" Association="Self.FK_tblUserCardCollection_tblUser">
+      <End Role="tblUser" EntitySet="tblUser" />
+      <End Role="tblUserCardCollection" EntitySet="tblUserCardCollection" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblVirtualPurchase_tblUser" Association="Self.FK_tblVirtualPurchase_tblUser">
+      <End Role="tblUser" EntitySet="tblUser" />
+      <End Role="tblVirtualPurchase" EntitySet="tblVirtualPurchase" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

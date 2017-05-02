@@ -15,7 +15,7 @@ namespace CardGame.Web.Controllers
         // GET: User
         public ActionResult Index()
         {
-            List<User> UserList = new List<User>();
+            List<Register> UserList = new List<Register>();
 
             var dbUserlist = UserManager.GetAllUser();
 
@@ -25,18 +25,16 @@ namespace CardGame.Web.Controllers
             foreach (var c in dbUserlist)
             {
                 Register reguser = new Register();
-                reguser.ID = c.idUser;
-                reguser.Firstname = c.firstname;
-                reguser.Lastname = c.lastname;
-                reguser.Email = c.email;
-                reguser.Role = c.tblUserRole.rolename;
-                reguser.Password = c.userpassword;
-                reguser.Salt = c.usersalt;
-
+                reguser.ID = c.ID;
+                reguser.Firstname = c.FirstName;
+                reguser.Lastname = c.LastName;
+                reguser.Email = c.Mail;
+                reguser.Role = c.UserRole.Name;
+                reguser.Password = c.Password;
+                reguser.Salt = c.UserSalt;
 
                 UserList.Add(reguser);
             }
-
             return View(UserList);
         }
 
