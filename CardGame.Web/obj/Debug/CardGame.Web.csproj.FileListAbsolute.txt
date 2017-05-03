@@ -181,7 +181,6 @@ C:\Users\Mani\Documents\GitHub\LAP_Sandholzer\CardGame.Web\bin\Newtonsoft.Json.x
 C:\Users\Mani\Documents\GitHub\LAP_Sandholzer\CardGame.Web\obj\Debug\CardGame.Web.csprojResolveAssemblyReference.cache
 C:\Users\Mani\Documents\GitHub\LAP_Sandholzer\CardGame.Web\obj\Debug\CardGame.Web.dll
 C:\Users\Mani\Documents\GitHub\LAP_Sandholzer\CardGame.Web\obj\Debug\CardGame.Web.pdb
-C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.Web\obj\Debug\CardGame.Web.csprojResolveAssemblyReference.cache
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.Web\bin\ApplicationInsights.config
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.Web\bin\roslyn\csc.exe
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -241,5 +240,6 @@ C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.Web\bin\System.Web.We
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.Web\bin\Antlr3.Runtime.pdb
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.Web\bin\Newtonsoft.Json.xml
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.Web\bin\de\EntityFramework.resources.dll
+C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.Web\obj\Debug\CardGame.Web.csprojResolveAssemblyReference.cache
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.Web\obj\Debug\CardGame.Web.dll
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.Web\obj\Debug\CardGame.Web.pdb

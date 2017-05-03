@@ -33,14 +33,15 @@
                     {
                         <ul class="nav navbar-nav navbar-right" style="margin-top:6px;">
                             @*TODO Die Action Links vervollständigen*@
-                            <li>@Html.ActionLink("Shop", "Index", "Shop")</li>
+                            <li>@Html.ActionLink("Shop", "ShopIndex", "Shop")</li>
                             <li>@Html.ActionLink("Deckbuilder", "Not implement", "Not implement")</li>
                             @*<li>@Html.ActionLink("Statistic", "Statistics", "Home")</li>*@
                             @*<li>@Html.ActionLink("Cards", "Overview", "Card")</li>*@
                             @*<li>@Html.ActionLink("Users", "Index", "User")</li>*@
                             <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
                         </ul>
-                        <p class="DiamantAnzeige"><img src="~/Content/Images/Diamant.png" />@ViewBag.CurrencyBalance</p>
+                        <p class="DiamantAnzeige"><img src="~/Content/Images/Diamant.png" />@CardGame.DAL.Logic.UserManager.GetUserByEmail(User.Identity.Name).AmountMoney.ToString()</p>
+                      
                     }
                 </div>
             </div>

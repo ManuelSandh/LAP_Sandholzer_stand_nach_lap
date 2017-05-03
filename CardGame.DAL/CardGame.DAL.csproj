@@ -70,10 +70,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CardGameModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\cloneStoneModel.Designer.cs">
+    <Compile Include="Model\CardGameModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>cloneStoneModel.edmx</DependentUpon>
+      <DependentUpon>CardGameModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\CardPack.cs">
       <DependentUpon>CardGameModel.tt</DependentUpon>
@@ -104,12 +104,12 @@
   <ItemGroup />
   <ItemGroup>
     <None Include="App.Config" />
-    <EntityDeploy Include="Model\cloneStoneModel.edmx">
+    <EntityDeploy Include="Model\CardGameModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>cloneStoneModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>CardGameModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\cloneStoneModel.edmx.diagram">
-      <DependentUpon>cloneStoneModel.edmx</DependentUpon>
+    <None Include="Model\CardGameModel.edmx.diagram">
+      <DependentUpon>CardGameModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -125,12 +125,12 @@
   <ItemGroup>
     <Content Include="Model\CardGameModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>cloneStoneModel.edmx</DependentUpon>
+      <DependentUpon>CardGameModel.edmx</DependentUpon>
       <LastGenOutput>CardGameModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Model\CardGameModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>cloneStoneModel.edmx</DependentUpon>
+      <DependentUpon>CardGameModel.edmx</DependentUpon>
       <LastGenOutput>CardGameModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>

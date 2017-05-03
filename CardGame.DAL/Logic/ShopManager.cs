@@ -11,6 +11,12 @@ namespace CardGame.DAL.Logic
 {
     public class ShopManager
     {
-
+        public static List<CardPack> getAllCardPacks()
+        { 
+            using (CardGame_v2Entities cont = new CardGame_v2Entities())
+            {
+                return cont.tblCardPack.ToList();
+            }           
+        }
     }
 }    

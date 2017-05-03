@@ -98,7 +98,6 @@ namespace CardGame.Web.Controllers
             {
                 return View(regUser);
             }
-
            
             var dbUser = new DAL.Model.User();
 
@@ -108,7 +107,7 @@ namespace CardGame.Web.Controllers
             dbUser.Mail = regUser.Email;
             dbUser.Password = regUser.Password;
             dbUser.UserSalt = regUser.Salt;
-            dbUser.ID_UserRole = 1;
+            dbUser.ID_UserRole = 2;
             dbUser.AmountMoney = 100;
 
             //dbUser.tblrole = new List<tblrole>();
@@ -122,14 +121,12 @@ namespace CardGame.Web.Controllers
             {
                 return View(regUser);
             }
-
-
-
-
-            //auth(dbUser.email, dbUser.userpassword, dbUser.tblUserRole.rolename);
+            //auth(dbUser.Mail, dbUser.Password, dbUser.UserRole.Name);
 
             TempData["ConfirmMessage"] = "Erfolgreich registriert";
             return RedirectToAction("Index", "Home");
         }
+
+       
     }
 }

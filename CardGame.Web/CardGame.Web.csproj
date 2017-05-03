@@ -201,6 +201,7 @@
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
     <Content Include="fonts\Mermaid1001.ttf" />
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -232,10 +233,10 @@
     <Content Include="Views\Card\Details.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Shop\Index.cshtml" />
     <Content Include="Views\Home\Impressum.cshtml" />
     <Content Include="Views\Home\AGB.cshtml" />
     <Content Include="Views\Deck\Deck.cshtml" />
+    <Content Include="Views\Shop\ShopIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

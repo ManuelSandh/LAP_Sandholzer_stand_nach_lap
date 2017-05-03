@@ -2,95 +2,95 @@
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="CardGame_v2ModelStoreContainer" CdmEntityContainer="CardGame_v2Entities">
     <EntitySetMapping Name="tblCard">
-      <EntityTypeMapping TypeName="CardGame_v2Model.tblCard">
+      <EntityTypeMapping TypeName="CardGame_v2Model.Card">
         <MappingFragment StoreEntitySet="tblCard">
-          <ScalarProperty Name="idCard" ColumnName="idCard" />
-          <ScalarProperty Name="cardname" ColumnName="cardname" />
-          <ScalarProperty Name="manacost" ColumnName="manacost" />
-          <ScalarProperty Name="attack" ColumnName="attack" />
-          <ScalarProperty Name="life" ColumnName="life" />
-          <ScalarProperty Name="fkCardType" ColumnName="fkCardType" />
-          <ScalarProperty Name="cardimage" ColumnName="cardimage" />
+          <ScalarProperty Name="ID" ColumnName="idCard" />
+          <ScalarProperty Name="Name" ColumnName="cardname" />
+          <ScalarProperty Name="ManaCost" ColumnName="manacost" />
+          <ScalarProperty Name="Attack" ColumnName="attack" />
+          <ScalarProperty Name="Life" ColumnName="life" />
+          <ScalarProperty Name="ID_CardType" ColumnName="fkCardType" />
+          <ScalarProperty Name="CardImage" ColumnName="cardimage" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tblCardPack">
-      <EntityTypeMapping TypeName="CardGame_v2Model.tblCardPack">
+      <EntityTypeMapping TypeName="CardGame_v2Model.CardPack">
         <MappingFragment StoreEntitySet="tblCardPack">
-          <ScalarProperty Name="idCardPack" ColumnName="idCardPack" />
-          <ScalarProperty Name="packname" ColumnName="packname" />
-          <ScalarProperty Name="numcards" ColumnName="numcards" />
-          <ScalarProperty Name="packprice" ColumnName="packprice" />
+          <ScalarProperty Name="ID" ColumnName="idCardPack" />
+          <ScalarProperty Name="PackName" ColumnName="packname" />
+          <ScalarProperty Name="NumCards" ColumnName="numcards" />
+          <ScalarProperty Name="PackPrice" ColumnName="packprice" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tblCardType">
-      <EntityTypeMapping TypeName="CardGame_v2Model.tblCardType">
+      <EntityTypeMapping TypeName="CardGame_v2Model.CardType">
         <MappingFragment StoreEntitySet="tblCardType">
-          <ScalarProperty Name="idCardType" ColumnName="idCardType" />
-          <ScalarProperty Name="typename" ColumnName="typename" />
+          <ScalarProperty Name="ID" ColumnName="idCardType" />
+          <ScalarProperty Name="Name" ColumnName="typename" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tblDeck">
-      <EntityTypeMapping TypeName="CardGame_v2Model.tblDeck">
+      <EntityTypeMapping TypeName="CardGame_v2Model.Deck">
         <MappingFragment StoreEntitySet="tblDeck">
-          <ScalarProperty Name="idDeck" ColumnName="idDeck" />
-          <ScalarProperty Name="deckname" ColumnName="deckname" />
-          <ScalarProperty Name="fkUser" ColumnName="fkUser" />
+          <ScalarProperty Name="ID" ColumnName="idDeck" />
+          <ScalarProperty Name="Name" ColumnName="deckname" />
+          <ScalarProperty Name="ID_User" ColumnName="fkUser" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tblDeckCard">
-      <EntityTypeMapping TypeName="CardGame_v2Model.tblDeckCard">
+      <EntityTypeMapping TypeName="CardGame_v2Model.DeckCard">
         <MappingFragment StoreEntitySet="tblDeckCard">
-          <ScalarProperty Name="fkDeck" ColumnName="fkDeck" />
-          <ScalarProperty Name="fkCard" ColumnName="fkCard" />
-          <ScalarProperty Name="numcards" ColumnName="numcards" />
+          <ScalarProperty Name="ID_Deck" ColumnName="fkDeck" />
+          <ScalarProperty Name="ID_Card" ColumnName="fkCard" />
+          <ScalarProperty Name="NumberOfCards" ColumnName="numcards" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tblUser">
-      <EntityTypeMapping TypeName="CardGame_v2Model.tblUser">
+      <EntityTypeMapping TypeName="CardGame_v2Model.User">
         <MappingFragment StoreEntitySet="tblUser">
-          <ScalarProperty Name="idUser" ColumnName="idUser" />
-          <ScalarProperty Name="firstname" ColumnName="firstname" />
-          <ScalarProperty Name="lastname" ColumnName="lastname" />
-          <ScalarProperty Name="email" ColumnName="email" />
-          <ScalarProperty Name="gamertag" ColumnName="gamertag" />
-          <ScalarProperty Name="userpassword" ColumnName="userpassword" />
-          <ScalarProperty Name="usersalt" ColumnName="usersalt" />
-          <ScalarProperty Name="fkUserRole" ColumnName="fkUserRole" />
-          <ScalarProperty Name="avatar" ColumnName="avatar" />
-          <ScalarProperty Name="currency" ColumnName="currency" />
+          <ScalarProperty Name="ID" ColumnName="idUser" />
+          <ScalarProperty Name="FirstName" ColumnName="firstname" />
+          <ScalarProperty Name="LastName" ColumnName="lastname" />
+          <ScalarProperty Name="Mail" ColumnName="email" />
+          <ScalarProperty Name="GamerTag" ColumnName="gamertag" />
+          <ScalarProperty Name="Password" ColumnName="userpassword" />
+          <ScalarProperty Name="UserSalt" ColumnName="usersalt" />
+          <ScalarProperty Name="ID_UserRole" ColumnName="fkUserRole" />
+          <ScalarProperty Name="Avatar" ColumnName="avatar" />
+          <ScalarProperty Name="AmountMoney" ColumnName="currency" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tblUserCardCollection">
-      <EntityTypeMapping TypeName="CardGame_v2Model.tblUserCardCollection">
+      <EntityTypeMapping TypeName="CardGame_v2Model.UserCardCollection">
         <MappingFragment StoreEntitySet="tblUserCardCollection">
-          <ScalarProperty Name="fkUser" ColumnName="fkUser" />
-          <ScalarProperty Name="fkCard" ColumnName="fkCard" />
-          <ScalarProperty Name="numcards" ColumnName="numcards" />
+          <ScalarProperty Name="ID_User" ColumnName="fkUser" />
+          <ScalarProperty Name="ID_Card" ColumnName="fkCard" />
+          <ScalarProperty Name="NumberOfCards" ColumnName="numcards" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tblUserRole">
-      <EntityTypeMapping TypeName="CardGame_v2Model.tblUserRole">
+      <EntityTypeMapping TypeName="CardGame_v2Model.UserRole">
         <MappingFragment StoreEntitySet="tblUserRole">
-          <ScalarProperty Name="idUserrole" ColumnName="idUserrole" />
-          <ScalarProperty Name="rolename" ColumnName="rolename" />
+          <ScalarProperty Name="ID" ColumnName="idUserrole" />
+          <ScalarProperty Name="Name" ColumnName="rolename" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tblVirtualPurchase">
-      <EntityTypeMapping TypeName="CardGame_v2Model.tblVirtualPurchase">
+      <EntityTypeMapping TypeName="CardGame_v2Model.VirtualPurchase">
         <MappingFragment StoreEntitySet="tblVirtualPurchase">
-          <ScalarProperty Name="idVirtualPurchase" ColumnName="idVirtualPurchase" />
-          <ScalarProperty Name="fkUser" ColumnName="fkUser" />
-          <ScalarProperty Name="fkCardPack" ColumnName="fkCardPack" />
-          <ScalarProperty Name="timeofpurchase" ColumnName="timeofpurchase" />
-          <ScalarProperty Name="numpacks" ColumnName="numpacks" />
+          <ScalarProperty Name="ID" ColumnName="idVirtualPurchase" />
+          <ScalarProperty Name="ID_User" ColumnName="fkUser" />
+          <ScalarProperty Name="ID_CardPack" ColumnName="fkCardPack" />
+          <ScalarProperty Name="PurchaseDate" ColumnName="timeofpurchase" />
+          <ScalarProperty Name="NumberOfPacks" ColumnName="numpacks" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

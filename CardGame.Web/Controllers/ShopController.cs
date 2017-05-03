@@ -12,11 +12,27 @@ namespace CardGame.Web.Controllers
 {
     public class ShopController : Controller
     {
-        // GET: Shop
-       
-        public ActionResult Index()
-        {            
-            return View();
-        }     
+        // GET: Shop       
+        [HttpGet]
+        //[Authorize(Roles = "player")]
+        public ActionResult ShopIndex()
+        {
+            Shop shop = new Shop();
+            shop.cardPacks = new List<Models.CardPack>();
+
+            var dbCardPacks = ShopManager.getAllCardPacks();
+
+            foreach (var dbCp in dbCardPacks)
+            {
+                DAL.Model.CardPack cardPack = new DAL.Model.CardPack();
+                cardPack.ID = dbCp.ID;
+                cardPack.PackName = dbCp.PackName;
+                cardPack.NumCards = dbCp.NumCards;
+                cardPack.PackPrice = dbCp.PackPrice;
+                //shop.cardPacks.Add(cardPack);
+            }
+
+            return View(shop);
+        }
     }
 }

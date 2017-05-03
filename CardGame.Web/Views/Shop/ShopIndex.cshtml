@@ -1,0 +1,55 @@
+﻿@model CardGame.Web.Models.Shop
+
+@{
+    ViewBag.Title = "ShopIndex";
+}
+
+<table>
+    <thead>
+        <tr>
+            <td>
+                Pack Name
+            </td>
+            @foreach (var cp in @Model.cardPacks)
+            {
+                <td>
+                    @Html.DisplayFor(cardpack => cp.PackName)
+                </td>
+            }
+        </tr>
+    </thead>
+    <tr>
+        <td>
+            # Cards
+        </td>
+        @foreach (var cp in @Model.cardPacks)
+        {
+            <td>
+                @Html.DisplayFor(cardpack => cp.NumCards)
+            </td>
+        }
+    </tr>
+    <tr>
+        <td>
+            Price
+        </td>
+        @foreach (var cp in @Model.cardPacks)
+        {
+            <td>
+                @Html.DisplayFor(cardpack => cp.Price)
+            </td>
+        }
+    </tr>
+    <tr>
+        <td></td>
+        @foreach (var cp in @Model.cardPacks)
+        {
+            <td>
+                @Html.ActionLink("Buy", "BuyCardPack", new { id = cp.CardPackID })
+            </td>
+        }
+    </tr>
+</table>
+
+
+

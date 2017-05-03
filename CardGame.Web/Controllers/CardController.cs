@@ -10,49 +10,49 @@ using CardGame.Log;
 
 namespace CardGame.Web.Controllers
 {
-    public class CardController : Controller
-    {
-        // GET: Card
-        public ActionResult Overview()
-        {
-            List<DAL.Model.Card> CardList = new List<DAL.Model.Card>();
+    //public class CardController : Controller
+    //{
+    //    // GET: Card
+    //    public ActionResult Overview()
+    //    {
+    //        List<DAL.Model.Card> CardList = new List<DAL.Model.Card>();
 
-            var dbCardlist = CardManager.GetAllCards();
+    //        var dbCardlist = CardManager.GetAllCards();
 
-            foreach (var c in dbCardlist)
-            {
-                DAL.Model.Card card = new DAL.Model.Card();
-                card.ID = c.ID;
-                card.Name = c.Name;
-                card.ManaCost = c.ManaCost;
-                card.Attack = c.Attack;
-                card.Life = c.Life;
-                //card.Type = c.tbltype.typename;
-                //card.Type = CardManager.GetCardTypeById(c.fktype);
-                card.ID_CardType = CardManager.CardTypes[(int)c.ID_CardType];
+    //        foreach (var c in dbCardlist)
+    //        {
+    //            DAL.Model.Card card = new DAL.Model.Card();
+    //            card.ID = c.ID;
+    //            card.Name = c.Name;
+    //            card.ManaCost = c.ManaCost;
+    //            card.Attack = c.Attack;
+    //            card.Life = c.Life;
+    //            //card.Type = c.tbltype.typename;
+    //            //card.Type = CardManager.GetCardTypeById(c.fktype);
+    //            card.ID_CardType = CardManager.CardTypes[ CardManager.CardTypes[(int)c.ID_CardType];
 
-                CardList.Add(card);
-            }
+    //            CardList.Add(card);
+    //        }
 
-            return View(CardList);
-        }
+    //        return View(CardList);
+    //    }
 
-        public ActionResult Details(int id)
-        {
-            DAL.Model.Card dbcard = null;
+    //    public ActionResult Details(int id)
+    //    {
+    //        DAL.Model.Card dbcard = null;
 
-            dbcard = CardManager.GetCardById(id);
+    //        dbcard = CardManager.GetCardById(id);
 
-            DAL.Model.Card card = new DAL.Model.Card();
-            card.ID = dbcard.ID;
-            card.Name = dbcard.Name;
-            card.ManaCost = dbcard.ManaCost;
-            card.Attack = dbcard.Attack;
-            card.Life = dbcard.Life;
-            card.ID_CardType = CardManager.CardTypes[(int)dbcard.ID_CardType];
+    //        DAL.Model.Card card = new DAL.Model.Card();
+    //        card.ID = dbcard.ID;
+    //        card.Name = dbcard.Name;
+    //        card.ManaCost = dbcard.ManaCost;
+    //        card.Attack = dbcard.Attack;
+    //        card.Life = dbcard.Life;
+    //        card.ID_CardType = CardManager.CardTypes[(int)dbcard.ID_CardType];
 
-            return View(card);
-        }     
+    //        return View(card);
+    //    }     
 
-    }
+    //}
 }
