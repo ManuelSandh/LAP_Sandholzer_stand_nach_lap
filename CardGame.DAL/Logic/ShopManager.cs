@@ -12,11 +12,23 @@ namespace CardGame.DAL.Logic
     public class ShopManager
     {
         public static List<CardPack> getAllCardPacks()
-        { 
-            using (CardGame_v2Entities cont = new CardGame_v2Entities())
+        {
+            var allCardPacks = new List<CardPack>();
+
+            try
             {
-                return cont.tblCardPack.ToList();
-            }           
+                using (var db = new CardGame_v2Entities())
+                {
+                    allCardPacks = db.tblCardPack.ToList();
+                }
+                if (allCardPacks == null)
+                    throw new Exception("NoCardPacksFound");
+            }
+            catch (Exception e)
+            {
+                Writer.LogError(e);
+            }
+            return allCardPacks;
         }
     }
 }    

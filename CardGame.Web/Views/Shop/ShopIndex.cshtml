@@ -20,7 +20,7 @@
     </thead>
     <tr>
         <td>
-            # Cards
+            # Karten
         </td>
         @foreach (var cp in @Model.cardPacks)
         {
@@ -31,7 +31,7 @@
     </tr>
     <tr>
         <td>
-            Price
+            Preis
         </td>
         @foreach (var cp in @Model.cardPacks)
         {
@@ -40,7 +40,7 @@
             </td>
         }
     </tr>
-    <tr>
+    @*<tr>
         <td></td>
         @foreach (var cp in @Model.cardPacks)
         {
@@ -48,7 +48,7 @@
                 @Html.ActionLink("Buy", "BuyCardPack", new { id = cp.CardPackID })
             </td>
         }
-    </tr>
+    </tr>*@
 </table>
 
 

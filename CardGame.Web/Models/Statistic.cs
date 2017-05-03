@@ -20,6 +20,5 @@ namespace CardGame.Web.Models
         {
             CreationTime = DateTime.Now;
         }
-
     }
 }

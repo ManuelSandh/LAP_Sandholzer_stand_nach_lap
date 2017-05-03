@@ -14,7 +14,7 @@ namespace CardGame.Web.Controllers
     {
         // GET: Shop       
         [HttpGet]
-        //[Authorize(Roles = "player")]
+        [Authorize(Roles = "player")]
         public ActionResult ShopIndex()
         {
             Shop shop = new Shop();
@@ -29,6 +29,7 @@ namespace CardGame.Web.Controllers
                 cardPack.PackName = dbCp.PackName;
                 cardPack.NumCards = dbCp.NumCards;
                 cardPack.PackPrice = dbCp.PackPrice;
+                //TODO Fehler!
                 //shop.cardPacks.Add(cardPack);
             }
 

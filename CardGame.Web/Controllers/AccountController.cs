@@ -109,11 +109,7 @@ namespace CardGame.Web.Controllers
             dbUser.UserSalt = regUser.Salt;
             dbUser.ID_UserRole = 2;
             dbUser.AmountMoney = 100;
-
-            //dbUser.tblrole = new List<tblrole>();
-            //dbUser.tblrole.Add(new tblrole());
-            //dbUser.tblrole.FirstOrDefault().rolename = "user";
-
+          
             bool isRegistered = AuthManager.Register(dbUser);
 
             //Authentifizierung

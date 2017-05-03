@@ -12,9 +12,10 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         <div class="editorFields">
-        <div>@Html.Label("Vorname")</div>
-        <div>@Html.EditorFor(u => u.Firstname)</div>
-<p class="valimassage">@Html.ValidationMessageFor(model => model.Firstname, "", new { @class = "text-warning" }) </div>
+            <div>@Html.Label("Vorname")</div>
+            <div>@Html.EditorFor(u => u.Firstname)</div>
+            <p class="valimassage">@Html.ValidationMessageFor(model => model.Firstname, "", new { @class = "text-warning" })
+        </div>
         <br />
         <div>@Html.Label("Nachname")</div>
         <div>@Html.EditorFor(u => u.Lastname)</div>
