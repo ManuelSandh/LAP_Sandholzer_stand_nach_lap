@@ -50,7 +50,5 @@ namespace CardGame.DAL.Logic
             }
             return allDiamantenPacks;
         }
-
-        
     }
-}    
+}

@@ -11,12 +11,12 @@ using CardGame.Log;
 namespace CardGame.Web.Controllers
 {
     public class ShopController : Controller
-    {       
+    {
         // GET: Shop       
         [HttpGet]
         [Authorize(Roles = "player")]
         public ActionResult ShopIndex()
-        {                  
+        {
             Shop shop = new Shop();
             shop.cardPacks = new List<CardPackModel>();
             shop.diamantPacks = new List<DiamantenModel>();
@@ -40,25 +40,23 @@ namespace CardGame.Web.Controllers
                 diamantenPack.Diamanten = (int)cont.Diamanten;
                 diamantenPack.Price = cont.PackPrice;
                 shop.diamantPacks.Add(diamantenPack);
-            }            
+            }
             return View(shop);
         }
-        
+
         [HttpGet]
         [Authorize(Roles = "player")]
         public ActionResult Buy(int? id)
         {
-            
-            return View();
+
+            return RedirectToAction("ShopIndex", "Shop");
         }
 
         [HttpGet]
         [Authorize(Roles = "player")]
         public ActionResult BuyDiamanten(int? id)
         {
-            return View();
+            return RedirectToAction("ShopIndex", "Shop");
         }
-        
-
     }
 }
