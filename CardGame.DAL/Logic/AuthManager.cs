@@ -16,7 +16,7 @@ namespace CardGame.DAL.Logic
             {
                 using (var db = new CardGame_v2Entities())
                 {
-                    if (db.tblUser.Any(n => n.Mail == regUser.Mail))
+                    if (db.AllUsers.Any(n => n.Mail == regUser.Mail))
                     {
                         throw new Exception("UserAlreadyExists");
                     }
@@ -29,7 +29,7 @@ namespace CardGame.DAL.Logic
                     regUser.Password = hashedAndSaltedPassword;
                     regUser.UserSalt = salt;
 
-                    db.tblUser.Add(regUser);
+                    db.AllUsers.Add(regUser);
                     db.SaveChanges();
                 }
             }
@@ -50,7 +50,7 @@ namespace CardGame.DAL.Logic
 
                 using (var db = new CardGame_v2Entities())
                 {
-                    User dbUser = db.tblUser.Where(u => u.Mail == email).FirstOrDefault();
+                    User dbUser = db.AllUsers.Where(u => u.Mail == email).FirstOrDefault();
                     if (dbUser == null)
                     {
                         throw new Exception("UserDoesNotExist");

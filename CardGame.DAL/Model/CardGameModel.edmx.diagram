@@ -23,6 +23,7 @@
         <AssociationConnector Association="CardGame_v2Model.FK_tblUser_tblUserRole" ManuallyRouted="false" />
         <AssociationConnector Association="CardGame_v2Model.FK_tblUserCardCollection_tblUser" ManuallyRouted="false" />
         <AssociationConnector Association="CardGame_v2Model.FK_tblVirtualPurchase_tblUser" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CardGame_v2Model.DiamantenPack" Width="1.5" PointX="0.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

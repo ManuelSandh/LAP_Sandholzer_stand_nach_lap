@@ -165,7 +165,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Card.cs" />
-    <Compile Include="Models\CardPack.cs" />
+    <Compile Include="Models\CardPackModel.cs" />
+    <Compile Include="Models\DiamantenModel.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Register.cs" />

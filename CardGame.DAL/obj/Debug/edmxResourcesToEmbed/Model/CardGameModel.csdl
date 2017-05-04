@@ -213,50 +213,59 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="CardGame_v2Entities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="tblCard" EntityType="CardGame_v2Model.Card" />
-    <EntitySet Name="tblCardPack" EntityType="CardGame_v2Model.CardPack" />
-    <EntitySet Name="tblCardType" EntityType="CardGame_v2Model.CardType" />
-    <EntitySet Name="tblDeck" EntityType="CardGame_v2Model.Deck" />
-    <EntitySet Name="tblDeckCard" EntityType="CardGame_v2Model.DeckCard" />
-    <EntitySet Name="tblUser" EntityType="CardGame_v2Model.User" />
-    <EntitySet Name="tblUserCardCollection" EntityType="CardGame_v2Model.UserCardCollection" />
-    <EntitySet Name="tblUserRole" EntityType="CardGame_v2Model.UserRole" />
-    <EntitySet Name="tblVirtualPurchase" EntityType="CardGame_v2Model.VirtualPurchase" />
+    <EntitySet Name="AllCards" EntityType="CardGame_v2Model.Card" />
+    <EntitySet Name="AllCardPacks" EntityType="CardGame_v2Model.CardPack" />
+    <EntitySet Name="AllCardTypes" EntityType="CardGame_v2Model.CardType" />
+    <EntitySet Name="AllDecks" EntityType="CardGame_v2Model.Deck" />
+    <EntitySet Name="AllDeckCards" EntityType="CardGame_v2Model.DeckCard" />
+    <EntitySet Name="AllUsers" EntityType="CardGame_v2Model.User" />
+    <EntitySet Name="AllUserCardCollections" EntityType="CardGame_v2Model.UserCardCollection" />
+    <EntitySet Name="AllUserRoles" EntityType="CardGame_v2Model.UserRole" />
+    <EntitySet Name="AllVirtualPurchases" EntityType="CardGame_v2Model.VirtualPurchase" />
     <AssociationSet Name="FK_tblCard_tblCardType" Association="Self.FK_tblCard_tblCardType">
-      <End Role="tblCardType" EntitySet="tblCardType" />
-      <End Role="tblCard" EntitySet="tblCard" />
+      <End Role="tblCardType" EntitySet="AllCardTypes" />
+      <End Role="tblCard" EntitySet="AllCards" />
     </AssociationSet>
     <AssociationSet Name="FK_tblDeckCard_tblCard" Association="Self.FK_tblDeckCard_tblCard">
-      <End Role="tblCard" EntitySet="tblCard" />
-      <End Role="tblDeckCard" EntitySet="tblDeckCard" />
+      <End Role="tblCard" EntitySet="AllCards" />
+      <End Role="tblDeckCard" EntitySet="AllDeckCards" />
     </AssociationSet>
     <AssociationSet Name="FK_tblUserCardCollection_tblCard" Association="Self.FK_tblUserCardCollection_tblCard">
-      <End Role="tblCard" EntitySet="tblCard" />
-      <End Role="tblUserCardCollection" EntitySet="tblUserCardCollection" />
+      <End Role="tblCard" EntitySet="AllCards" />
+      <End Role="tblUserCardCollection" EntitySet="AllUserCardCollections" />
     </AssociationSet>
     <AssociationSet Name="FK_tblVirtualPurchase_tblCardPack" Association="Self.FK_tblVirtualPurchase_tblCardPack">
-      <End Role="tblCardPack" EntitySet="tblCardPack" />
-      <End Role="tblVirtualPurchase" EntitySet="tblVirtualPurchase" />
+      <End Role="tblCardPack" EntitySet="AllCardPacks" />
+      <End Role="tblVirtualPurchase" EntitySet="AllVirtualPurchases" />
     </AssociationSet>
     <AssociationSet Name="FK_tblDeck_tblUser" Association="Self.FK_tblDeck_tblUser">
-      <End Role="tblUser" EntitySet="tblUser" />
-      <End Role="tblDeck" EntitySet="tblDeck" />
+      <End Role="tblUser" EntitySet="AllUsers" />
+      <End Role="tblDeck" EntitySet="AllDecks" />
     </AssociationSet>
     <AssociationSet Name="FK_tblDeckCard_tblDeck" Association="Self.FK_tblDeckCard_tblDeck">
-      <End Role="tblDeck" EntitySet="tblDeck" />
-      <End Role="tblDeckCard" EntitySet="tblDeckCard" />
+      <End Role="tblDeck" EntitySet="AllDecks" />
+      <End Role="tblDeckCard" EntitySet="AllDeckCards" />
     </AssociationSet>
     <AssociationSet Name="FK_tblUser_tblUserRole" Association="Self.FK_tblUser_tblUserRole">
-      <End Role="tblUserRole" EntitySet="tblUserRole" />
-      <End Role="tblUser" EntitySet="tblUser" />
+      <End Role="tblUserRole" EntitySet="AllUserRoles" />
+      <End Role="tblUser" EntitySet="AllUsers" />
     </AssociationSet>
     <AssociationSet Name="FK_tblUserCardCollection_tblUser" Association="Self.FK_tblUserCardCollection_tblUser">
-      <End Role="tblUser" EntitySet="tblUser" />
-      <End Role="tblUserCardCollection" EntitySet="tblUserCardCollection" />
+      <End Role="tblUser" EntitySet="AllUsers" />
+      <End Role="tblUserCardCollection" EntitySet="AllUserCardCollections" />
     </AssociationSet>
     <AssociationSet Name="FK_tblVirtualPurchase_tblUser" Association="Self.FK_tblVirtualPurchase_tblUser">
-      <End Role="tblUser" EntitySet="tblUser" />
-      <End Role="tblVirtualPurchase" EntitySet="tblVirtualPurchase" />
+      <End Role="tblUser" EntitySet="AllUsers" />
+      <End Role="tblVirtualPurchase" EntitySet="AllVirtualPurchases" />
     </AssociationSet>
+    <EntitySet Name="AllDiamantenPacks" EntityType="CardGame_v2Model.DiamantenPack" />
   </EntityContainer>
+  <EntityType Name="DiamantenPack">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PackPrice" Type="Int32" Nullable="false" />
+    <Property Name="Diamanten" Type="Int32" />
+  </EntityType>
 </Schema>

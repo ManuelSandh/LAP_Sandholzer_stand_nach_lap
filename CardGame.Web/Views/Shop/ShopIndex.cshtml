@@ -3,53 +3,63 @@
 @{
     ViewBag.Title = "ShopIndex";
 }
-
-<table>
-    <thead>
-        <tr>
-            <td>
-                Pack Name
-            </td>
-            @foreach (var cp in @Model.cardPacks)
+<div class="ShopBackGround">
+    <div class="ShopIndex">
+        <h3>Welcome to the Shop</h3>
+        <table class="ShopTable">
+            
+           
+                <tr>
+                    
+                    @foreach (var cp in @Model.cardPacks)
             {
-                <td>
-                    @Html.DisplayFor(cardpack => cp.PackName)
-                </td>
-            }
-        </tr>
-    </thead>
-    <tr>
-        <td>
-            # Karten
-        </td>
-        @foreach (var cp in @Model.cardPacks)
-        {
-            <td>
-                @Html.DisplayFor(cardpack => cp.NumCards)
-            </td>
-        }
-    </tr>
-    <tr>
-        <td>
-            Preis
-        </td>
-        @foreach (var cp in @Model.cardPacks)
-        {
-            <td>
-                @Html.DisplayFor(cardpack => cp.Price)
-            </td>
-        }
-    </tr>
-    @*<tr>
-        <td></td>
-        @foreach (var cp in @Model.cardPacks)
-        {
-            <td>
-                @Html.ActionLink("Buy", "BuyCardPack", new { id = cp.CardPackID })
-            </td>
-        }
-    </tr>*@
-</table>
+                        <td>
+                            <img class="CardPacks" src="~/Content/Images/Card Pack.png"/> <br />
+                            @Html.DisplayFor(cardpack => cp.PackName)
+                        </td>
+                    }
+                </tr>
+            
+            <tr>                
+                @foreach (var cp in @Model.cardPacks)
+            {
+                    <td>
+                        @Html.DisplayFor(cardpack => cp.NumCards) Karten
+                    </td>
+                }
+            </tr>
+            
+            <br />
+            <tr>
+                
+                @foreach (var cp in @Model.cardPacks)
+                {
+                    <td>
+                        <img src="~/Content/Images/Diamant.png"/>  @Html.DisplayFor(cardpack => cp.Price) <br />                     
+                        @Html.ActionLink("kaufen", "Buy", "Shop", new { id=cp.CardPackID}, new { @class = "btn btn-submit" } )
 
-
+                    </td>
+                }
+            </tr>           
+            <tr>
+                @foreach (var cp in Model.diamantPacks)
+                {                  
+                    <td>
+                        <img class="diamantenBündel" src="~/Content/Images/Diamant Beutel für Shop.png" /> <br />
+                        @Html.DisplayFor(diamantenpack => cp.Diamanten) Stk.
+                    </td>
+                }
+            </tr>
+            <tr>
+                @foreach (var cp in Model.diamantPacks)
+                {
+                    <td>
+                        @Html.DisplayFor(diamantenpack => cp.Price)€ <br />
+                        @Html.ActionLink("kaufen", "BuyDiamanten", "Shop", new { id = cp.DiamantenPackId }, new { @class = "btn btn-submit" })
+                    </td>
+                }
+            </tr>
+        </table>
+    </div>
+</div>
 

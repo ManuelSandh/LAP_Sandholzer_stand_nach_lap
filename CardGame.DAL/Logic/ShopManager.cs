@@ -19,7 +19,7 @@ namespace CardGame.DAL.Logic
             {
                 using (var db = new CardGame_v2Entities())
                 {
-                    allCardPacks = db.tblCardPack.ToList();
+                    allCardPacks = db.AllCardPacks.ToList();
                 }
                 if (allCardPacks == null)
                     throw new Exception("NoCardPacksFound");
@@ -30,5 +30,27 @@ namespace CardGame.DAL.Logic
             }
             return allCardPacks;
         }
+
+        public static List<DiamantenPack> getAllDiamantenPacks()
+        {
+            var allDiamantenPacks = new List<DiamantenPack>();
+
+            try
+            {
+                using (var db = new CardGame_v2Entities())
+                {
+                    allDiamantenPacks = db.AllDiamantenPacks.ToList();
+                }
+                if (allDiamantenPacks == null)
+                    throw new Exception("NoCardPacksFound");
+            }
+            catch (Exception e)
+            {
+                Writer.LogError(e);
+            }
+            return allDiamantenPacks;
+        }
+
+        
     }
 }    

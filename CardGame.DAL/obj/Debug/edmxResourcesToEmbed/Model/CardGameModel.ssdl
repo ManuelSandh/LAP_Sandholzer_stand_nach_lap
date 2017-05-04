@@ -45,6 +45,14 @@
     <Property Name="fkCard" Type="int" Nullable="false" />
     <Property Name="numcards" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="tblDiamantenPack">
+    <Key>
+      <PropertyRef Name="idDiamantenPack" />
+    </Key>
+    <Property Name="idDiamantenPack" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="packprice" Type="int" Nullable="false" />
+    <Property Name="Diamanten" Type="int" />
+  </EntityType>
   <EntityType Name="tblUser">
     <Key>
       <PropertyRef Name="idUser" />
@@ -200,6 +208,7 @@
     <EntitySet Name="tblCardType" EntityType="Self.tblCardType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblDeck" EntityType="Self.tblDeck" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblDeckCard" EntityType="Self.tblDeckCard" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblDiamantenPack" EntityType="Self.tblDiamantenPack" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblUser" EntityType="Self.tblUser" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblUserCardCollection" EntityType="Self.tblUserCardCollection" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblUserRole" EntityType="Self.tblUserRole" Schema="dbo" store:Type="Tables" />

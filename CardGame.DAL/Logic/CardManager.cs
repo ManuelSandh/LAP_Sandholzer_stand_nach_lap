@@ -20,7 +20,7 @@ namespace CardGame.DAL.Logic
 
             using (var db = new CardGame_v2Entities())
             {
-                cardTypeList = db.tblCardType.ToList();
+                cardTypeList = db.AllCardTypes.ToList();
             }
 
             foreach (var type in cardTypeList)
@@ -37,7 +37,7 @@ namespace CardGame.DAL.Logic
             using (var db = new CardGame_v2Entities())
             {
                 //ReturnList = db.tblCard.Include(t => t.CardType).ToList();
-                ReturnList = db.tblCard.ToList();
+                ReturnList = db.AllCards.ToList();
             }
             return ReturnList;
         }
@@ -49,7 +49,7 @@ namespace CardGame.DAL.Logic
 
             using (var db = new CardGame_v2Entities())
             {
-                TypeName = db.tblCardType.Find(id).Name;
+                TypeName = db.AllCardTypes.Find(id).Name;
             }
             return TypeName;
         }
@@ -61,7 +61,7 @@ namespace CardGame.DAL.Logic
             using (var db = new CardGame_v2Entities())
             {
                 //Extention Method
-                card = db.tblCard.Where(c => c.ID == id).FirstOrDefault();
+                card = db.AllCards.Where(c => c.ID == id).FirstOrDefault();
 
                 //Klassisch LINQ
                 //card = (from c in db.tblCard
@@ -77,7 +77,7 @@ namespace CardGame.DAL.Logic
 
             using (var db = new CardGame_v2Entities())
             {                
-                ReturnList = db.tblDeck.ToList();
+                ReturnList = db.AllDecks.ToList();
             }
             return ReturnList;
         }

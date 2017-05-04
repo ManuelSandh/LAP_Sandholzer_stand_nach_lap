@@ -25,14 +25,15 @@ namespace CardGame.DAL.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Card> tblCard { get; set; }
-        public virtual DbSet<CardPack> tblCardPack { get; set; }
-        public virtual DbSet<CardType> tblCardType { get; set; }
-        public virtual DbSet<Deck> tblDeck { get; set; }
-        public virtual DbSet<DeckCard> tblDeckCard { get; set; }
-        public virtual DbSet<User> tblUser { get; set; }
-        public virtual DbSet<UserCardCollection> tblUserCardCollection { get; set; }
-        public virtual DbSet<UserRole> tblUserRole { get; set; }
-        public virtual DbSet<VirtualPurchase> tblVirtualPurchase { get; set; }
+        public virtual DbSet<Card> AllCards { get; set; }
+        public virtual DbSet<CardPack> AllCardPacks { get; set; }
+        public virtual DbSet<CardType> AllCardTypes { get; set; }
+        public virtual DbSet<Deck> AllDecks { get; set; }
+        public virtual DbSet<DeckCard> AllDeckCards { get; set; }
+        public virtual DbSet<User> AllUsers { get; set; }
+        public virtual DbSet<UserCardCollection> AllUserCardCollections { get; set; }
+        public virtual DbSet<UserRole> AllUserRoles { get; set; }
+        public virtual DbSet<VirtualPurchase> AllVirtualPurchases { get; set; }
+        public virtual DbSet<DiamantenPack> AllDiamantenPacks { get; set; }
     }
 }

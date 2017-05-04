@@ -18,10 +18,10 @@ namespace CardGame.DAL.Logic
             {
                 // TODO - Include
                 // .Include(t => t.tabelle) um einen Join zu machen !
-                ReturnList = db.tblUser.ToList();
+                ReturnList = db.AllUsers.ToList();
             }
             return ReturnList;
-        }
+        }        
 
         public static User GetUserByEmail(string email)
         {
@@ -30,7 +30,7 @@ namespace CardGame.DAL.Logic
             {
                 using (var db = new CardGame_v2Entities())
                 {
-                    dbUser = db.tblUser.Where(u => u.Mail == email).FirstOrDefault();
+                    dbUser = db.AllUsers.Where(u => u.Mail == email).FirstOrDefault();
                     if (dbUser == null)
                     {
                         throw new Exception("UserDoesNotExists");
@@ -53,7 +53,7 @@ namespace CardGame.DAL.Logic
             {
                 using (var db = new CardGame_v2Entities())
                 {
-                    User dbUser = db.tblUser.Where(u => u.Mail == email).FirstOrDefault();
+                    User dbUser = db.AllUsers.Where(u => u.Mail == email).FirstOrDefault();
                     if (dbUser == null)
                     {
                         throw new Exception("UserDoesNotExists");
@@ -68,29 +68,26 @@ namespace CardGame.DAL.Logic
             return role;
         }
 
-
         public static string getGamerTagByEmail(string email)
         {
             string gamerTag = "";
 
             using (var db = new CardGame_v2Entities())
             {
-                User dbUser = db.tblUser.Where(u => u.Mail == email).FirstOrDefault();
+                User dbUser = db.AllUsers.Where(u => u.Mail == email).FirstOrDefault();
 
                 gamerTag = dbUser.GamerTag;
 
                 return gamerTag;
             }
-
         }
-
 
         public static string GetRoleByEmail(string email)
         {
             string role = "";
             using (var db = new CardGame_v2Entities())
             {
-                User dbUser = db.tblUser.Where(u => u.Mail == email).FirstOrDefault();
+                User dbUser = db.AllUsers.Where(u => u.Mail == email).FirstOrDefault();
                 if (dbUser == null)
                 {
                     throw new Exception("UserDoesNotExist");
@@ -104,7 +101,7 @@ namespace CardGame.DAL.Logic
             int numCards = -1;
             using (var db = new CardGame_v2Entities())
             {
-                User dbUser = db.tblUser.Where(u => u.Mail == email).FirstOrDefault();
+                User dbUser = db.AllUsers.Where(u => u.Mail == email).FirstOrDefault();
                 if (dbUser == null)
                 {
                     throw new Exception("UserDoesNotExist");
@@ -119,7 +116,7 @@ namespace CardGame.DAL.Logic
             int numCards = -1;
             using (var db = new CardGame_v2Entities())
             {
-                User dbUser = db.tblUser.Where(u => u.Mail == email).FirstOrDefault();
+                User dbUser = db.AllUsers.Where(u => u.Mail == email).FirstOrDefault();
                 if (dbUser == null)
                 {
                     throw new Exception("UserDoesNotExist");
@@ -129,7 +126,6 @@ namespace CardGame.DAL.Logic
                 {
                     numCards += c.NumberOfCards;
                 }
-
             }
             return numCards;
         }
@@ -139,7 +135,7 @@ namespace CardGame.DAL.Logic
             int numDecks = -1;
             using (var db = new CardGame_v2Entities())
             {
-                User dbUser = db.tblUser.Where(u => u.Mail == email).FirstOrDefault();
+                User dbUser = db.AllUsers.Where(u => u.Mail == email).FirstOrDefault();
                 if (dbUser == null)
                 {
                     throw new Exception("UserDoesNotExist");
@@ -162,7 +158,7 @@ namespace CardGame.DAL.Logic
             {
                 using (var db = new CardGame_v2Entities())
                 {
-                    var dbUser = db.tblUser.Where(u => u.Mail == email).FirstOrDefault();
+                    var dbUser = db.AllUsers.Where(u => u.Mail == email).FirstOrDefault();
                     if (dbUser == null)
                     {
                         throw new Exception("UserDoesNotExist");
@@ -215,7 +211,7 @@ namespace CardGame.DAL.Logic
             {
                 using (var db = new CardGame_v2Entities())
                 {
-                    dbUser = db.tblUser.Where(u => u.Mail == email).FirstOrDefault();
+                    dbUser = db.AllUsers.Where(u => u.Mail == email).FirstOrDefault();
                     if (dbUser == null)
                     {
                         throw new Exception("UserDoesNotExist");
@@ -223,7 +219,7 @@ namespace CardGame.DAL.Logic
 
                     foreach (var c in cards)
                     {
-                        var userCC = (from coll in db.tblUserCardCollection
+                        var userCC = (from coll in db.AllUserCardCollections
                                       where coll.ID_Card == c.ID && coll.ID_User == dbUser.ID
                                       select coll)
                                      .FirstOrDefault();
@@ -232,7 +228,7 @@ namespace CardGame.DAL.Logic
                         {
 
                             var cc = new UserCardCollection();
-                            cc.Card = db.tblCard.Find(c.ID);
+                            cc.Card = db.AllCards.Find(c.ID);
                             cc.User = dbUser;
                             cc.NumberOfCards = 1;
                             dbUser.AllUserCardCollections.Add(cc);
@@ -262,7 +258,7 @@ namespace CardGame.DAL.Logic
             {
                 using (var db = new CardGame_v2Entities())
                 {
-                    var dbUser = db.tblUser.Where(u => u.Mail == email).FirstOrDefault();
+                    var dbUser = db.AllUsers.Where(u => u.Mail == email).FirstOrDefault();
                     if (dbUser == null)
                     {
                         throw new Exception("UserDoesNotExist");

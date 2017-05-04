@@ -5,11 +5,10 @@ using System.Web;
 
 namespace CardGame.Web.Models
 {
-    public class CardPack
+    public class DiamantenModel
     {
-        public int CardPackID { get; set; }
-        public string PackName { get; set; }
-        public int NumCards { get; set; }
+        public int DiamantenPackId { get; set; }    
         public int Price { get; set; }
+        public int Diamanten { get; set; }
     }
 }

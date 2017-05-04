@@ -15,7 +15,7 @@ namespace CardGame.DAL.Logic
             int numUsers = -1;
             using (var db = new CardGame_v2Entities())
             {
-                numUsers = db.tblUser.Count();
+                numUsers = db.AllUsers.Count();
             }
 
             Writer.LogInfo("GetNumUsers " + numUsers);
@@ -28,7 +28,7 @@ namespace CardGame.DAL.Logic
             int numCards = -1;
             using (var db = new CardGame_v2Entities())
             {
-                numCards = db.tblCard.Count();
+                numCards = db.AllCards.Count();
             }
 
             Writer.LogInfo("GetNumCards " + numCards);
@@ -41,7 +41,7 @@ namespace CardGame.DAL.Logic
             int numDecks = -1;
             using (var db = new CardGame_v2Entities())
             {
-                numDecks = db.tblDeck.Count();
+                numDecks = db.AllDecks.Count();
             }
 
             Writer.LogInfo("GetNumDecks " + numDecks);

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CardGame_v2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CardGame_v2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tblCard">
           <Key>
             <PropertyRef Name="idCard" />
@@ -49,6 +49,14 @@
           <Property Name="fkDeck" Type="int" Nullable="false" />
           <Property Name="fkCard" Type="int" Nullable="false" />
           <Property Name="numcards" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblDiamantenPack">
+          <Key>
+            <PropertyRef Name="idDiamantenPack" />
+          </Key>
+          <Property Name="idDiamantenPack" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="packprice" Type="int" Nullable="false" />
+          <Property Name="Diamanten" Type="int" />
         </EntityType>
         <EntityType Name="tblUser">
           <Key>
@@ -205,6 +213,7 @@
           <EntitySet Name="tblCardType" EntityType="Self.tblCardType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblDeck" EntityType="Self.tblDeck" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblDeckCard" EntityType="Self.tblDeckCard" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDiamantenPack" EntityType="Self.tblDiamantenPack" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblUser" EntityType="Self.tblUser" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblUserCardCollection" EntityType="Self.tblUserCardCollection" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblUserRole" EntityType="Self.tblUserRole" Schema="dbo" store:Type="Tables" />
@@ -246,8 +255,7 @@
             <End Role="tblVirtualPurchase" EntitySet="tblVirtualPurchase" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CardGame_v2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -464,59 +472,68 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="CardGame_v2Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="tblCard" EntityType="CardGame_v2Model.Card" />
-          <EntitySet Name="tblCardPack" EntityType="CardGame_v2Model.CardPack" />
-          <EntitySet Name="tblCardType" EntityType="CardGame_v2Model.CardType" />
-          <EntitySet Name="tblDeck" EntityType="CardGame_v2Model.Deck" />
-          <EntitySet Name="tblDeckCard" EntityType="CardGame_v2Model.DeckCard" />
-          <EntitySet Name="tblUser" EntityType="CardGame_v2Model.User" />
-          <EntitySet Name="tblUserCardCollection" EntityType="CardGame_v2Model.UserCardCollection" />
-          <EntitySet Name="tblUserRole" EntityType="CardGame_v2Model.UserRole" />
-          <EntitySet Name="tblVirtualPurchase" EntityType="CardGame_v2Model.VirtualPurchase" />
+          <EntitySet Name="AllCards" EntityType="CardGame_v2Model.Card" />
+          <EntitySet Name="AllCardPacks" EntityType="CardGame_v2Model.CardPack" />
+          <EntitySet Name="AllCardTypes" EntityType="CardGame_v2Model.CardType" />
+          <EntitySet Name="AllDecks" EntityType="CardGame_v2Model.Deck" />
+          <EntitySet Name="AllDeckCards" EntityType="CardGame_v2Model.DeckCard" />
+          <EntitySet Name="AllUsers" EntityType="CardGame_v2Model.User" />
+          <EntitySet Name="AllUserCardCollections" EntityType="CardGame_v2Model.UserCardCollection" />
+          <EntitySet Name="AllUserRoles" EntityType="CardGame_v2Model.UserRole" />
+          <EntitySet Name="AllVirtualPurchases" EntityType="CardGame_v2Model.VirtualPurchase" />
           <AssociationSet Name="FK_tblCard_tblCardType" Association="Self.FK_tblCard_tblCardType">
-            <End Role="tblCardType" EntitySet="tblCardType" />
-            <End Role="tblCard" EntitySet="tblCard" />
+            <End Role="tblCardType" EntitySet="AllCardTypes" />
+            <End Role="tblCard" EntitySet="AllCards" />
           </AssociationSet>
           <AssociationSet Name="FK_tblDeckCard_tblCard" Association="Self.FK_tblDeckCard_tblCard">
-            <End Role="tblCard" EntitySet="tblCard" />
-            <End Role="tblDeckCard" EntitySet="tblDeckCard" />
+            <End Role="tblCard" EntitySet="AllCards" />
+            <End Role="tblDeckCard" EntitySet="AllDeckCards" />
           </AssociationSet>
           <AssociationSet Name="FK_tblUserCardCollection_tblCard" Association="Self.FK_tblUserCardCollection_tblCard">
-            <End Role="tblCard" EntitySet="tblCard" />
-            <End Role="tblUserCardCollection" EntitySet="tblUserCardCollection" />
+            <End Role="tblCard" EntitySet="AllCards" />
+            <End Role="tblUserCardCollection" EntitySet="AllUserCardCollections" />
           </AssociationSet>
           <AssociationSet Name="FK_tblVirtualPurchase_tblCardPack" Association="Self.FK_tblVirtualPurchase_tblCardPack">
-            <End Role="tblCardPack" EntitySet="tblCardPack" />
-            <End Role="tblVirtualPurchase" EntitySet="tblVirtualPurchase" />
+            <End Role="tblCardPack" EntitySet="AllCardPacks" />
+            <End Role="tblVirtualPurchase" EntitySet="AllVirtualPurchases" />
           </AssociationSet>
           <AssociationSet Name="FK_tblDeck_tblUser" Association="Self.FK_tblDeck_tblUser">
-            <End Role="tblUser" EntitySet="tblUser" />
-            <End Role="tblDeck" EntitySet="tblDeck" />
+            <End Role="tblUser" EntitySet="AllUsers" />
+            <End Role="tblDeck" EntitySet="AllDecks" />
           </AssociationSet>
           <AssociationSet Name="FK_tblDeckCard_tblDeck" Association="Self.FK_tblDeckCard_tblDeck">
-            <End Role="tblDeck" EntitySet="tblDeck" />
-            <End Role="tblDeckCard" EntitySet="tblDeckCard" />
+            <End Role="tblDeck" EntitySet="AllDecks" />
+            <End Role="tblDeckCard" EntitySet="AllDeckCards" />
           </AssociationSet>
           <AssociationSet Name="FK_tblUser_tblUserRole" Association="Self.FK_tblUser_tblUserRole">
-            <End Role="tblUserRole" EntitySet="tblUserRole" />
-            <End Role="tblUser" EntitySet="tblUser" />
+            <End Role="tblUserRole" EntitySet="AllUserRoles" />
+            <End Role="tblUser" EntitySet="AllUsers" />
           </AssociationSet>
           <AssociationSet Name="FK_tblUserCardCollection_tblUser" Association="Self.FK_tblUserCardCollection_tblUser">
-            <End Role="tblUser" EntitySet="tblUser" />
-            <End Role="tblUserCardCollection" EntitySet="tblUserCardCollection" />
+            <End Role="tblUser" EntitySet="AllUsers" />
+            <End Role="tblUserCardCollection" EntitySet="AllUserCardCollections" />
           </AssociationSet>
           <AssociationSet Name="FK_tblVirtualPurchase_tblUser" Association="Self.FK_tblVirtualPurchase_tblUser">
-            <End Role="tblUser" EntitySet="tblUser" />
-            <End Role="tblVirtualPurchase" EntitySet="tblVirtualPurchase" />
+            <End Role="tblUser" EntitySet="AllUsers" />
+            <End Role="tblVirtualPurchase" EntitySet="AllVirtualPurchases" />
           </AssociationSet>
+          <EntitySet Name="AllDiamantenPacks" EntityType="CardGame_v2Model.DiamantenPack" />
         </EntityContainer>
+        <EntityType Name="DiamantenPack">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PackPrice" Type="Int32" Nullable="false" />
+          <Property Name="Diamanten" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="CardGame_v2ModelStoreContainer" CdmEntityContainer="CardGame_v2Entities">
-          <EntitySetMapping Name="tblCard">
+          <EntitySetMapping Name="AllCards">
             <EntityTypeMapping TypeName="CardGame_v2Model.Card">
               <MappingFragment StoreEntitySet="tblCard">
                 <ScalarProperty Name="ID" ColumnName="idCard" />
@@ -529,7 +546,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tblCardPack">
+          <EntitySetMapping Name="AllCardPacks">
             <EntityTypeMapping TypeName="CardGame_v2Model.CardPack">
               <MappingFragment StoreEntitySet="tblCardPack">
                 <ScalarProperty Name="ID" ColumnName="idCardPack" />
@@ -539,7 +556,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tblCardType">
+          <EntitySetMapping Name="AllCardTypes">
             <EntityTypeMapping TypeName="CardGame_v2Model.CardType">
               <MappingFragment StoreEntitySet="tblCardType">
                 <ScalarProperty Name="ID" ColumnName="idCardType" />
@@ -547,7 +564,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tblDeck">
+          <EntitySetMapping Name="AllDecks">
             <EntityTypeMapping TypeName="CardGame_v2Model.Deck">
               <MappingFragment StoreEntitySet="tblDeck">
                 <ScalarProperty Name="ID" ColumnName="idDeck" />
@@ -556,7 +573,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tblDeckCard">
+          <EntitySetMapping Name="AllDeckCards">
             <EntityTypeMapping TypeName="CardGame_v2Model.DeckCard">
               <MappingFragment StoreEntitySet="tblDeckCard">
                 <ScalarProperty Name="ID_Deck" ColumnName="fkDeck" />
@@ -565,7 +582,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tblUser">
+          <EntitySetMapping Name="AllUsers">
             <EntityTypeMapping TypeName="CardGame_v2Model.User">
               <MappingFragment StoreEntitySet="tblUser">
                 <ScalarProperty Name="ID" ColumnName="idUser" />
@@ -581,7 +598,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tblUserCardCollection">
+          <EntitySetMapping Name="AllUserCardCollections">
             <EntityTypeMapping TypeName="CardGame_v2Model.UserCardCollection">
               <MappingFragment StoreEntitySet="tblUserCardCollection">
                 <ScalarProperty Name="ID_User" ColumnName="fkUser" />
@@ -590,7 +607,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tblUserRole">
+          <EntitySetMapping Name="AllUserRoles">
             <EntityTypeMapping TypeName="CardGame_v2Model.UserRole">
               <MappingFragment StoreEntitySet="tblUserRole">
                 <ScalarProperty Name="ID" ColumnName="idUserrole" />
@@ -598,7 +615,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tblVirtualPurchase">
+          <EntitySetMapping Name="AllVirtualPurchases">
             <EntityTypeMapping TypeName="CardGame_v2Model.VirtualPurchase">
               <MappingFragment StoreEntitySet="tblVirtualPurchase">
                 <ScalarProperty Name="ID" ColumnName="idVirtualPurchase" />
@@ -606,6 +623,15 @@
                 <ScalarProperty Name="ID_CardPack" ColumnName="fkCardPack" />
                 <ScalarProperty Name="PurchaseDate" ColumnName="timeofpurchase" />
                 <ScalarProperty Name="NumberOfPacks" ColumnName="numpacks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllDiamantenPacks">
+            <EntityTypeMapping TypeName="CardGame_v2Model.DiamantenPack">
+              <MappingFragment StoreEntitySet="tblDiamantenPack">
+                <ScalarProperty Name="Diamanten" ColumnName="Diamanten" />
+                <ScalarProperty Name="PackPrice" ColumnName="packprice" />
+                <ScalarProperty Name="ID" ColumnName="idDiamantenPack" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
