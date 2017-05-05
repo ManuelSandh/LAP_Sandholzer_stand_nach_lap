@@ -92,30 +92,33 @@ namespace CardGame.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Register(Register regUser)
+        public ActionResult Register(Register model)
         {
             if (!ModelState.IsValid)
             {
-                return View(regUser);
+                return View(model);
             }
            
-            var dbUser = new DAL.Model.User();
+            /// das gehört NICHT hier hin
+            /// das gehört in die LOGIC hinein!!
+            /// 
+            //var dbUser = new DAL.Model.User();
 
-            dbUser.FirstName = regUser.Firstname;
-            dbUser.LastName = regUser.Lastname;
-            dbUser.GamerTag = regUser.Gamertag;
-            dbUser.Mail = regUser.Email;
-            dbUser.Password = regUser.Password;
-            dbUser.UserSalt = regUser.Salt;
-            dbUser.ID_UserRole = 2;
-            dbUser.AmountMoney = 100;
+            //dbUser.FirstName = model.Firstname;
+            //dbUser.LastName = model.Lastname;
+            //dbUser.GamerTag = model.Gamertag;
+            //dbUser.Mail = model.Email;
+            //dbUser.Password = model.Password;
+            //dbUser.UserSalt = model.Salt;
+            //dbUser.ID_UserRole = 2;
+            //dbUser.AmountMoney = 100;
           
-            bool isRegistered = AuthManager.Register(dbUser);
+            bool isRegistered = AuthManager.Register(model.Email, model.Password, model.Firstname, model.Lastname, model.Gamertag);
 
             //Authentifizierung
             if (!isRegistered)
             {
-                return View(regUser);
+                return View(model);
             }
             //auth(dbUser.Mail, dbUser.Password, dbUser.UserRole.Name);
 

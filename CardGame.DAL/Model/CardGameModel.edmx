@@ -67,8 +67,8 @@
           <Property Name="lastname" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="gamertag" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="userpassword" Type="char" MaxLength="128" Nullable="false" />
-          <Property Name="usersalt" Type="char" MaxLength="128" Nullable="false" />
+          <Property Name="userpassword" Type="varbinary(max)" Nullable="false" />
+          <Property Name="usersalt" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="fkUserRole" Type="int" />
           <Property Name="avatar" Type="varbinary(max)" />
           <Property Name="currency" Type="int" Nullable="false" />
@@ -322,8 +322,8 @@
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="GamerTag" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="128" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="UserSalt" Type="String" MaxLength="128" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="Binary" Nullable="false" />
+          <Property Name="UserSalt" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ID_UserRole" Type="Int32" />
           <Property Name="Avatar" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="AmountMoney" Type="Int32" Nullable="false" />

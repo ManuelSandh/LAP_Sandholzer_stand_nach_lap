@@ -46,17 +46,31 @@ namespace CardGame.Web.Controllers
 
         [HttpGet]
         [Authorize(Roles = "player")]
-        public ActionResult Buy(int? id)
+        public ActionResult Buy(int id)
         {
+            var dbCardPack = ShopManager.GetCardPackById(id);
 
-            return RedirectToAction("ShopIndex", "Shop");
+            CardPack cardPack = new CardPack();
+            cardPack.ID = dbCardPack.ID;
+            cardPack.PackName = dbCardPack.PackName;
+            cardPack.NumCards = dbCardPack.NumCards;
+            cardPack.PackPrice = dbCardPack.PackPrice;
+
+            return View(cardPack);
         }
 
         [HttpGet]
         [Authorize(Roles = "player")]
-        public ActionResult BuyDiamanten(int? id)
+        public ActionResult BuyDiamanten(int id)
         {
-            return RedirectToAction("ShopIndex", "Shop");
+            var dbDiamantenPack = ShopManager.GetDiamantenPackById(id);
+
+            DiamantenPack diamantenpack = new DiamantenPack();
+            diamantenpack.ID = dbDiamantenPack.ID;
+            diamantenpack.Diamanten = dbDiamantenPack.Diamanten;
+            diamantenpack.PackPrice = dbDiamantenPack.PackPrice;
+
+            return View(diamantenpack);
         }
     }
 }

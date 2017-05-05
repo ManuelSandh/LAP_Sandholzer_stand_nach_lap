@@ -27,7 +27,7 @@ namespace CardGame.DAL.Model
         public string LastName { get; set; }
         public string Mail { get; set; }
         public string GamerTag { get; set; }
-        public string Password { get; set; }
+        public byte[] Password { get; set; }
         public string UserSalt { get; set; }
         public Nullable<int> ID_UserRole { get; set; }
         public byte[] Avatar { get; set; }

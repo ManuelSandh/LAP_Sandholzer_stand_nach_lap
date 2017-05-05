@@ -19,8 +19,7 @@ namespace CardGame.Web.Controllers
 
             var dbUserlist = UserManager.GetAllUser();
 
-            //var asd = new tblrole();
-            
+            //var asd = new tblrole();            
 
             foreach (var c in dbUserlist)
             {
@@ -30,8 +29,6 @@ namespace CardGame.Web.Controllers
                 reguser.Lastname = c.LastName;
                 reguser.Email = c.Mail;
                 reguser.Role = c.UserRole.Name;
-                reguser.Password = c.Password;
-                reguser.Salt = c.UserSalt;
 
                 UserList.Add(reguser);
             }

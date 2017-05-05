@@ -10,13 +10,13 @@ namespace CardGame.DAL.Logic
 {
     public class AuthManager
     {
-        public static bool Register(User regUser)
+        public static bool Register(string mail, string password, string firstName, string lastName, string gamerTag)
         {
             try
             {
                 using (var db = new CardGame_v2Entities())
                 {
-                    if (db.AllUsers.Any(n => n.Mail == regUser.Mail))
+                    if (db.AllUsers.Any(n => n.Mail == mail))
                     {
                         throw new Exception("UserAlreadyExists");
                     }
@@ -24,18 +24,26 @@ namespace CardGame.DAL.Logic
                     string salt = Helper.GenerateSalt();
 
                     //Passwort Hashen
-                    string hashedAndSaltedPassword = Helper.GenerateHash(regUser.Password + salt);
+                    byte[] hashedAndSaltedPassword = Helper.GenerateHash(password + salt);
 
-                    regUser.Password = hashedAndSaltedPassword;
-                    regUser.UserSalt = salt;
+                    User newUser = new User()
+                    {
+                        Password = hashedAndSaltedPassword,
+                        UserSalt = salt,
+                        FirstName = firstName,
+                        LastName = lastName,
+                        GamerTag = gamerTag,
+                        AmountMoney = 100,
+                        ID_UserRole = 2
+                    };
 
-                    db.AllUsers.Add(regUser);
+                    db.AllUsers.Add(newUser);
                     db.SaveChanges();
                 }
             }
             catch (Exception e)
             {
-                Writer.LogError(e);            
+                Writer.LogError(e);
             }
 
             return true;
@@ -45,35 +53,13 @@ namespace CardGame.DAL.Logic
         {
             try
             {
-                string dbUserPassword = null;
-                string dbUserSalt = null;
-
                 using (var db = new CardGame_v2Entities())
                 {
-                    User dbUser = db.AllUsers.Where(u => u.Mail == email).FirstOrDefault();
-                    if (dbUser == null)
-                    {
+                    User user = db.AllUsers.FirstOrDefault(u => u.Mail == email);
+                    if (user == null)
                         throw new Exception("UserDoesNotExist");
-                    }
-
-                    dbUserPassword = dbUser.Password;
-                    dbUserSalt = dbUser.UserSalt;
-
-                    Log.Writer.LogInfo("Entered Pass = " + password);
-
-                    password = Helper.GenerateHash(password + dbUserSalt);
-
-                    Log.Writer.LogInfo("HashPass = " + password);
-
-                    if (dbUserPassword == password)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-
+                    
+                    return user.Password.SequenceEqual(Helper.GenerateHash(password + user.UserSalt));
                 }
             }
             catch (Exception e)

@@ -10,13 +10,12 @@ namespace CardGame.DAL.Logic
     public class Helper
     {
 
-        public static string GenerateHash(string s)
+        public static byte[] GenerateHash(string s)
         {
             var bytes = System.Text.Encoding.UTF8.GetBytes(s);
             using (SHA512 sha = new SHA512Managed())
             {
-                var hash = sha.ComputeHash(bytes);
-                return GetHexNotation(hash);
+                return sha.ComputeHash(bytes);
             }        
         }
 
