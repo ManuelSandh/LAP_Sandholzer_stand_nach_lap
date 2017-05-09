@@ -26,14 +26,16 @@
                 }
             </tr>
 
-            <br />
+            <br>
+
             <tr>
-                @foreach (var cp in @Model.cardPacks)
+                @for(int i = 0; i < Model.cardPacks.Count; i++)
                 {
                     <td>
-                        <img src="~/Content/Images/Diamant.png" />  @Html.DisplayFor(cardpack => cp.Price) <br />
-                        @Html.ActionLink("kaufen", "Buy", "Shop", new { id = cp.CardPackID }, new { @class = "btn btn-submit" })
-
+                        <img src="~/Content/Images/Diamant.png" /><br />                        
+                        <input type="hidden" name="IdPack" value="@Model.cardPacks.ToList()[i].CardPackID" />
+                        <input type="hidden" name="Packprice" value="@Model.cardPacks.ToList()[i].Price" />
+                        @Html.ActionLink("kaufen", "ShopIndex", "Shop", new { id = Model.cardPacks.ToList()[i].CardPackID } , new { @class = "btn btn-submit" })
                     </td>
                 }
             </tr>

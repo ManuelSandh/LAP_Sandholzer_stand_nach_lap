@@ -32,6 +32,7 @@ namespace CardGame.DAL.Logic
                         UserSalt = salt,
                         FirstName = firstName,
                         LastName = lastName,
+                        Mail = mail,
                         GamerTag = gamerTag,
                         AmountMoney = 100,
                         ID_UserRole = 2

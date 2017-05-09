@@ -92,53 +92,89 @@ namespace CardGame.DAL.Logic
         }
 
 
-        public static List<Card> generateCards(int id)
+        public static void ExecuteOrder(int idPerson, int idPack)
         {
-            //Generiere Random Karten
-            Random rdm = new Random();
-            var generatedCards = new List<Card>();
-
-            try
+            using (var db = new CardGame_v2Entities())
             {
-                using (var cont = new CardGame_v2Entities())
+                UserCardCollection coll = new UserCardCollection();
+                Random rnd = new Random();
+
+                int cardq = (from q in db.AllCardPacks
+                             where q.ID == idPack
+                             select q.NumCards).FirstOrDefault();
+
+                var updatePerson = (from u in db.AllUsers
+                                    where u.ID == idPack
+                                    select u);
+
+                var packValue = (from v in db.AllCardPacks
+                                 where v.ID == idPack
+                                 select v.PackPrice).FirstOrDefault();
+
+                foreach (var value in updatePerson)
                 {
-                    var cardPack = cont.AllCardPacks.Find(id);
+                    value.AmountMoney -= (packValue);
+                }
+                db.SaveChanges();
 
-                    if (cardPack == null)
+                for (int i = 0; i < cardq; i++)
+                {
+                    int rng = rnd.Next(1, 698);
+                    var card = (from c in db.AllCards
+                                where c.ID == rng
+                                select c).FirstOrDefault();
+
+                    if (card != null)
                     {
-                        throw new Exception("CardPackNotFound");
+                        coll.ID_User = idPerson;
+                        coll.ID_Card = card.ID;
+
+                        db.AllUserCardCollections.Add(coll);
+                        db.SaveChanges();
                     }
-                    int numOfCardsToGenerate = cardPack.NumCards;
-
-                    for (int i = 0; i < numOfCardsToGenerate; ++i)
+                    else
                     {
-                        //int rng = r.Next(1, 698);
-                        //var card = (from c in cont.AllCards
-                        //            where c.idcard == rng
-                        //            select c).FirstOrDefault();
-
-                        //if (card != null)
-                        //{
-                        //    col.fkperson = personID;
-                        //    col.fkorder = orderID;
-                        //    col.fkcard = card.idcard;
-
-                        //    db.tblcollection.Add(col);
-                        //    db.SaveChanges();
-                        //}
-                        //else
-                        //{
-                        //    i = i - 1;
-                        //}
+                        i = i - 1;
                     }
                 }
             }
-            catch (Exception e)
-            {
-                Writer.LogError(e);
-            }
-                
-            return generatedCards;
+            
+
+            //Generiere Random Karten
+            //Random rdm = new Random();
+            //var generatedCards = new List<Card>();
+
+            //try
+            //{
+            //    using (var cont = new CardGame_v2Entities())
+            //    {
+            //        var cardPack = cont.AllCardPacks.Find(id);
+
+            //        if (cardPack == null)
+            //        {
+            //            throw new Exception("CardPackNotFound");
+            //        }
+            //        int numOfCardsToGenerate = cardPack.NumCards;
+
+            //        for (int i = 0; i < numOfCardsToGenerate; ++i)
+            //        {
+            //            int rng = rdm.Next(1,680);
+            //            var card = (from c in cont.AllCards
+            //                        where c.ID == rng
+            //                        select c).FirstOrDefault();
+
+            //            if (card != null)
+            //            {
+            //                generatedCards.Add(generatedCards[i]);
+            //            }
+            //            else
+            //            {
+            //                i = i - 1;
+            //            }
+            //        }
+            //    }
+            //}
+           
         }
     }
 }

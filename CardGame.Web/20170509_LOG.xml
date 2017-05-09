@@ -1,0 +1,22 @@
+<Xcpt>
+  <Time>09.05.2017 14:03:25</Time>
+  <Exception>
+    <Source>EntityFramework</Source>
+    <Message>Fehler bei der Überprüfung einer oder mehrerer Entitäten. Weitere Informationen finden Sie in den Erläuterungen zur EntityValidationErrors-Eigenschaft.</Message>
+    <Stack>   bei System.Data.Entity.Internal.InternalContext.SaveChanges()
+   bei System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   bei System.Data.Entity.DbContext.SaveChanges()
+   bei CardGame.DAL.Logic.AuthManager.Register(String mail, String password, String firstName, String lastName, String gamerTag) in C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\Logic\AuthManager.cs:Zeile 41.</Stack>
+  </Exception>
+</Xcpt>
+<Xcpt>
+  <Time>09.05.2017 14:08:10</Time>
+  <Exception>
+    <Source>EntityFramework</Source>
+    <Message>Fehler bei der Überprüfung einer oder mehrerer Entitäten. Weitere Informationen finden Sie in den Erläuterungen zur EntityValidationErrors-Eigenschaft.</Message>
+    <Stack>   bei System.Data.Entity.Internal.InternalContext.SaveChanges()
+   bei System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   bei System.Data.Entity.DbContext.SaveChanges()
+   bei CardGame.DAL.Logic.AuthManager.Register(String mail, String password, String firstName, String lastName, String gamerTag) in C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\Logic\AuthManager.cs:Zeile 41.</Stack>
+  </Exception>
+</Xcpt>

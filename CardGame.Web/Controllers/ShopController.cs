@@ -44,20 +44,47 @@ namespace CardGame.Web.Controllers
             return View(shop);
         }
 
-        [HttpGet]
-        [Authorize(Roles = "player")]
-        public ActionResult Buy(int id)
+        [HttpPost]
+        [Authorize(Roles = "user,admin")]
+        public ActionResult ShopIndex(CardPack pack)
         {
-            var dbCardPack = ShopManager.GetCardPackById(id);
+            int currencyDifference = UserManager.GetUserByEmail(User.Identity.Name).AmountMoney - (int)pack.PackPrice;
 
-            CardPack cardPack = new CardPack();
-            cardPack.ID = dbCardPack.ID;
-            cardPack.PackName = dbCardPack.PackName;
-            cardPack.NumCards = dbCardPack.NumCards;
-            cardPack.PackPrice = dbCardPack.PackPrice;
+            if (currencyDifference >= 0)
+            {
+                int userID = UserManager.GetUserByEmail(User.Identity.Name).ID;
+                var pid = pack.ID;
+                ShopManager.ExecuteOrder(userID, pid);
 
-            return View(cardPack);
+                TempData["orderComplete"] = "purchase complete!";
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                TempData["orderAbort"] = "not enough currency!";
+                return RedirectToAction("Index");
+            }
+
         }
+
+
+
+
+
+        //[HttpGet]
+        //[Authorize(Roles = "player")]
+        //public ActionResult Buy(int id)
+        //{
+        //    var dbCardPack = ShopManager.GetCardPackById(id);
+
+        //    CardPack cardPack = new CardPack();
+        //    cardPack.ID = dbCardPack.ID;
+        //    cardPack.PackName = dbCardPack.PackName;
+        //    cardPack.NumCards = dbCardPack.NumCards;
+        //    cardPack.PackPrice = dbCardPack.PackPrice;
+
+        //    return View(cardPack);
+        //}
 
         [HttpGet]
         [Authorize(Roles = "player")]
