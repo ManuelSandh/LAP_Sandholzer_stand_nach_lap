@@ -12,6 +12,8 @@ namespace CardGame.Web.Controllers
 {
     public class ShopController : Controller
     {
+        #region My Code
+
         // GET: Shop       
         [HttpGet]
         [Authorize(Roles = "player")]
@@ -99,5 +101,35 @@ namespace CardGame.Web.Controllers
 
             return View(diamantenpack);
         }
+
+        #endregion
+
+        [HttpGet]
+
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        [Authorize]
+        public ActionResult Cards()
+        {
+
+            //gehe über Logic in db
+            // hole alle cardpacks raus
+            //umwandeln in viewmodel
+            //übergabe an View
+            return View();
+        }
+
+        [HttpGet]
+        [Authorize]
+        public ActionResult Pay()
+        {
+
+            return View();
+        }
+
     }
 }
