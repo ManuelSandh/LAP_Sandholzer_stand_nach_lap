@@ -115,9 +115,8 @@ namespace CardGame.Web.Controllers
         [Authorize]
         public ActionResult Cards()
         {
-
             //gehe über Logic in db
-            // hole alle cardpacks raus
+            //hole alle cardpacks raus
             //umwandeln in viewmodel
             //übergabe an View
             return View();
@@ -127,7 +126,6 @@ namespace CardGame.Web.Controllers
         [Authorize]
         public ActionResult Pay()
         {
-
             return View();
         }
 
