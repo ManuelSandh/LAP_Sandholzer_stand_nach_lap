@@ -97,21 +97,8 @@ namespace CardGame.Web.Controllers
             if (!ModelState.IsValid)
             {
                 return View(model);
-            }
+            }           
            
-            /// das gehört NICHT hier hin
-            /// das gehört in die LOGIC hinein!!
-            /// 
-            //var dbUser = new DAL.Model.User();
-
-            //dbUser.FirstName = model.Firstname;
-            //dbUser.LastName = model.Lastname;
-            //dbUser.GamerTag = model.Gamertag;
-            //dbUser.Mail = model.Email;
-            //dbUser.Password = model.Password;
-            //dbUser.UserSalt = model.Salt;
-            //dbUser.ID_UserRole = 2;
-            //dbUser.AmountMoney = 100;
           
             bool isRegistered = AuthManager.Register(model.Email, model.Password, model.Firstname, model.Lastname, model.Gamertag);
 

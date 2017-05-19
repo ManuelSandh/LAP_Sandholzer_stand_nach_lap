@@ -9,6 +9,12 @@ using System.Data.Entity;
 
 namespace CardGame.DAL.Logic
 {
+    public enum BuyResult
+    {
+        Success,
+        NotEnoughDiamonds
+    }
+
     public class ShopManager
     {
         public static List<CardPack> getAllCardPacks()
@@ -92,89 +98,53 @@ namespace CardGame.DAL.Logic
         }
 
 
-        public static void ExecuteOrder(int idPerson, int idPack)
+        public static BuyResult ExecuteOrder(int idPerson, int idPack)
         {
+            BuyResult result = BuyResult.Success;
+
             using (var db = new CardGame_v2Entities())
             {
-                UserCardCollection coll = new UserCardCollection();
-                Random rnd = new Random();
+                User user = db.AllUsers.FirstOrDefault(x => x.ID == idPerson);
+                CardPack pack = db.AllCardPacks.FirstOrDefault(x => x.ID == idPack);
 
-                int cardq = (from q in db.AllCardPacks
-                             where q.ID == idPack
-                             select q.NumCards).FirstOrDefault();
-
-                var updatePerson = (from u in db.AllUsers
-                                    where u.ID == idPack
-                                    select u);
-
-                var packValue = (from v in db.AllCardPacks
-                                 where v.ID == idPack
-                                 select v.PackPrice).FirstOrDefault();
-
-                foreach (var value in updatePerson)
+                if (user.AmountMoney < pack.PackPrice)
                 {
-                    value.AmountMoney -= (packValue);
+                    result = BuyResult.NotEnoughDiamonds;
+                    
                 }
-                db.SaveChanges();
-
-                for (int i = 0; i < cardq; i++)
+                else
                 {
-                    int rng = rnd.Next(1, 698);
-                    var card = (from c in db.AllCards
-                                where c.ID == rng
-                                select c).FirstOrDefault();
+                    user.AmountMoney -= pack.PackPrice;
 
-                    if (card != null)
-                    {
-                        coll.ID_User = idPerson;
-                        coll.ID_Card = card.ID;
+                    Random rnd = new Random();
+                    int numberOfAllCards = db.AllCards.Count();
 
-                        db.AllUserCardCollections.Add(coll);
-                        db.SaveChanges();
-                    }
-                    else
+                    for (int i = 0; i < pack.NumCards; i++)
                     {
-                        i = i - 1;
+                        int rng = rnd.Next(1, numberOfAllCards);
+                        var card = db.AllCards.OrderBy(x => x.ID).Skip(rng).Take(1).Single();
+
+                        UserCardCollection coll = user.AllUserCardCollections.Where(x=>x.ID_Card == card.ID).FirstOrDefault();
+                        //card 
+                        if (coll != null) /// user hat diese karte schon einmal
+                        {
+                            coll.NumberOfCards++;
+                        }
+                        else
+                        {
+                            coll = new UserCardCollection()
+                            {
+                                ID_User = user.ID,
+                                ID_Card = card.ID,
+                                NumberOfCards = 1
+                            };
+                            db.AllUserCardCollections.Add(coll);
+                        }
                     }
+                    db.SaveChanges();
                 }
             }
-            
-
-            //Generiere Random Karten
-            //Random rdm = new Random();
-            //var generatedCards = new List<Card>();
-
-            //try
-            //{
-            //    using (var cont = new CardGame_v2Entities())
-            //    {
-            //        var cardPack = cont.AllCardPacks.Find(id);
-
-            //        if (cardPack == null)
-            //        {
-            //            throw new Exception("CardPackNotFound");
-            //        }
-            //        int numOfCardsToGenerate = cardPack.NumCards;
-
-            //        for (int i = 0; i < numOfCardsToGenerate; ++i)
-            //        {
-            //            int rng = rdm.Next(1,680);
-            //            var card = (from c in cont.AllCards
-            //                        where c.ID == rng
-            //                        select c).FirstOrDefault();
-
-            //            if (card != null)
-            //            {
-            //                generatedCards.Add(generatedCards[i]);
-            //            }
-            //            else
-            //            {
-            //                i = i - 1;
-            //            }
-            //        }
-            //    }
-            //}
-           
+            return result;
         }
     }
 }

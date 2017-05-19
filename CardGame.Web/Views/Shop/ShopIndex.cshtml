@@ -6,6 +6,7 @@
 <div class="ShopBackGround">
     <div class="ShopIndex">
         <h3>Willkommen im Shop</h3>
+
         <table class="ShopTable">
             <tr>
                 @foreach (var cp in @Model.cardPacks)
@@ -26,20 +27,24 @@
                 }
             </tr>
 
-            <br>
-
+            <br />
+            @using (Html.BeginForm())
+            {
             <tr>
+  
                 @for(int i = 0; i < Model.cardPacks.Count; i++)
                 {
                     <td>
-                        <img src="~/Content/Images/Diamant.png" /><br />                        
-                        <input type="hidden" name="IdPack" value="@Model.cardPacks.ToList()[i].CardPackID" />
+                        <img src="~/Content/Images/Diamant.png" />@Model.cardPacks.ToList()[i].Price<br />                        
+                        <input type="hidden" name="idCardPack" value="@Model.cardPacks.ToList()[i].CardPackID" />
                         <input type="hidden" name="Packprice" value="@Model.cardPacks.ToList()[i].Price" />
-                        @Html.ActionLink("kaufen", "ShopIndex", "Shop", new { id = Model.cardPacks.ToList()[i].CardPackID } , new { @class = "btn btn-submit" })
+                        @*@Html.ActionLink("kaufen", "ShopIndex", "Shop", new { id = Model.cardPacks.ToList()[i].CardPackID } , new { @class = "btn btn-submit" })*@
+                        <input type="submit" value="Kaufentest" class="btn btn-submit" />
                     </td>
                 }
             </tr>
-            <tr>
+            }
+            @*<tr>
                 @foreach (var cp in Model.diamantPacks)
                 {
                     <td>
@@ -56,7 +61,8 @@
                         @Html.ActionLink("kaufen", "BuyDiamanten", "Shop", new { id = cp.DiamantenPackId }, new { @class = "btn btn-submit" })
                     </td>
                 }
-            </tr>
+            </tr>*@
+        
         </table>
     </div>
 </div>

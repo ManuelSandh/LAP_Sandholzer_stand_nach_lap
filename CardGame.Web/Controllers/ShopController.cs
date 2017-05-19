@@ -12,9 +12,10 @@ namespace CardGame.Web.Controllers
 {
     public class ShopController : Controller
     {
-        #region My Code
+        #region myCode
 
-        // GET: Shop       
+
+        //GET: Shop
         [HttpGet]
         [Authorize(Roles = "player")]
         public ActionResult ShopIndex()
@@ -47,46 +48,36 @@ namespace CardGame.Web.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "user,admin")]
-        public ActionResult ShopIndex(CardPack pack)
+        [Authorize(Roles = "player,admin")]
+        public ActionResult ShopIndex(int idCardPack)
         {
-            int currencyDifference = UserManager.GetUserByEmail(User.Identity.Name).AmountMoney - (int)pack.PackPrice;
 
-            if (currencyDifference >= 0)
-            {
-                int userID = UserManager.GetUserByEmail(User.Identity.Name).ID;
-                var pid = pack.ID;
-                ShopManager.ExecuteOrder(userID, pid);
+            int userID = UserManager.GetUserByEmail(User.Identity.Name).ID;
+            ShopManager.ExecuteOrder(userID, idCardPack);
 
-                TempData["orderComplete"] = "purchase complete!";
-                return RedirectToAction("Index");
-            }
+            if (UserManager.GetUserByEmail(User.Identity.Name).AmountMoney > ShopManager.GetCardPackById(idCardPack).PackPrice)    
+                TempData["ConfirmMessage"] = "Kauf erfolgreich ";
             else
-            {
-                TempData["orderAbort"] = "not enough currency!";
-                return RedirectToAction("Index");
-            }
+                TempData["ErrorMessage"] = "Nicht genug Diamanten";
+
+            return RedirectToAction("ShopIndex");
 
         }
 
+        [HttpGet]
+        [Authorize(Roles = "player")]
+        public ActionResult Buy(int idCardPack)
+        {
+            var dbCardPack = ShopManager.GetCardPackById(idCardPack);
 
+            CardPack cardPack = new CardPack();
+            cardPack.ID = dbCardPack.ID;
+            cardPack.PackName = dbCardPack.PackName;
+            cardPack.NumCards = dbCardPack.NumCards;
+            cardPack.PackPrice = dbCardPack.PackPrice;
 
-
-
-        //[HttpGet]
-        //[Authorize(Roles = "player")]
-        //public ActionResult Buy(int id)
-        //{
-        //    var dbCardPack = ShopManager.GetCardPackById(id);
-
-        //    CardPack cardPack = new CardPack();
-        //    cardPack.ID = dbCardPack.ID;
-        //    cardPack.PackName = dbCardPack.PackName;
-        //    cardPack.NumCards = dbCardPack.NumCards;
-        //    cardPack.PackPrice = dbCardPack.PackPrice;
-
-        //    return View(cardPack);
-        //}
+            return View(cardPack);
+        }
 
         [HttpGet]
         [Authorize(Roles = "player")]
@@ -103,31 +94,5 @@ namespace CardGame.Web.Controllers
         }
 
         #endregion
-
-        [HttpGet]
-
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        [HttpGet]
-        [Authorize]
-        public ActionResult Cards()
-        {
-            //gehe über Logic in db
-            //hole alle cardpacks raus
-            //umwandeln in viewmodel
-            //übergabe an View
-            return View();
-        }
-
-        [HttpGet]
-        [Authorize]
-        public ActionResult Pay()
-        {
-            return View();
-        }
-
     }
 }
