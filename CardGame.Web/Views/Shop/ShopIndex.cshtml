@@ -28,12 +28,13 @@
             </tr>
 
             <br />
-            @using (Html.BeginForm())
-            {
+           
             <tr>
   
-                @for(int i = 0; i < Model.cardPacks.Count; i++)
+                @for (int i = 0; i < Model.cardPacks.Count; i++)
                 {
+                    using (Html.BeginForm())
+                    {
                     <td>
                         <img src="~/Content/Images/Diamant.png" />@Model.cardPacks.ToList()[i].Price<br />                        
                         <input type="hidden" name="idCardPack" value="@Model.cardPacks.ToList()[i].CardPackID" />
@@ -41,9 +42,10 @@
                         @*@Html.ActionLink("kaufen", "ShopIndex", "Shop", new { id = Model.cardPacks.ToList()[i].CardPackID } , new { @class = "btn btn-submit" })*@
                         <input type="submit" value="Kaufentest" class="btn btn-submit" />
                     </td>
+                    }
                 }
             </tr>
-            }
+            
             @*<tr>
                 @foreach (var cp in Model.diamantPacks)
                 {
