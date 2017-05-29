@@ -1,0 +1,8 @@
+<Xcpt>
+  <Time>29.05.2017 15:49:08</Time>
+  <Exception>
+    <Source>CardGame.DAL</Source>
+    <Message>UserAlreadyExists</Message>
+    <Stack>   bei CardGame.DAL.Logic.AuthManager.Register(String mail, String password, String firstName, String lastName, String gamerTag, String street, Int32 streetnumber, String PLZ, String city) in C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\Logic\AuthManager.cs:Zeile 21.</Stack>
+  </Exception>
+</Xcpt>

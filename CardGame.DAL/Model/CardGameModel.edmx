@@ -72,6 +72,10 @@
           <Property Name="fkUserRole" Type="int" />
           <Property Name="avatar" Type="varbinary(max)" />
           <Property Name="currency" Type="int" Nullable="false" />
+          <Property Name="Street" Type="varchar" MaxLength="50" />
+          <Property Name="Streetnumber" Type="int" />
+          <Property Name="Post_Code" Type="varchar" MaxLength="15" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="tblUserCardCollection">
           <Key>
@@ -322,7 +326,7 @@
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="GamerTag" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Password" Type="Binary" Nullable="false" />
+          <Property Name="Password" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
           <Property Name="UserSalt" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ID_UserRole" Type="Int32" />
           <Property Name="Avatar" Type="Binary" MaxLength="Max" FixedLength="false" />
@@ -331,6 +335,10 @@
           <NavigationProperty Name="UserRole" Relationship="Self.FK_tblUser_tblUserRole" FromRole="tblUser" ToRole="tblUserRole" />
           <NavigationProperty Name="AllUserCardCollections" Relationship="Self.FK_tblUserCardCollection_tblUser" FromRole="tblUser" ToRole="tblUserCardCollection" />
           <NavigationProperty Name="AllVirtualPurchase" Relationship="Self.FK_tblVirtualPurchase_tblUser" FromRole="tblUser" ToRole="tblVirtualPurchase" />
+          <Property Name="Street" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Streetnumber" Type="Int32" />
+          <Property Name="Post_Code" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="UserCardCollection">
           <Key>
@@ -585,6 +593,10 @@
           <EntitySetMapping Name="AllUsers">
             <EntityTypeMapping TypeName="CardGame_v2Model.User">
               <MappingFragment StoreEntitySet="tblUser">
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Post_Code" ColumnName="Post_Code" />
+                <ScalarProperty Name="Streetnumber" ColumnName="Streetnumber" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
                 <ScalarProperty Name="ID" ColumnName="idUser" />
                 <ScalarProperty Name="FirstName" ColumnName="firstname" />
                 <ScalarProperty Name="LastName" ColumnName="lastname" />

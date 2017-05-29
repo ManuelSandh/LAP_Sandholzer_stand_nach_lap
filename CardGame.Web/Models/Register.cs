@@ -20,5 +20,17 @@ namespace CardGame.Web.Models
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "Die Passwörter stimmen nicht überein!")]
         public string confirmPassword { get; set; }
+
+        [Required(ErrorMessage ="Bitte geben Sie Ihr Strasse an")]
+        public string Street { get; set; }
+
+        [Required(ErrorMessage = "Bitte geben Sie Ihre Hausnummer an")]
+        public int Streetnumber { get; set; }
+
+        [Required(ErrorMessage = "Bitte geben Sie Ihre PLZ an")]
+        public string PLZ { get; set; }
+
+        [Required(ErrorMessage = "Bitte geben Sie Ihre Stadt an")]
+        public string City { get; set; }
     }
 }

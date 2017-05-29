@@ -21,8 +21,33 @@ namespace CardGame.DAL.Logic
                 ReturnList = db.AllUsers.ToList();
             }
             return ReturnList;
-        }        
+        }
 
+        public static User GetUserById(int id)
+        {
+            User dbUser = null;
+            try
+            {           
+          
+            using (var db = new CardGame_v2Entities())
+            {
+                dbUser = db.AllUsers.Where(u => u.ID == id).FirstOrDefault();
+                if (dbUser == null)
+                {
+                    throw new Exception("UserDoesNotExists");
+                }
+            }
+        
+            }
+            catch (Exception e)
+            {
+
+                Log.Writer.LogError(e);
+            }
+
+            return dbUser;
+
+} 
         public static User GetUserByEmail(string email)
         {
             User dbUser = null;

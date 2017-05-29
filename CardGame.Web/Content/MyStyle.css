@@ -58,7 +58,8 @@ body {
 }
 
 #LoginForm,
-#RegisterForm {
+#RegisterForm
+{
     width: 290px;
     font-size: 16px !important;
     text-align: center;
@@ -72,6 +73,30 @@ body {
     opacity: 0.8;
     border: solid #2A292B;
 }
+.editaccountbackground {
+    margin-top: 80px;
+    text-align: center;
+    height: 640px;
+    width: 1000px; 
+    background-image: url(../Content/Images/Dark-Background.jpg);
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    border: solid;
+}
+
+.editaccountHeader{
+    margin-top: 20px;
+    /*color: #6B90DB;*/
+    color: #FEE9E4;
+    text-align: center;
+}
+
+.editaccountbody{
+    text-align: center;
+    font-size: 20px;
+    color: #6B90DB;
+}
+
 
 .valimassage {
     margin-top: 5px;
@@ -112,7 +137,6 @@ body {
 
 .AGBHeader {
     margin-top: 20px;
-    /*color: #6B90DB;*/
     color: #FEE9E4;
     text-align: center;
 }
@@ -176,8 +200,7 @@ body {
 .ShopIndex {
     color: white;
     text-align: center;
-    font-size:20px;
-    
+    font-size:20px;    
 }
 
 .ShopTable {

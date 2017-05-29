@@ -67,6 +67,10 @@
     <Property Name="fkUserRole" Type="int" />
     <Property Name="avatar" Type="varbinary(max)" />
     <Property Name="currency" Type="int" Nullable="false" />
+    <Property Name="Street" Type="varchar" MaxLength="50" />
+    <Property Name="Streetnumber" Type="int" />
+    <Property Name="Post_Code" Type="varchar" MaxLength="15" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="tblUserCardCollection">
     <Key>
