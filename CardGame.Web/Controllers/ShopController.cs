@@ -53,10 +53,12 @@ namespace CardGame.Web.Controllers
         {
 
             int userID = UserManager.GetUserByEmail(User.Identity.Name).ID;
-            ShopManager.ExecuteOrder(userID, idCardPack);
 
-            if (UserManager.GetUserByEmail(User.Identity.Name).AmountMoney > ShopManager.GetCardPackById(idCardPack).PackPrice)    
+            if (UserManager.GetUserByEmail(User.Identity.Name).AmountMoney > ShopManager.GetCardPackById(idCardPack).PackPrice)
+            {                
+                ShopManager.ExecuteOrder(userID, idCardPack);
                 TempData["ConfirmMessage"] = "Kauf erfolgreich ";
+            }
             else
                 TempData["ErrorMessage"] = "Nicht genug Diamanten";
 

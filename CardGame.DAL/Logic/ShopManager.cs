@@ -104,34 +104,50 @@ namespace CardGame.DAL.Logic
 
             using (var db = new CardGame_v2Entities())
             {
+                /// ermittle User und Pack für übergebene IDs
                 User user = db.AllUsers.FirstOrDefault(x => x.ID == idPerson);
                 CardPack pack = db.AllCardPacks.FirstOrDefault(x => x.ID == idPack);
 
+                // prüfe auf ungültige Datenk
+                if (user == null)
+                    throw new ArgumentException("Ungültige idPerson");
+                if (pack == null)
+                    throw new ArgumentException("Ungültige idPack");
+
+                /// prüfe ob user genügend IngameGeld hat!
                 if (user.AmountMoney < pack.PackPrice)
                 {
                     result = BuyResult.NotEnoughDiamonds;
-                    
                 }
                 else
                 {
+                    /// ziehe Preis vom pack beim User ab!
                     user.AmountMoney -= pack.PackPrice;
 
+                    /// Ermittle die Karten die der User (im Pack) jetzt gekauft hat!
                     Random rnd = new Random();
                     int numberOfAllCards = db.AllCards.Count();
 
                     for (int i = 0; i < pack.NumCards; i++)
                     {
-                        int rng = rnd.Next(1, numberOfAllCards);
-                        var card = db.AllCards.OrderBy(x => x.ID).Skip(rng).Take(1).Single();
+                        /// ermittle einen zufälligen Index einer möglichen Karte
+                        int rng = rnd.Next(0, numberOfAllCards);
 
-                        UserCardCollection coll = user.AllUserCardCollections.Where(x=>x.ID_Card == card.ID).FirstOrDefault();
+                        /// überspringe alle karten VOR diesem Index (daher auch: rng-1)
+                        /// und nimm danach die nächste Karte
+                        var card = db.AllCards.OrderBy(x => x.ID).Skip(rng-1).Take(1).Single();
+
+                        /// ermittle nun ob der User DIESE Karte schon einmal hat
+                        UserCardCollection coll = user.AllUserCardCollections.Where(x => x.ID_Card == card.ID).FirstOrDefault();
+                        
                         //card 
                         if (coll != null) /// user hat diese karte schon einmal
                         {
                             coll.NumberOfCards++;
                         }
-                        else
+                        else /// user hat Karte noch nicht
                         {
+                            /// also füge sie genau 1x hinzu
                             coll = new UserCardCollection()
                             {
                                 ID_User = user.ID,
@@ -141,6 +157,7 @@ namespace CardGame.DAL.Logic
                             db.AllUserCardCollections.Add(coll);
                         }
                     }
+
                     db.SaveChanges();
                 }
             }
