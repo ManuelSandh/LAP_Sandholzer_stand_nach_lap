@@ -45,22 +45,23 @@ namespace CardGame.Web.Controllers
 
         public ActionResult EditAccount()
         {
-            Web.Models.User user = new Web.Models.User();
+            Register user = new Register();
+            user.Firstname = "BLA";
             return View(user);
         }
 
         [HttpPost]
-        public ActionResult EditAccount(DAL.Model.User user)
+        public ActionResult EditAccount(Register user)
         {
             var reguser = UserManager.GetUserByEmail(User.Identity.Name);
             reguser.ID = user.ID;
-            reguser.FirstName = user.FirstName;
-            reguser.LastName = user.LastName;
-            reguser.Mail = user.Mail;
-            reguser.GamerTag = user.GamerTag;
+            reguser.FirstName = user.Firstname;
+            reguser.LastName = user.Lastname;
+            reguser.Mail = user.Email;
+            reguser.GamerTag = user.Gamertag;
             reguser.Street = user.Street;
             reguser.Streetnumber = (int)user.Streetnumber;
-            reguser.Post_Code = user.Post_Code;
+            reguser.Post_Code = user.PLZ;
             reguser.City = user.City;
 
             using (var db = new CardGame_v2Entities())
