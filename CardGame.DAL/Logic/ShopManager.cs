@@ -97,7 +97,6 @@ namespace CardGame.DAL.Logic
             return dbDiamantenPack;
         }
 
-
         public static BuyResult ExecuteOrder(int idPerson, int idPack)
         {
             BuyResult result = BuyResult.Success;
@@ -108,7 +107,7 @@ namespace CardGame.DAL.Logic
                 User user = db.AllUsers.FirstOrDefault(x => x.ID == idPerson);
                 CardPack pack = db.AllCardPacks.FirstOrDefault(x => x.ID == idPack);
 
-                // prüfe auf ungültige Datenk
+                // prüfe auf ungültige Daten
                 if (user == null)
                     throw new ArgumentException("Ungültige idPerson");
                 if (pack == null)

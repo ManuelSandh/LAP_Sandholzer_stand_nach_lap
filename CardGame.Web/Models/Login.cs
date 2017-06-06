@@ -9,6 +9,7 @@ namespace CardGame.Web.Models
     public class Login : User
     {
         [Required(ErrorMessage = "Bitte geben Sie Ihre Email Adresse ein")]
+        [MaxLength(50)]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 

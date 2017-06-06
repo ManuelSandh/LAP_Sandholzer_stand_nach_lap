@@ -35,7 +35,5 @@ namespace CardGame.DAL.Model
         public virtual DbSet<UserRole> AllUserRoles { get; set; }
         public virtual DbSet<VirtualPurchase> AllVirtualPurchases { get; set; }
         public virtual DbSet<DiamantenPack> AllDiamantenPacks { get; set; }
-
-        //public System.Data.Entity.DbSet<CardGame.Web.Models.Register> Registers { get; set; }
     }
 }
