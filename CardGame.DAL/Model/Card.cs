@@ -17,8 +17,8 @@ namespace CardGame.DAL.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Card()
         {
-            this.DeckCard = new HashSet<DeckCard>();
-            this.UserCardCollection = new HashSet<UserCardCollection>();
+            this.AllDeckCards = new HashSet<DeckCard>();
+            this.AllUserCardCollections = new HashSet<UserCardCollection>();
         }
     
         public int ID { get; set; }
@@ -31,8 +31,8 @@ namespace CardGame.DAL.Model
     
         public virtual CardType CardType { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DeckCard> DeckCard { get; set; }
+        public virtual ICollection<DeckCard> AllDeckCards { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserCardCollection> UserCardCollection { get; set; }
+        public virtual ICollection<UserCardCollection> AllUserCardCollections { get; set; }
     }
 }

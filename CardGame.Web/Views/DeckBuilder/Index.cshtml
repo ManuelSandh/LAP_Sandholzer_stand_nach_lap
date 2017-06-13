@@ -1,0 +1,33 @@
+﻿@model List<CardGame.Web.Models.DeckModel>
+
+@{
+    ViewBag.Title = "Deck Übersicht";
+}
+<div class="ShopBackGround">
+    <div class="ShopIndex">
+        <h3>Willkommen im Deckbuilder</h3>
+
+        <table class="ShopTable">
+            <tr>
+                @foreach (var cp in Model)
+            {
+                    <td>
+                        <img class="CardPacks" src="~/Content/Images/Card Pack.png" /> <br />
+                        @Html.DisplayFor(deck => cp.Name)
+                    </td>
+                }
+            </tr>
+
+            <tr>
+
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <td>
+                        @Html.ActionLink("Bearbeiten", "Show", "DeckBuilder", new { id = Model[i].ID }, new { @class = "btn btn-submit" })
+                    </td>
+                }
+            </tr>
+
+        </table>
+    </div>
+</div>

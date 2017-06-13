@@ -187,6 +187,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CardController.cs" />
+    <Compile Include="Controllers\DeckBuilderController.cs" />
     <Compile Include="Controllers\DeckController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
@@ -196,6 +197,9 @@
     </Compile>
     <Compile Include="Models\Card.cs" />
     <Compile Include="Models\CardPackModel.cs" />
+    <Compile Include="Models\DeckDetailModel.cs" />
+    <Compile Include="Models\DeckModel.cs" />
+    <Compile Include="Models\DeckOverViewModel.cs" />
     <Compile Include="Models\DiamantenModel.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Order.cs" />
@@ -214,6 +218,7 @@
     <Content Include="Content\Images\Card Pack.png" />
     <Content Include="Content\Images\CS_Logo.png" />
     <Content Include="Content\Images\Dark-Background.jpg" />
+    <Content Include="Content\Images\deck.png" />
     <Content Include="Content\Images\Diamant Beutel für Shop.png" />
     <Content Include="Content\Images\Diamant.png" />
     <Content Include="Content\Images\foo2.png" />
@@ -232,7 +237,6 @@
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
     <Content Include="fonts\Mermaid1001.ttf" />
-    <Content Include="ClassDiagram1.cd" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -269,6 +273,8 @@
     <Content Include="Views\Shop\ShopIndex.cshtml" />
     <Content Include="Views\User\EditAccount.cshtml" />
     <Content Include="Views\Deck\DeckBuilder.cshtml" />
+    <Content Include="Views\DeckBuilder\Index.cshtml" />
+    <Content Include="Views\DeckBuilder\Show.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -278,7 +284,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
-    <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>

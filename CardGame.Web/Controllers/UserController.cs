@@ -18,10 +18,7 @@ namespace CardGame.Web.Controllers
         public ActionResult Index()
         {
             List<Register> UserList = new List<Register>();
-
             var dbUserlist = UserManager.GetAllUser();
-
-            //var asd = new tblrole();            
 
             foreach (var c in dbUserlist)
             {
@@ -36,7 +33,6 @@ namespace CardGame.Web.Controllers
                 reguser.Streetnumber = (int)c.Streetnumber;
                 reguser.PLZ = c.Post_Code;
                 reguser.City = c.City;
-
 
                 UserList.Add(reguser);
             }
@@ -72,7 +68,6 @@ namespace CardGame.Web.Controllers
                 return View(reguser);
             }
         }
-
     }
 }
 

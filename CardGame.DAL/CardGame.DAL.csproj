@@ -54,6 +54,7 @@
     <Compile Include="Logic\AuthManager.cs" />
     <Compile Include="Logic\CardManager.cs" />
     <Compile Include="Logic\DBInfoManager.cs" />
+    <Compile Include="Logic\DeckBuilderManager.cs" />
     <Compile Include="Logic\Helper.cs" />
     <Compile Include="Logic\ShopManager.cs" />
     <Compile Include="Logic\UserManager.cs" />

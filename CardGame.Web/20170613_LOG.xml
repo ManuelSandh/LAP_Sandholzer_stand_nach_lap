@@ -15,3 +15,88 @@
    bei CardGame.DAL.Logic.ShopManager.getAllDiamantenPacks() in C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\Logic\ShopManager.cs:Zeile 48.</Stack>
   </Exception>
 </Xcpt>
+<Xcpt>
+  <Time>13.06.2017 13:16:58</Time>
+  <Exception>
+    <Source>EntityFramework</Source>
+    <Message>Die Eigenschaft 'PackPrice' bei 'DiamantenPack' konnte nicht auf einen 'System.Decimal'-Wert festgelegt werden. Sie müssen diese Eigenschaft auf einen Nicht-NULL-Wert des Typs 'System.Int32' festlegen. </Message>
+    <Stack>   bei System.Data.Entity.Core.Common.Internal.Materialization.Shaper.ErrorHandlingValueReader`1.GetValue(DbDataReader reader, Int32 ordinal)
+   bei lambda_method(Closure , Shaper )
+   bei System.Data.Entity.Core.Common.Internal.Materialization.Shaper.HandleEntityAppendOnly[TEntity](Func`2 constructEntityDelegate, EntityKey entityKey, EntitySet entitySet)
+   bei lambda_method(Closure , Shaper )
+   bei System.Data.Entity.Core.Common.Internal.Materialization.Coordinator`1.ReadNextElement(Shaper shaper)
+   bei System.Data.Entity.Core.Common.Internal.Materialization.Shaper`1.SimpleEnumerator.MoveNext()
+   bei System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   bei System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   bei System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   bei CardGame.DAL.Logic.ShopManager.getAllDiamantenPacks() in C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\Logic\ShopManager.cs:Zeile 48.</Stack>
+  </Exception>
+</Xcpt>
+<Xcpt>
+  <Time>13.06.2017 13:17:06</Time>
+  <Exception>
+    <Source>EntityFramework</Source>
+    <Message>Die Eigenschaft 'PackPrice' bei 'DiamantenPack' konnte nicht auf einen 'System.Decimal'-Wert festgelegt werden. Sie müssen diese Eigenschaft auf einen Nicht-NULL-Wert des Typs 'System.Int32' festlegen. </Message>
+    <Stack>   bei System.Data.Entity.Core.Common.Internal.Materialization.Shaper.ErrorHandlingValueReader`1.GetValue(DbDataReader reader, Int32 ordinal)
+   bei lambda_method(Closure , Shaper )
+   bei System.Data.Entity.Core.Common.Internal.Materialization.Shaper.HandleEntityAppendOnly[TEntity](Func`2 constructEntityDelegate, EntityKey entityKey, EntitySet entitySet)
+   bei lambda_method(Closure , Shaper )
+   bei System.Data.Entity.Core.Common.Internal.Materialization.Coordinator`1.ReadNextElement(Shaper shaper)
+   bei System.Data.Entity.Core.Common.Internal.Materialization.Shaper`1.SimpleEnumerator.MoveNext()
+   bei System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   bei System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   bei System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   bei CardGame.DAL.Logic.ShopManager.getAllDiamantenPacks() in C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\Logic\ShopManager.cs:Zeile 48.</Stack>
+  </Exception>
+</Xcpt>
+<Xcpt>
+  <Time>13.06.2017 13:33:45</Time>
+  <Exception>
+    <Source>EntityFramework</Source>
+    <Message>Die Eigenschaft 'PackPrice' bei 'DiamantenPack' konnte nicht auf einen 'System.Decimal'-Wert festgelegt werden. Sie müssen diese Eigenschaft auf einen Nicht-NULL-Wert des Typs 'System.Int32' festlegen. </Message>
+    <Stack>   bei System.Data.Entity.Core.Common.Internal.Materialization.Shaper.ErrorHandlingValueReader`1.GetValue(DbDataReader reader, Int32 ordinal)
+   bei lambda_method(Closure , Shaper )
+   bei System.Data.Entity.Core.Common.Internal.Materialization.Shaper.HandleEntityAppendOnly[TEntity](Func`2 constructEntityDelegate, EntityKey entityKey, EntitySet entitySet)
+   bei lambda_method(Closure , Shaper )
+   bei System.Data.Entity.Core.Common.Internal.Materialization.Coordinator`1.ReadNextElement(Shaper shaper)
+   bei System.Data.Entity.Core.Common.Internal.Materialization.Shaper`1.SimpleEnumerator.MoveNext()
+   bei System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   bei System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   bei System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   bei CardGame.DAL.Logic.ShopManager.getAllDiamantenPacks() in C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\Logic\ShopManager.cs:Zeile 48.</Stack>
+  </Exception>
+</Xcpt>
+<Xcpt>
+  <Time>13.06.2017 13:34:16</Time>
+  <Exception>
+    <Source>EntityFramework</Source>
+    <Message>Die Eigenschaft 'PackPrice' bei 'DiamantenPack' konnte nicht auf einen 'System.Decimal'-Wert festgelegt werden. Sie müssen diese Eigenschaft auf einen Nicht-NULL-Wert des Typs 'System.Int32' festlegen. </Message>
+    <Stack>   bei System.Data.Entity.Core.Common.Internal.Materialization.Shaper.ErrorHandlingValueReader`1.GetValue(DbDataReader reader, Int32 ordinal)
+   bei lambda_method(Closure , Shaper )
+   bei System.Data.Entity.Core.Common.Internal.Materialization.Shaper.HandleEntityAppendOnly[TEntity](Func`2 constructEntityDelegate, EntityKey entityKey, EntitySet entitySet)
+   bei lambda_method(Closure , Shaper )
+   bei System.Data.Entity.Core.Common.Internal.Materialization.Coordinator`1.ReadNextElement(Shaper shaper)
+   bei System.Data.Entity.Core.Common.Internal.Materialization.Shaper`1.SimpleEnumerator.MoveNext()
+   bei System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   bei System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   bei System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   bei CardGame.DAL.Logic.ShopManager.getAllDiamantenPacks() in C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\Logic\ShopManager.cs:Zeile 48.</Stack>
+  </Exception>
+</Xcpt>
+<Xcpt>
+  <Time>13.06.2017 15:18:46</Time>
+  <Exception>
+    <Source>EntityFramework</Source>
+    <Message>Die Eigenschaft 'PackPrice' bei 'DiamantenPack' konnte nicht auf einen 'System.Decimal'-Wert festgelegt werden. Sie müssen diese Eigenschaft auf einen Nicht-NULL-Wert des Typs 'System.Int32' festlegen. </Message>
+    <Stack>   bei System.Data.Entity.Core.Common.Internal.Materialization.Shaper.ErrorHandlingValueReader`1.GetValue(DbDataReader reader, Int32 ordinal)
+   bei lambda_method(Closure , Shaper )
+   bei System.Data.Entity.Core.Common.Internal.Materialization.Shaper.HandleEntityAppendOnly[TEntity](Func`2 constructEntityDelegate, EntityKey entityKey, EntitySet entitySet)
+   bei lambda_method(Closure , Shaper )
+   bei System.Data.Entity.Core.Common.Internal.Materialization.Coordinator`1.ReadNextElement(Shaper shaper)
+   bei System.Data.Entity.Core.Common.Internal.Materialization.Shaper`1.SimpleEnumerator.MoveNext()
+   bei System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   bei System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   bei System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   bei CardGame.DAL.Logic.ShopManager.getAllDiamantenPacks() in C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.DAL\Logic\ShopManager.cs:Zeile 48.</Stack>
+  </Exception>
+</Xcpt>

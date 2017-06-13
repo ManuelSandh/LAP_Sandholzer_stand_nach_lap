@@ -1,0 +1,66 @@
+﻿@model CardGame.Web.Models.DeckModel
+
+@{
+    ViewBag.Title = "Deck Übersicht";
+}
+<div class="ShopBackGround">
+    <div class="ShopIndex">
+        <h2>@Model.Name</h2>
+
+        <h4>Karten im Deck</h4>
+        <table class="ShopTable">
+            <tr>
+                @foreach (var cardInDeck in Model.CardsInDeck)
+                {
+                    <td>
+                        <img class="CardPacks" src="~/Content/Images/Card Pack.png" /> <br />
+                        @Html.DisplayFor(deck => cardInDeck.Name)
+                    </td>
+                }
+            </tr>
+
+            <tr>
+                @foreach (var cardInDeck in Model.CardsInDeck)
+                {
+                    <td>
+                        @using (Html.BeginForm("RemoveCardFromDeck", "DeckBuilder", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.Hidden("idDeck", Model.ID)
+                            @Html.Hidden("idCard", cardInDeck.ID)
+                            <input type="submit" class="btn btn-submit" value="Entfernen" />
+                        }
+                    </td>
+                }
+            </tr>
+        </table>
+
+        <h4>Karten für das Deck</h4>
+        <table>
+            <tr>
+                @foreach (var cardForDeck in Model.CardsForDeck)
+                {
+                    <td>
+                        <img class="CardPacks" src="~/Content/Images/Card Pack.png" /> <br />
+                        @Html.DisplayFor(deck => cardForDeck.Name)
+                    </td>
+                }
+            </tr>
+
+            <tr>
+                @foreach (var cardForDeck in Model.CardsForDeck)
+                {
+                    <td>
+                        @using (Html.BeginForm("AddCardToDeck", "DeckBuilder", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.Hidden("idDeck", Model.ID)
+                            @Html.Hidden("idCard", cardForDeck.ID)
+                            <input type="submit" class="btn btn-submit" value="Hinzufügen" />
+                        }
+                    </td>
+                }
+            </tr>
+        </table>
+    </div>
+</div>

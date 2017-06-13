@@ -12,8 +12,8 @@
     <Property Name="ID_CardType" Type="Int32" />
     <Property Name="CardImage" Type="Binary" MaxLength="Max" FixedLength="false" />
     <NavigationProperty Name="CardType" Relationship="Self.FK_tblCard_tblCardType" FromRole="tblCard" ToRole="tblCardType" />
-    <NavigationProperty Name="DeckCard" Relationship="Self.FK_tblDeckCard_tblCard" FromRole="tblCard" ToRole="tblDeckCard" />
-    <NavigationProperty Name="UserCardCollection" Relationship="Self.FK_tblUserCardCollection_tblCard" FromRole="tblCard" ToRole="tblUserCardCollection" />
+    <NavigationProperty Name="AllDeckCards" Relationship="Self.FK_tblDeckCard_tblCard" FromRole="tblCard" ToRole="tblDeckCard" />
+    <NavigationProperty Name="AllUserCardCollections" Relationship="Self.FK_tblUserCardCollection_tblCard" FromRole="tblCard" ToRole="tblUserCardCollection" />
   </EntityType>
   <EntityType Name="CardPack">
     <Key>

@@ -1,4 +1,4 @@
-﻿@model CardGame.Web.Models.User
+﻿@*@model CardGame.Web.Models.User*@
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,7 +34,7 @@
                         <ul class="nav navbar-nav navbar-right" style="margin-top:6px;">                      
                             @*<li>@Html.ActionLink("Account", "EditAccount", "User")</li>*@
                             <li>@Html.ActionLink("Shop", "ShopIndex", "Shop")</li>
-                            <li>@Html.ActionLink("Deckbuilder", "Deckbuilder", "Deck")</li>                           
+                            <li>@Html.ActionLink("Deckbuilder", "Index", "DeckBuilder")</li>                           
                             <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
                         </ul>
                         <p class="DiamantAnzeige"><img src="~/Content/Images/Diamant.png" />@CardGame.DAL.Logic.UserManager.GetUserByEmail(User.Identity.Name).AmountMoney.ToString()</p>

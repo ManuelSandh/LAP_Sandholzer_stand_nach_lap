@@ -32,11 +32,11 @@ namespace CardGame.Web.Models
         public int Streetnumber { get; set; }
 
         [Required(ErrorMessage = "Bitte geben Sie Ihre PLZ an")]
-        [MaxLength(15)]
+        [MaxLength(10)]
         public string PLZ { get; set; }
 
         [Required(ErrorMessage = "Bitte geben Sie Ihre Stadt an")]
-        [MaxLength(50)]
+        [MaxLength(30)]
         public string City { get; set; }
     }
 }

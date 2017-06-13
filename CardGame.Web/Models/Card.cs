@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CardGame.Web.Models
 {
-    public class Card
+    public class CardModel
     {
         [Required]
         [Display(Name = "KartenID")]

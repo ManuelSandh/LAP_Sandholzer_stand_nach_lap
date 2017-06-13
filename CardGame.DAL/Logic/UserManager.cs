@@ -27,17 +27,17 @@ namespace CardGame.DAL.Logic
         {
             User dbUser = null;
             try
-            {           
-          
-            using (var db = new CardGame_v2Entities())
             {
-                dbUser = db.AllUsers.Where(u => u.ID == id).FirstOrDefault();
-                if (dbUser == null)
+
+                using (var db = new CardGame_v2Entities())
                 {
-                    throw new Exception("UserDoesNotExists");
+                    dbUser = db.AllUsers.Where(u => u.ID == id).FirstOrDefault();
+                    if (dbUser == null)
+                    {
+                        throw new Exception("UserDoesNotExists");
+                    }
                 }
-            }
-        
+
             }
             catch (Exception e)
             {
@@ -47,7 +47,7 @@ namespace CardGame.DAL.Logic
 
             return dbUser;
 
-} 
+        }
         public static User GetUserByEmail(string email)
         {
             User dbUser = null;

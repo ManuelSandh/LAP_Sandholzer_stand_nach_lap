@@ -38,7 +38,7 @@
         <p class="valimassage">@Html.ValidationMessageFor(model => model.confirmPassword, "", new { @class = "text-warning" })</p>
         <br />
        
-        <div>@Html.Label("Strasse")</div>
+        @*<div>@Html.Label("Strasse")</div>
         <div>@Html.EditorFor(u => u.Street)</div>
         <p class="valimassage">@Html.ValidationMessageFor(model => model.Street, "", new { @class = "text-warning" })</p>
         
@@ -56,7 +56,7 @@
         <div>@Html.Label("Ort")</div>
         <div>@Html.EditorFor(u => u.City)</div>
         <p class="valimassage">@Html.ValidationMessageFor(model => model.City, "", new { @class = "text-warning" })</p>
-        <br />
+        <br />*@
         <p>
             <input type="submit" class="btn btn-submit" value="Registrieren" style="padding-top:1px">
         </p>

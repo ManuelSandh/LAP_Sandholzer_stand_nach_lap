@@ -4,8 +4,6 @@
     ViewBag.Title = "EditAccount";
 }
 
-
-
 @using (Html.BeginForm("EditAccount","User",FormMethod.Post))
 {
     @Html.AntiForgeryToken()
@@ -21,7 +19,7 @@
                     @Html.Label("Vorname", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-3">
                         @Html.EditorFor(model => model.Firstname, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                        @Html.ValidationMessageFor(model => model.Firstname, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
@@ -29,7 +27,7 @@
                     @Html.Label("Nachname", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-3">
                         @Html.EditorFor(model => model.Lastname, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                        @Html.ValidationMessageFor(model => model.Lastname, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
