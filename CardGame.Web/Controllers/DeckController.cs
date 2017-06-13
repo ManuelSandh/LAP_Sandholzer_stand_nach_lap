@@ -14,11 +14,5 @@ namespace CardGame.Web.Controllers
             return View();
         }
 
-
-        //public ActionResult Edit(int id)
-        //{
-        //    ActionResult actionResult = null;
-
-        //}
     }
 }

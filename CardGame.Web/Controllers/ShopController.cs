@@ -11,10 +11,7 @@ using CardGame.Log;
 namespace CardGame.Web.Controllers
 {
     public class ShopController : Controller
-    {
-        #region myCode
-
-
+    {   
         //GET: Shop
         [HttpGet]
         [Authorize(Roles = "player")]
@@ -63,7 +60,6 @@ namespace CardGame.Web.Controllers
                 TempData["ErrorMessage"] = "Nicht genug Diamanten";
 
             return RedirectToAction("ShopIndex");
-
         }
 
         [HttpGet]
@@ -94,7 +90,5 @@ namespace CardGame.Web.Controllers
 
             return View(diamantenpack);
         }
-
-        #endregion
     }
 }
