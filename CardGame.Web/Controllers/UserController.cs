@@ -29,10 +29,10 @@ namespace CardGame.Web.Controllers
                 reguser.Email = c.Mail;
                 reguser.Role = c.UserRole.Name;
                 reguser.Gamertag = c.GamerTag;
-                reguser.Street = c.Street;
-                reguser.Streetnumber = (int)c.Streetnumber;
-                reguser.PLZ = c.Post_Code;
-                reguser.City = c.City;
+                //reguser.Street = c.Street;
+                //reguser.Streetnumber = (int)c.Streetnumber;
+                //reguser.PLZ = c.Post_Code;
+                //reguser.City = c.City;
 
                 UserList.Add(reguser);
             }
@@ -55,10 +55,10 @@ namespace CardGame.Web.Controllers
             reguser.LastName = user.Lastname;
             reguser.Mail = user.Email;
             reguser.GamerTag = user.Gamertag;
-            reguser.Street = user.Street;
-            reguser.Streetnumber = (int)user.Streetnumber;
-            reguser.Post_Code = user.PLZ;
-            reguser.City = user.City;
+            //reguser.Street = user.Street;
+            //reguser.Streetnumber = (int)user.Streetnumber;
+            //reguser.Post_Code = user.PLZ;
+            //reguser.City = user.City;
 
             using (var db = new CardGame_v2Entities())
             {

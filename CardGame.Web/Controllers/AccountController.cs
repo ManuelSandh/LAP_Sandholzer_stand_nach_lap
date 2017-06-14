@@ -100,7 +100,7 @@ namespace CardGame.Web.Controllers
             }           
            
           
-            bool isRegistered = AuthManager.Register(model.Email, model.Password, model.Firstname, model.Lastname, model.Gamertag, model.Street, model.Streetnumber, model.PLZ, model.City);
+            bool isRegistered = AuthManager.Register(model.Email, model.Password, model.Firstname, model.Lastname, model.Gamertag/*, model.Street, model.Streetnumber, model.PLZ, model.City*/);
 
             //Authentifizierung
             if (!isRegistered)

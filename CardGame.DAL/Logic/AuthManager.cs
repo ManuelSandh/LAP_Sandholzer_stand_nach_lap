@@ -10,7 +10,7 @@ namespace CardGame.DAL.Logic
 {
     public class AuthManager
     {
-        public static bool Register(string mail, string password, string firstName, string lastName, string gamerTag, string street, int streetnumber, string PLZ, string city)
+        public static bool Register(string mail, string password, string firstName, string lastName, string gamerTag/*, string street, int streetnumber, string PLZ, string city*/)
         {
             try
             {
@@ -34,10 +34,10 @@ namespace CardGame.DAL.Logic
                         LastName = lastName,
                         Mail = mail,
                         GamerTag = gamerTag,
-                        Street = street,
-                        Streetnumber = streetnumber,
-                        Post_Code = PLZ,
-                        City = city,
+                        //Street = street,
+                        //Streetnumber = streetnumber,
+                        //Post_Code = PLZ,
+                        //City = city,
                         AmountMoney = 100,
                         ID_UserRole = 2
                         

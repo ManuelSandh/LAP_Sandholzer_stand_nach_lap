@@ -24,19 +24,19 @@ namespace CardGame.Web.Models
         [Compare("Password", ErrorMessage = "Die Passwörter stimmen nicht überein!")]
         public string confirmPassword { get; set; }
 
-        [Required(ErrorMessage ="Bitte geben Sie Ihr Strasse an")]
-        [MaxLength(50)]
-        public string Street { get; set; }
+        //[Required(ErrorMessage ="Bitte geben Sie Ihr Strasse an")]
+        //[MaxLength(50)]
+        //public string Street { get; set; }
 
-        [Required(ErrorMessage = "Bitte geben Sie Ihre Hausnummer an")]
-        public int Streetnumber { get; set; }
+        //[Required(ErrorMessage = "Bitte geben Sie Ihre Hausnummer an")]
+        //public int Streetnumber { get; set; }
 
-        [Required(ErrorMessage = "Bitte geben Sie Ihre PLZ an")]
-        [MaxLength(10)]
-        public string PLZ { get; set; }
+        //[Required(ErrorMessage = "Bitte geben Sie Ihre PLZ an")]
+        //[MaxLength(10)]
+        //public string PLZ { get; set; }
 
-        [Required(ErrorMessage = "Bitte geben Sie Ihre Stadt an")]
-        [MaxLength(30)]
-        public string City { get; set; }
+        //[Required(ErrorMessage = "Bitte geben Sie Ihre Stadt an")]
+        //[MaxLength(30)]
+        //public string City { get; set; }
     }
 }
