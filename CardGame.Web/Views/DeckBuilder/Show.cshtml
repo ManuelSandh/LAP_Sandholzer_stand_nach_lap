@@ -6,7 +6,6 @@
 <div class="ShopBackGround">
     <div class="ShopIndex">
         <h2>@Model.Name</h2>
-
         <h4>Karten im Deck</h4>
         <table class="ShopTable">
             <tr>
@@ -18,10 +17,10 @@
                             var imgsrc = String.Format("data:image/png;base64,{0}", base64);
                             <img class="CardPacks" src="@imgsrc" /> <br />
                         }
-                
+
                         @Html.DisplayFor(deck => cardInDeck.Name)
                     </td>
-                }
+                            }
             </tr>
 
             <tr>
@@ -39,23 +38,28 @@
                 }
             </tr>
         </table>
+    </div>
+</div>
 
+<div class="ShopBackGround">
+    <div class="ShopIndex">
         <h4>Karten für das Deck</h4>
         <table>
             <tr>
                 @foreach (var cardForDeck in Model.CardsForDeck)
                 {
-                    <td>@{
-                        var base64 = Convert.ToBase64String(cardForDeck.Pic);
-                        var imgsrc = String.Format("data:image/png;base64,{0}", base64);
-                        <img class="CardPacks" src="@imgsrc" /> <br />
-                    }
+                    <td>
+                        @{
+                            var base64 = Convert.ToBase64String(cardForDeck.Pic);
+                            var imgsrc = String.Format("data:image/png;base64,{0}", base64);
+                            <img class="CardPacks" src="@imgsrc" /> <br />
+                        }
 
 
-                        
+
                         @Html.DisplayFor(deck => cardForDeck.Name)
                     </td>
-                }
+                            }
             </tr>
 
             <tr>
@@ -63,7 +67,7 @@
                 {
                     <td>
                         @using (Html.BeginForm("AddCardToDeck", "DeckBuilder", FormMethod.Post))
-                        {
+                {
                             @Html.AntiForgeryToken()
                             @Html.Hidden("idDeck", Model.ID)
                             @Html.Hidden("idCard", cardForDeck.ID)
