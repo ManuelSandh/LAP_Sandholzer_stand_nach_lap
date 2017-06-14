@@ -13,7 +13,12 @@
                 @foreach (var cardInDeck in Model.CardsInDeck)
                 {
                     <td>
-                        <img class="CardPacks" src="~/Content/Images/Card Pack.png" /> <br />
+                        @{
+                            var base64 = Convert.ToBase64String(cardInDeck.Pic);
+                            var imgsrc = String.Format("data:image/png;base64,{0}", base64);
+                            <img class="CardPacks" src="@imgsrc" /> <br />
+                        }
+                
                         @Html.DisplayFor(deck => cardInDeck.Name)
                     </td>
                 }
@@ -40,8 +45,14 @@
             <tr>
                 @foreach (var cardForDeck in Model.CardsForDeck)
                 {
-                    <td>
-                        <img class="CardPacks" src="~/Content/Images/Card Pack.png" /> <br />
+                    <td>@{
+                        var base64 = Convert.ToBase64String(cardForDeck.Pic);
+                        var imgsrc = String.Format("data:image/png;base64,{0}", base64);
+                        <img class="CardPacks" src="@imgsrc" /> <br />
+                    }
+
+
+                        
                         @Html.DisplayFor(deck => cardForDeck.Name)
                     </td>
                 }

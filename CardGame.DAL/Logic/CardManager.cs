@@ -81,6 +81,33 @@ namespace CardGame.DAL.Logic
             }
             return ReturnList;
         }
+
+
+        public static Card GetCard(int id)
+        {
+          
+            Card card = null;
+
+            if (id < 1)
+                throw new ArgumentException("invalid card id", nameof(id));
+
+            try
+            {
+                using (var context = new CardGame_v2Entities())
+                {
+                    card = context.AllCards.FirstOrDefault(x => x.ID == id);
+                }
+            }
+            catch (Exception ex)
+            {
+               
+                if (ex.InnerException != null)                   
+                throw ex;
+            }
+
+            return card;
+        }
+
     }
 }
 

@@ -65,7 +65,9 @@ namespace CardGame.Web.Controllers
                     Attack = cardInDeck.Attack,
                     Life = cardInDeck.Life,
                     Name = cardInDeck.Name,
-                    Type = cardInDeck.CardType.Name
+                    Type = cardInDeck.CardType.Name,
+                    Pic = cardInDeck.CardImage
+                    
                 });
             }
 
@@ -79,7 +81,8 @@ namespace CardGame.Web.Controllers
                     Attack = cardForDeck.Attack,
                     Life = cardForDeck.Life,
                     Name = cardForDeck.Name,
-                    Type = cardForDeck.CardType.Name
+                    Type = cardForDeck.CardType.Name,
+                    Pic = cardForDeck.CardImage
                 });
             }
 

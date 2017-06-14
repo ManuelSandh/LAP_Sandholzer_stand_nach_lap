@@ -38,7 +38,7 @@ namespace CardGame.DAL.Logic
                         //Streetnumber = streetnumber,
                         //Post_Code = PLZ,
                         //City = city,
-                        AmountMoney = 100,
+                        AmountMoney = 300,
                         ID_UserRole = 2
                         
                     };
