@@ -26,6 +26,17 @@ namespace CardGame.DAL.Logic
                     //Passwort Hashen
                     byte[] hashedAndSaltedPassword = Helper.GenerateHash(password + salt);
 
+                    List<Deck> decks = new List<Deck>();
+                    
+
+                    for (int i = 1; i <= 3; i++)
+                    {
+                        Deck d = new Deck();
+                        d.Name = (gamerTag +"'s" + " Deck " + i).ToString();
+                        decks.Add(d);
+                    }
+
+
                     User newUser = new User()
                     {
                         Password = hashedAndSaltedPassword,
@@ -39,8 +50,9 @@ namespace CardGame.DAL.Logic
                         //Post_Code = PLZ,
                         //City = city,
                         AmountMoney = 300,
-                        ID_UserRole = 2
-                        
+                        ID_UserRole = 2,
+                        AllDecks = decks
+                       
                     };
 
                     db.AllUsers.Add(newUser);
