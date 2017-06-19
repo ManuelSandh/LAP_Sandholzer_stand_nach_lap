@@ -19,8 +19,10 @@ namespace CardGame.DAL.Model
         public int ID_CardPack { get; set; }
         public System.DateTime PurchaseDate { get; set; }
         public int NumberOfPacks { get; set; }
+        public Nullable<int> ID_DiamantenPack { get; set; }
     
         public virtual CardPack CardPack { get; set; }
         public virtual User User { get; set; }
+        public virtual DiamantenPack tblDiamantenPack { get; set; }
     }
 }

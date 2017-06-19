@@ -13,7 +13,7 @@
         <EntityTypeShape EntityType="CardGame_v2Model.User" Width="1.5" PointX="3.375" PointY="4.625" IsExpanded="true" />
         <EntityTypeShape EntityType="CardGame_v2Model.UserCardCollection" Width="1.5" PointX="5.75" PointY="7.25" IsExpanded="true" />
         <EntityTypeShape EntityType="CardGame_v2Model.UserRole" Width="1.5" PointX="1" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="CardGame_v2Model.VirtualPurchase" Width="1.5" PointX="3.375" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CardGame_v2Model.VirtualPurchase" Width="1.5" PointX="3.375" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="CardGame_v2Model.FK_tblCard_tblCardType" ManuallyRouted="false" />
         <AssociationConnector Association="CardGame_v2Model.FK_tblDeckCard_tblCard" ManuallyRouted="false" />
         <AssociationConnector Association="CardGame_v2Model.FK_tblUserCardCollection_tblCard" ManuallyRouted="false" />
@@ -23,7 +23,8 @@
         <AssociationConnector Association="CardGame_v2Model.FK_tblUser_tblUserRole" ManuallyRouted="false" />
         <AssociationConnector Association="CardGame_v2Model.FK_tblUserCardCollection_tblUser" ManuallyRouted="false" />
         <AssociationConnector Association="CardGame_v2Model.FK_tblVirtualPurchase_tblUser" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="CardGame_v2Model.DiamantenPack" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="CardGame_v2Model.DiamantenPack" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="CardGame_v2Model.FK__tblVirtua__fkDia__151B244E" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

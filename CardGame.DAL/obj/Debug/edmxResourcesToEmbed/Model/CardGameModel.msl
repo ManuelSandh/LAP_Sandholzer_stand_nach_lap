@@ -90,6 +90,7 @@
     <EntitySetMapping Name="AllVirtualPurchases">
       <EntityTypeMapping TypeName="CardGame_v2Model.VirtualPurchase">
         <MappingFragment StoreEntitySet="tblVirtualPurchase">
+          <ScalarProperty Name="ID_DiamantenPack" ColumnName="fkDiamantenPack" />
           <ScalarProperty Name="ID" ColumnName="idVirtualPurchase" />
           <ScalarProperty Name="ID_User" ColumnName="fkUser" />
           <ScalarProperty Name="ID_CardPack" ColumnName="fkCardPack" />
@@ -101,6 +102,7 @@
     <EntitySetMapping Name="AllDiamantenPacks">
       <EntityTypeMapping TypeName="CardGame_v2Model.DiamantenPack">
         <MappingFragment StoreEntitySet="tblDiamantenPack">
+          <ScalarProperty Name="active" ColumnName="active" />
           <ScalarProperty Name="Diamanten" ColumnName="Diamanten" />
           <ScalarProperty Name="PackPrice" ColumnName="packprice" />
           <ScalarProperty Name="ID" ColumnName="idDiamantenPack" />

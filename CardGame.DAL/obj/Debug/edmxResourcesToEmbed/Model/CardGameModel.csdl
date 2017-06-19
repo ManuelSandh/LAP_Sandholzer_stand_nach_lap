@@ -107,6 +107,8 @@
     <Property Name="NumberOfPacks" Type="Int32" Nullable="false" />
     <NavigationProperty Name="CardPack" Relationship="Self.FK_tblVirtualPurchase_tblCardPack" FromRole="tblVirtualPurchase" ToRole="tblCardPack" />
     <NavigationProperty Name="User" Relationship="Self.FK_tblVirtualPurchase_tblUser" FromRole="tblVirtualPurchase" ToRole="tblUser" />
+    <Property Name="ID_DiamantenPack" Type="Int32" />
+    <NavigationProperty Name="tblDiamantenPack" Relationship="CardGame_v2Model.FK__tblVirtua__fkDia__151B244E" FromRole="VirtualPurchase" ToRole="DiamantenPack" />
   </EntityType>
   <Association Name="FK_tblCard_tblCardType">
     <End Role="tblCardType" Type="CardGame_v2Model.CardType" Multiplicity="0..1" />
@@ -263,6 +265,10 @@
       <End Role="tblVirtualPurchase" EntitySet="AllVirtualPurchases" />
     </AssociationSet>
     <EntitySet Name="AllDiamantenPacks" EntityType="CardGame_v2Model.DiamantenPack" />
+    <AssociationSet Name="FK__tblVirtua__fkDia__151B244E" Association="CardGame_v2Model.FK__tblVirtua__fkDia__151B244E">
+      <End Role="DiamantenPack" EntitySet="AllDiamantenPacks" />
+      <End Role="VirtualPurchase" EntitySet="AllVirtualPurchases" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="DiamantenPack">
     <Key>
@@ -271,5 +277,19 @@
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="PackPrice" Type="Int32" Nullable="false" />
     <Property Name="Diamanten" Type="Int32" />
+    <Property Name="active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="tblVirtualPurchase" Relationship="CardGame_v2Model.FK__tblVirtua__fkDia__151B244E" FromRole="DiamantenPack" ToRole="VirtualPurchase" />
   </EntityType>
+  <Association Name="FK__tblVirtua__fkDia__151B244E">
+    <End Type="CardGame_v2Model.DiamantenPack" Role="DiamantenPack" Multiplicity="0..1" />
+    <End Type="CardGame_v2Model.VirtualPurchase" Role="VirtualPurchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DiamantenPack">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="VirtualPurchase">
+        <PropertyRef Name="ID_DiamantenPack" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

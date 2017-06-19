@@ -55,8 +55,9 @@
             <PropertyRef Name="idDiamantenPack" />
           </Key>
           <Property Name="idDiamantenPack" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="packprice" Type="int" Nullable="false" />
+          <Property Name="packprice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="Diamanten" Type="int" />
+          <Property Name="active" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="tblUser">
           <Key>
@@ -102,7 +103,20 @@
           <Property Name="fkCardPack" Type="int" Nullable="false" />
           <Property Name="timeofpurchase" Type="datetime" Nullable="false" />
           <Property Name="numpacks" Type="int" Nullable="false" />
+          <Property Name="fkDiamantenPack" Type="int" />
         </EntityType>
+        <Association Name="FK__tblVirtua__fkDia__151B244E">
+          <End Role="tblDiamantenPack" Type="Self.tblDiamantenPack" Multiplicity="0..1" />
+          <End Role="tblVirtualPurchase" Type="Self.tblVirtualPurchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblDiamantenPack">
+              <PropertyRef Name="idDiamantenPack" />
+            </Principal>
+            <Dependent Role="tblVirtualPurchase">
+              <PropertyRef Name="fkDiamantenPack" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_tblCard_tblCardType">
           <End Role="tblCardType" Type="Self.tblCardType" Multiplicity="0..1" />
           <End Role="tblCard" Type="Self.tblCard" Multiplicity="*" />
@@ -148,18 +162,6 @@
             </Principal>
             <Dependent Role="tblDeckCard">
               <PropertyRef Name="fkDeck" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tblUser_tblUserRole">
-          <End Role="tblUserRole" Type="Self.tblUserRole" Multiplicity="0..1" />
-          <End Role="tblUser" Type="Self.tblUser" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblUserRole">
-              <PropertyRef Name="idUserrole" />
-            </Principal>
-            <Dependent Role="tblUser">
-              <PropertyRef Name="fkUserRole" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -222,6 +224,10 @@
           <EntitySet Name="tblUserCardCollection" EntityType="Self.tblUserCardCollection" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblUserRole" EntityType="Self.tblUserRole" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblVirtualPurchase" EntityType="Self.tblVirtualPurchase" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__tblVirtua__fkDia__151B244E" Association="Self.FK__tblVirtua__fkDia__151B244E">
+            <End Role="tblDiamantenPack" EntitySet="tblDiamantenPack" />
+            <End Role="tblVirtualPurchase" EntitySet="tblVirtualPurchase" />
+          </AssociationSet>
           <AssociationSet Name="FK_tblCard_tblCardType" Association="Self.FK_tblCard_tblCardType">
             <End Role="tblCardType" EntitySet="tblCardType" />
             <End Role="tblCard" EntitySet="tblCard" />
@@ -237,10 +243,6 @@
           <AssociationSet Name="FK_tblDeckCard_tblDeck" Association="Self.FK_tblDeckCard_tblDeck">
             <End Role="tblDeck" EntitySet="tblDeck" />
             <End Role="tblDeckCard" EntitySet="tblDeckCard" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tblUser_tblUserRole" Association="Self.FK_tblUser_tblUserRole">
-            <End Role="tblUserRole" EntitySet="tblUserRole" />
-            <End Role="tblUser" EntitySet="tblUser" />
           </AssociationSet>
           <AssociationSet Name="FK_tblUserCardCollection_tblCard" Association="Self.FK_tblUserCardCollection_tblCard">
             <End Role="tblCard" EntitySet="tblCard" />
@@ -370,6 +372,8 @@
           <Property Name="NumberOfPacks" Type="Int32" Nullable="false" />
           <NavigationProperty Name="CardPack" Relationship="Self.FK_tblVirtualPurchase_tblCardPack" FromRole="tblVirtualPurchase" ToRole="tblCardPack" />
           <NavigationProperty Name="User" Relationship="Self.FK_tblVirtualPurchase_tblUser" FromRole="tblVirtualPurchase" ToRole="tblUser" />
+          <Property Name="ID_DiamantenPack" Type="Int32" />
+          <NavigationProperty Name="tblDiamantenPack" Relationship="CardGame_v2Model.FK__tblVirtua__fkDia__151B244E" FromRole="VirtualPurchase" ToRole="DiamantenPack" />
         </EntityType>
         <Association Name="FK_tblCard_tblCardType">
           <End Role="tblCardType" Type="CardGame_v2Model.CardType" Multiplicity="0..1" />
@@ -526,6 +530,10 @@
             <End Role="tblVirtualPurchase" EntitySet="AllVirtualPurchases" />
           </AssociationSet>
           <EntitySet Name="AllDiamantenPacks" EntityType="CardGame_v2Model.DiamantenPack" />
+          <AssociationSet Name="FK__tblVirtua__fkDia__151B244E" Association="CardGame_v2Model.FK__tblVirtua__fkDia__151B244E">
+            <End Role="DiamantenPack" EntitySet="AllDiamantenPacks" />
+            <End Role="VirtualPurchase" EntitySet="AllVirtualPurchases" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="DiamantenPack">
           <Key>
@@ -534,7 +542,21 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PackPrice" Type="Int32" Nullable="false" />
           <Property Name="Diamanten" Type="Int32" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tblVirtualPurchase" Relationship="CardGame_v2Model.FK__tblVirtua__fkDia__151B244E" FromRole="DiamantenPack" ToRole="VirtualPurchase" />
         </EntityType>
+        <Association Name="FK__tblVirtua__fkDia__151B244E">
+          <End Type="CardGame_v2Model.DiamantenPack" Role="DiamantenPack" Multiplicity="0..1" />
+          <End Type="CardGame_v2Model.VirtualPurchase" Role="VirtualPurchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DiamantenPack">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="VirtualPurchase">
+              <PropertyRef Name="ID_DiamantenPack" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -630,6 +652,7 @@
           <EntitySetMapping Name="AllVirtualPurchases">
             <EntityTypeMapping TypeName="CardGame_v2Model.VirtualPurchase">
               <MappingFragment StoreEntitySet="tblVirtualPurchase">
+                <ScalarProperty Name="ID_DiamantenPack" ColumnName="fkDiamantenPack" />
                 <ScalarProperty Name="ID" ColumnName="idVirtualPurchase" />
                 <ScalarProperty Name="ID_User" ColumnName="fkUser" />
                 <ScalarProperty Name="ID_CardPack" ColumnName="fkCardPack" />
@@ -641,6 +664,7 @@
           <EntitySetMapping Name="AllDiamantenPacks">
             <EntityTypeMapping TypeName="CardGame_v2Model.DiamantenPack">
               <MappingFragment StoreEntitySet="tblDiamantenPack">
+                <ScalarProperty Name="active" ColumnName="active" />
                 <ScalarProperty Name="Diamanten" ColumnName="Diamanten" />
                 <ScalarProperty Name="PackPrice" ColumnName="packprice" />
                 <ScalarProperty Name="ID" ColumnName="idDiamantenPack" />

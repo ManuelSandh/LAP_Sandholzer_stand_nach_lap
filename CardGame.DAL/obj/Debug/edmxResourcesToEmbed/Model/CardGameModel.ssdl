@@ -50,8 +50,9 @@
       <PropertyRef Name="idDiamantenPack" />
     </Key>
     <Property Name="idDiamantenPack" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="packprice" Type="int" Nullable="false" />
+    <Property Name="packprice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
     <Property Name="Diamanten" Type="int" />
+    <Property Name="active" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="tblUser">
     <Key>
@@ -97,7 +98,20 @@
     <Property Name="fkCardPack" Type="int" Nullable="false" />
     <Property Name="timeofpurchase" Type="datetime" Nullable="false" />
     <Property Name="numpacks" Type="int" Nullable="false" />
+    <Property Name="fkDiamantenPack" Type="int" />
   </EntityType>
+  <Association Name="FK__tblVirtua__fkDia__151B244E">
+    <End Role="tblDiamantenPack" Type="Self.tblDiamantenPack" Multiplicity="0..1" />
+    <End Role="tblVirtualPurchase" Type="Self.tblVirtualPurchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblDiamantenPack">
+        <PropertyRef Name="idDiamantenPack" />
+      </Principal>
+      <Dependent Role="tblVirtualPurchase">
+        <PropertyRef Name="fkDiamantenPack" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_tblCard_tblCardType">
     <End Role="tblCardType" Type="Self.tblCardType" Multiplicity="0..1" />
     <End Role="tblCard" Type="Self.tblCard" Multiplicity="*" />
@@ -143,18 +157,6 @@
       </Principal>
       <Dependent Role="tblDeckCard">
         <PropertyRef Name="fkDeck" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_tblUser_tblUserRole">
-    <End Role="tblUserRole" Type="Self.tblUserRole" Multiplicity="0..1" />
-    <End Role="tblUser" Type="Self.tblUser" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tblUserRole">
-        <PropertyRef Name="idUserrole" />
-      </Principal>
-      <Dependent Role="tblUser">
-        <PropertyRef Name="fkUserRole" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -217,6 +219,10 @@
     <EntitySet Name="tblUserCardCollection" EntityType="Self.tblUserCardCollection" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblUserRole" EntityType="Self.tblUserRole" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblVirtualPurchase" EntityType="Self.tblVirtualPurchase" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__tblVirtua__fkDia__151B244E" Association="Self.FK__tblVirtua__fkDia__151B244E">
+      <End Role="tblDiamantenPack" EntitySet="tblDiamantenPack" />
+      <End Role="tblVirtualPurchase" EntitySet="tblVirtualPurchase" />
+    </AssociationSet>
     <AssociationSet Name="FK_tblCard_tblCardType" Association="Self.FK_tblCard_tblCardType">
       <End Role="tblCardType" EntitySet="tblCardType" />
       <End Role="tblCard" EntitySet="tblCard" />
@@ -232,10 +238,6 @@
     <AssociationSet Name="FK_tblDeckCard_tblDeck" Association="Self.FK_tblDeckCard_tblDeck">
       <End Role="tblDeck" EntitySet="tblDeck" />
       <End Role="tblDeckCard" EntitySet="tblDeckCard" />
-    </AssociationSet>
-    <AssociationSet Name="FK_tblUser_tblUserRole" Association="Self.FK_tblUser_tblUserRole">
-      <End Role="tblUserRole" EntitySet="tblUserRole" />
-      <End Role="tblUser" EntitySet="tblUser" />
     </AssociationSet>
     <AssociationSet Name="FK_tblUserCardCollection_tblCard" Association="Self.FK_tblUserCardCollection_tblCard">
       <End Role="tblCard" EntitySet="tblCard" />
