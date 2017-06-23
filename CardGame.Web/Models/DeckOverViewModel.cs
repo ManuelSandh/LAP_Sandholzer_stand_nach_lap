@@ -13,7 +13,6 @@ namespace CardGame.Web.Models
 
         public int NumberOfCardsInDeck { get; set; }
 
-        public string ImageUrl { get; set; }
 
     }
 }

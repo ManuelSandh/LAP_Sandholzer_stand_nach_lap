@@ -269,6 +269,7 @@
       <End Role="DiamantenPack" EntitySet="AllDiamantenPacks" />
       <End Role="VirtualPurchase" EntitySet="AllVirtualPurchases" />
     </AssociationSet>
+    <FunctionImport Name="ptopdreiPacks" ReturnType="Collection(Int32)" />
   </EntityContainer>
   <EntityType Name="DiamantenPack">
     <Key>

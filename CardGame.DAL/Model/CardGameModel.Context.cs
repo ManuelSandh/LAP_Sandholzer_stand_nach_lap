@@ -12,6 +12,8 @@ namespace CardGame.DAL.Model
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class CardGame_v2Entities : DbContext
     {
@@ -35,5 +37,10 @@ namespace CardGame.DAL.Model
         public virtual DbSet<UserRole> AllUserRoles { get; set; }
         public virtual DbSet<VirtualPurchase> AllVirtualPurchases { get; set; }
         public virtual DbSet<DiamantenPack> AllDiamantenPacks { get; set; }
+    
+        public virtual ObjectResult<Nullable<int>> ptopdreiPacks()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("ptopdreiPacks");
+        }
     }
 }

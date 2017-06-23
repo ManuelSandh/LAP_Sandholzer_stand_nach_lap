@@ -27,17 +27,7 @@ namespace CardGame.Web.Controllers
             return View();
         }
         
-        public ActionResult Statistics()
-        {
-            Statistic s = new Statistic();
-
-            //Befülle die Statistik
-            s.NumUsers = DBInfoManager.GetNumUsers();
-            s.NumCards = DBInfoManager.GetNumCards();
-            s.NumDecks = DBInfoManager.GetNumDecks();
-
-            return View(s);
-        }
+      
 
 
         public ActionResult Shop()

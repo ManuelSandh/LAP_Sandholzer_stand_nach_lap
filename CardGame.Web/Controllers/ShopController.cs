@@ -11,7 +11,7 @@ using CardGame.Log;
 namespace CardGame.Web.Controllers
 {
     public class ShopController : Controller
-    {   
+    {
         //GET: Shop
         [HttpGet]
         [Authorize(Roles = "player")]
@@ -52,7 +52,7 @@ namespace CardGame.Web.Controllers
             int userID = UserManager.GetUserByEmail(User.Identity.Name).ID;
 
             if (UserManager.GetUserByEmail(User.Identity.Name).AmountMoney >= ShopManager.GetCardPackById(idCardPack).PackPrice)
-            {                
+            {
                 ShopManager.ExecuteOrder(userID, idCardPack);
                 TempData["ConfirmMessage"] = "Kauf erfolgreich ";
             }
@@ -90,5 +90,7 @@ namespace CardGame.Web.Controllers
 
             return View(diamantenpack);
         }
+
+        
     }
 }

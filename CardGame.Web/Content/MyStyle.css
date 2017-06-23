@@ -146,6 +146,32 @@ body {
     color: #6B90DB;
 }
 
+.StatisticBackGround{
+    margin-top: 80px;
+    text-align: center;
+    height: 640px;
+    width: 1200px;
+    overflow: auto;
+    background-image: url(../Content/Images/Dark-Background.jpg);
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    border: solid;
+}
+
+
+.StatisticHeader{
+     margin-top: 20px;
+    color: #FEE9E4;
+    text-align: center;
+}
+
+
+.StatisticBody{
+    margin-top: 20px;
+    color: #6B90DB;
+}
+
+
 .AGBBackGround {
     margin-top: 80px;
     text-align: center;

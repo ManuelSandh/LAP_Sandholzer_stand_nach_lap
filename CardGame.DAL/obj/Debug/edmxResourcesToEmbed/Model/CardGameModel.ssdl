@@ -208,6 +208,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="ptopdreiPacks" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="CardGame_v2ModelStoreContainer">
     <EntitySet Name="tblCard" EntityType="Self.tblCard" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblCardPack" EntityType="Self.tblCardPack" Schema="dbo" store:Type="Tables" />

@@ -109,5 +109,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ptopdreiPacks" FunctionName="CardGame_v2Model.Store.ptopdreiPacks" />
   </EntityContainerMapping>
 </Mapping>
