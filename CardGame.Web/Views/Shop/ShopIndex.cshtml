@@ -6,7 +6,6 @@
 <div class="ShopBackGround">
     <div class="ShopIndex">
         <h3>Willkommen im Shop</h3>
-
         <table class="ShopTable">
             <tr>
                 @foreach (var cp in @Model.cardPacks)
@@ -17,7 +16,6 @@
                     </td>
                 }
             </tr>
-
             <tr>
                 @foreach (var cp in @Model.cardPacks)
                 {
@@ -26,9 +24,7 @@
                     </td>
                 }
             </tr>
-
-            <br />
-           
+            <br />           
             <tr>
   
                 @for (int i = 0; i < Model.cardPacks.Count; i++)
@@ -44,8 +40,7 @@
                     </td>
                     }
                 }
-            </tr>
-            
+            </tr>            
             @*<tr>
                 @foreach (var cp in Model.diamantPacks)
                 {
@@ -63,8 +58,7 @@
                         @Html.ActionLink("kaufen", "BuyDiamanten", "Shop", new { id = cp.DiamantenPackId }, new { @class = "btn btn-submit" })
                     </td>
                 }
-            </tr>*@
-        
+            </tr>*@        
         </table>
     </div>
 </div>

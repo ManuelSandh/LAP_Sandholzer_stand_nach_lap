@@ -19,24 +19,21 @@ namespace CardGame.Web.Controllers
         public ActionResult Bestseller()
         {
             using (var cont = new CardGame_v2Entities())
-            {
-                            
+            {                            
                 return View();
             }
-
         }
-
 
         [WebMethod]
         public static List<object> GetChartData()
         {
-            string query = "Select Count(fkCardPack)";
+            string query = "Select Count(fkCardPack) packname";
             query += " from tblVirtualPurchase join tblCardPack on idCardPack = fkCardPack GROUP by fkCardPack desc";
-            string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+            string constr = ConfigurationManager.ConnectionStrings["CardGame_v2"].ConnectionString;
             List<object> chartData = new List<object>();
             chartData.Add(new object[]
             {
-        "fkCardPack"});
+        "packname", "fkCardPack"});
             using (SqlConnection con = new SqlConnection(constr))
             {
                 using (SqlCommand cmd = new SqlCommand(query))
@@ -50,12 +47,12 @@ namespace CardGame.Web.Controllers
                         {
                             chartData.Add(new object[]
                             {
-                        sdr["fkCardPack"]
+                        sdr["packname"] , sdr["fkCardPack"]
                             });
                         }
                     }
                     con.Close();
-                    return chartData;
+                  return chartData;
                 }
             }
         }
