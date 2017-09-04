@@ -103,6 +103,15 @@ namespace CardGame.DAL.Logic
 
             using (var db = new CardGame_v2Entities())
             {
+                VirtualPurchase order = new VirtualPurchase();
+                order.ID_CardPack = idPack;
+                order.ID_User = idPerson;
+                order.PurchaseDate = DateTime.Now;
+                order.NumberOfPacks = 1;
+                db.AllVirtualPurchases.Add(order);
+                db.SaveChanges();
+
+
                 /// ermittle User und Pack für übergebene IDs
                 User user = db.AllUsers.FirstOrDefault(x => x.ID == idPerson);
                 CardPack pack = db.AllCardPacks.FirstOrDefault(x => x.ID == idPack);
