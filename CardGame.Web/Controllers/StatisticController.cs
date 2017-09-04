@@ -16,8 +16,7 @@ namespace CardGame.Web.Controllers
         {
             using (var cont = new CardGame_v2Entities())
             {
-                var result = cont.ptopdreiPacks().ToList();
-
+                var result = cont.ptopdreiPacks().ToList();                
                 return View(result);
             }
 
