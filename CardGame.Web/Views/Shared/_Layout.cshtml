@@ -21,44 +21,43 @@
                 @Html.ActionLink("Clonestone", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                
-                    @if (User.Identity.Name == "" || User.Identity.Name == null)
-                    {
-                        <ul class="nav navbar-nav navbar-right" style="margin-top:6px;">
-                            <li>@Html.ActionLink("Login", "Login", "Account")</li>
-                            <li>@Html.ActionLink("Registrieren", "Register", "Account")</li>
-                           </ul>
-                    }
-                    else
-                    {
-                        <ul class="nav navbar-nav navbar-right" style="margin-top:6px;">  
-                                            
-                            <li>@Html.ActionLink("Bestseller", "Bestseller", "Statistic")</li>
-                            <li>@Html.ActionLink("Shop", "ShopIndex", "Shop")</li>
-                            <li>@Html.ActionLink("Deckbuilder", "Index", "DeckBuilder")</li>                           
-                            <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
-                        </ul>
+
+                @if (User.Identity.Name == "" || User.Identity.Name == null)
+                {
+                    <ul class="nav navbar-nav navbar-right" style="margin-top:6px;">
+                        <li>@Html.ActionLink("Login", "Login", "Account")</li>
+                        <li>@Html.ActionLink("Registrieren", "Register", "Account")</li>
+                    </ul>
+                }
+                else
+                {
+                    <ul class="nav navbar-nav navbar-right" style="margin-top:6px;">
+                        <li>@Html.ActionLink("Bestseller", "Bestseller", "Statistic")</li>
+                        <li>@Html.ActionLink("Shop", "ShopIndex", "Shop")</li>
+                        <li>@Html.ActionLink("Deckbuilder", "Index", "DeckBuilder")</li>
+                        <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
+                    </ul>
                         <p class="DiamantAnzeige"><img src="~/Content/Images/Diamant.png" />@CardGame.DAL.Logic.UserManager.GetUserByEmail(User.Identity.Name).AmountMoney.ToString()</p>
-                    }
+                }
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    <div class="navbar-fixed-bottom center visible-lg visible-md visible-sm">
+        <div class="navbar-collapse collapse">
+            <div class="footer-nav">
+                <div id="footer">
+                    <a href="@Url.Action("Impressum","Home")">Impressum</a>
+                    <a href="@Url.Action("AGB","Home")" style="margin-left:50px">AGB's</a>
                 </div>
             </div>
         </div>
-        <div class="container body-content">
-            @RenderBody()
-        </div>
-        <div class="navbar-fixed-bottom center visible-lg visible-md visible-sm">
-            <div class="navbar-collapse collapse">
-                <div class="footer-nav">
-                    <div id="footer">
-                        <a href="@Url.Action("Impressum","Home")">Impressum</a> 
-                        <a href="@Url.Action("AGB","Home")" style="margin-left:50px">AGB's</a> 
-                    </div>                  
-                </div>
-            </div>
-        </div>
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 
     <script type="text/javascript">
         toastr.options = {
@@ -78,7 +77,7 @@
 
             @if (TempData["ErrorMessage"] != null)
             {
-                <text>            
+                <text>
             toastr.error("", "@TempData["ErrorMessage"]");
             </text>
             }
@@ -89,7 +88,7 @@
             toastr.success("", "@TempData["ConfirmMessage"]");
             </text>
             }
-            });
+        });
     </script>
-    </body>
+</body>
 </html>

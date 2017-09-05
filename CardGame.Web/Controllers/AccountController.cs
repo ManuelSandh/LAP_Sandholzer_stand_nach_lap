@@ -23,7 +23,6 @@ namespace CardGame.Web.Controllers
         //TempData["ErrorMessage"] = "Fehlermeldungstext";
         //TempData["ConfirmMessage"] = "Bestätigungstext";
 
-
         [HttpPost]
         public ActionResult Login(Login login)
         {
@@ -67,7 +66,6 @@ namespace CardGame.Web.Controllers
                         Writer.LogError(e);
                     }
                 }
-
             }
 
             string rolle = UserManager.GetRoleNamesByEMail(login.Email);
@@ -97,22 +95,18 @@ namespace CardGame.Web.Controllers
             if (!ModelState.IsValid)
             {
                 return View(model);
-            }           
-           
-          
-            bool isRegistered = AuthManager.Register(model.Email, model.Password, model.Firstname, model.Lastname, model.Gamertag/*, model.Street, model.Streetnumber, model.PLZ, model.City*/);
+            }
+
+            bool isRegistered = AuthManager.Register(model.Email, model.Password, model.Firstname, model.Lastname, model.Gamertag);
 
             //Authentifizierung
             if (!isRegistered)
             {
                 return View(model);
             }
-            //auth(dbUser.Mail, dbUser.Password, dbUser.UserRole.Name);
 
             TempData["ConfirmMessage"] = "Erfolgreich registriert";
             return RedirectToAction("Index", "Home");
         }
-
-       
     }
 }

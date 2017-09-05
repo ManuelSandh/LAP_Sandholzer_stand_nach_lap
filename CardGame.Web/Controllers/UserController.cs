@@ -28,48 +28,14 @@ namespace CardGame.Web.Controllers
                 reguser.Lastname = c.LastName;
                 reguser.Email = c.Mail;
                 reguser.Role = c.UserRole.Name;
-                reguser.Gamertag = c.GamerTag;
-                //reguser.Street = c.Street;
-                //reguser.Streetnumber = (int)c.Streetnumber;
-                //reguser.PLZ = c.Post_Code;
-                //reguser.City = c.City;
-
+                reguser.Gamertag = c.GamerTag;               
                 UserList.Add(reguser);
             }
             return View(UserList);
         }
-
-        public ActionResult EditAccount()
-        {
-            Register user = new Register();
-            user.Firstname = "BLA";
-            return View(user);
-        }
-
-        [HttpPost]
-        public ActionResult EditAccount(Register user)
-        {
-            var reguser = UserManager.GetUserByEmail(User.Identity.Name);
-            reguser.ID = user.ID;
-            reguser.FirstName = user.Firstname;
-            reguser.LastName = user.Lastname;
-            reguser.Mail = user.Email;
-            reguser.GamerTag = user.Gamertag;
-            //reguser.Street = user.Street;
-            //reguser.Streetnumber = (int)user.Streetnumber;
-            //reguser.Post_Code = user.PLZ;
-            //reguser.City = user.City;
-
-            using (var db = new CardGame_v2Entities())
-            {
-                db.Entry(reguser);
-                db.SaveChanges();
-
-                return View(reguser);
-            }
-        }
     }
 }
+
 
 
 
