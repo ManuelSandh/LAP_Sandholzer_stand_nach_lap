@@ -14,26 +14,22 @@ namespace CardGame.Web.Controllers
     public class StatisticController : Controller
     {
         // GET: Statistic
-        [HttpGet]
-        [Authorize(Roles = "player")]
+        [HttpGet]      
         public ActionResult Bestseller()
-        {
-            using (var cont = new CardGame_v2Entities())
-            {                            
-                return View();
-            }
+        {            
+                return View();           
         }
 
-        [WebMethod]
-        public static List<object> GetChartData()
+        [HttpPost]
+        public JsonResult AjaxMethod()
         {
-            string query = "Select Count(fkCardPack) packname";
-            query += " from tblVirtualPurchase join tblCardPack on idCardPack = fkCardPack GROUP by fkCardPack desc";
-            string constr = ConfigurationManager.ConnectionStrings["CardGame_v2"].ConnectionString;
+            string query = "Select Top 3 Count(packname) as amount, packname ";
+            query += " from tblVirtualPurchase join tblCardPack on idCardPack = fkCardPack GROUP by packname order by amount desc";
+            string constr = "Data Source=PC001999F9405B;" + "initial catalog=CardGame_v2;" + "user id=sa;password=123user!";
             List<object> chartData = new List<object>();
             chartData.Add(new object[]
             {
-        "packname", "fkCardPack"});
+        "packname", "amount"});
             using (SqlConnection con = new SqlConnection(constr))
             {
                 using (SqlCommand cmd = new SqlCommand(query))
@@ -47,14 +43,16 @@ namespace CardGame.Web.Controllers
                         {
                             chartData.Add(new object[]
                             {
-                        sdr["packname"] , sdr["fkCardPack"]
+                        sdr["packname"] , sdr["amount"]
                             });
                         }
                     }
                     con.Close();
-                  return chartData;
+
                 }
             }
+            return Json(chartData);
+
         }
     }
 }

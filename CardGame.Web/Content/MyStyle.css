@@ -31,8 +31,12 @@ body {
     font-size: 22px;
 }
 
-/*#Gamer {
-}*/
+
+
+#chart {  
+    margin-left:150px;
+
+}
 
 .DiamantAnzeige {
     margin-top: 10px;
