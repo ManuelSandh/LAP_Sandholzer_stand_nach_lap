@@ -12,7 +12,8 @@ namespace CardGame.DAL.Logic
     public enum BuyResult
     {
         Success,
-        NotEnoughDiamonds
+        NotEnoughDiamonds,
+        NotEnoughMoney
     }
 
     public class ShopManager
@@ -143,11 +144,11 @@ namespace CardGame.DAL.Logic
 
                         /// überspringe alle karten VOR diesem Index (daher auch: rng-1)
                         /// und nimm danach die nächste Karte
-                        var card = db.AllCards.OrderBy(x => x.ID).Skip(rng-1).Take(1).Single();
+                        var card = db.AllCards.OrderBy(x => x.ID).Skip(rng - 1).Take(1).Single();
 
                         /// ermittle nun ob der User DIESE Karte schon einmal hat
                         UserCardCollection coll = user.AllUserCardCollections.Where(x => x.ID_Card == card.ID).FirstOrDefault();
-                        
+
                         //card 
                         if (coll != null) /// user hat diese karte schon einmal
                         {
@@ -172,7 +173,36 @@ namespace CardGame.DAL.Logic
             return result;
         }
 
+        public static BuyResult ExecuteDiamantenOrder(int idPerson, int idDiaPack)
+        {
+            BuyResult result = BuyResult.Success;
 
-       
+            using (var db = new CardGame_v2Entities())
+            {
+                VirtualPurchase diaOrder = new VirtualPurchase();
+
+                diaOrder.ID_DiamantenPack = idDiaPack;
+                diaOrder.ID_User = idPerson;
+                diaOrder.PurchaseDate = DateTime.Now;
+                diaOrder.NumberOfPacks = 1;
+                db.AllVirtualPurchases.Add(diaOrder);
+                db.SaveChanges();
+
+
+                User user = db.AllUsers.FirstOrDefault(x => x.ID == idPerson);
+                DiamantenPack pack = db.AllDiamantenPacks.FirstOrDefault(x => x.ID == idDiaPack);
+
+                if (user.AmountMoney < pack.PackPrice)               
+                    result = BuyResult.NotEnoughMoney;                
+                else
+                {
+                    /// ziehe Preis vom pack beim User ab!
+                    user.AmountMoney += (int)pack.Diamanten;
+                    db.SaveChanges();
+                }
+
+            }
+            return result;
+        }
     }
 }

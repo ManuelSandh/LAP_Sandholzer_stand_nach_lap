@@ -41,7 +41,7 @@
                     }
                 }
             </tr>            
-            @*<tr>
+            <tr>
                 @foreach (var cp in Model.diamantPacks)
                 {
                     <td>
@@ -55,10 +55,24 @@
                 {
                     <td>
                         @Html.DisplayFor(diamantenpack => cp.Price)€ <br />
-                        @Html.ActionLink("kaufen", "BuyDiamanten", "Shop", new { id = cp.DiamantenPackId }, new { @class = "btn btn-submit" })
                     </td>
                 }
-            </tr>*@        
+            </tr>  
+            <tr>
+
+                @for (int i = 0; i < Model.diamantPacks.Count; i++)
+                {
+                    using (Html.BeginForm())
+                    {
+                        <td>
+                         
+                            <input type="hidden" name="idCardPack" value="@Model.diamantPacks.ToList()[i].DiamantenPackId" />
+                            <input type="hidden" name="Packprice" value="@Model.cardPacks.ToList()[i].Price" />                        
+                            <input type="submit" value="Kaufen" class="btn btn-submit" />
+                        </td>
+                    }
+                }
+            </tr>   
         </table>
     </div>
 </div>
