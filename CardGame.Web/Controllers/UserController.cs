@@ -28,10 +28,17 @@ namespace CardGame.Web.Controllers
                 reguser.Lastname = c.LastName;
                 reguser.Email = c.Mail;
                 reguser.Role = c.UserRole.Name;
-                reguser.Gamertag = c.GamerTag;               
+                reguser.Gamertag = c.GamerTag;
                 UserList.Add(reguser);
             }
             return View(UserList);
+        }
+
+        public ActionResult Edit()
+        {
+            DAL.Model.User user = UserManager.GetUserByEmail(User.Identity.Name);
+            
+            return View();
         }
     }
 }

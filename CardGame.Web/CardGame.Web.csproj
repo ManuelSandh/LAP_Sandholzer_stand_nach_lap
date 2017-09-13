@@ -275,6 +275,7 @@
     <Content Include="Views\DeckBuilder\Index.cshtml" />
     <Content Include="Views\DeckBuilder\Show.cshtml" />
     <Content Include="Views\Statistic\Bestseller.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

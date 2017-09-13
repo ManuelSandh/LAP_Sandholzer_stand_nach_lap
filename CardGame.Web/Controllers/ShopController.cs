@@ -89,8 +89,6 @@ namespace CardGame.Web.Controllers
             diamantenpack.PackPrice = dbDiamantenPack.PackPrice;
 
             return View(diamantenpack);
-        }
-
-        
+        }        
     }
 }
