@@ -301,6 +301,29 @@ namespace CardGame.DAL.Logic
                 return null;
             }
         }
+
+        //public static bool editUser(string firstname, string lastname, string email)
+        //{
+        //    var dbUser = GetUserByEmail(email);
+
+        //    dbUser.FirstName = firstname;
+        //    dbUser.LastName = lastname;
+        //    dbUser.Mail = email;
+        //    try
+        //    {
+        //        using (var db = new CardGame_v2Entities())
+        //        {
+        //            db.Entry(dbUser).State = EntityState.Modified;
+        //            db.SaveChanges();
+        //            return true;
+        //        }
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Writer.LogError(e);
+        //        return false;
+        //    }
+        //}
     }
 }
 

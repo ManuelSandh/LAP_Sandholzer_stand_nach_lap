@@ -36,7 +36,7 @@ namespace CardGame.Web.Controllers
 
         public ActionResult Edit()
         {
-            DAL.Model.User user = UserManager.GetUserByEmail(User.Identity.Name);
+            //DAL.Model.User user = UserManager.editUser();
             
             return View();
         }

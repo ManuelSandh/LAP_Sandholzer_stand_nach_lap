@@ -9,6 +9,5 @@ namespace CardGame.Web.Models
     {
         string packname;
         int Verkaufszahlen;
-
     }
 }

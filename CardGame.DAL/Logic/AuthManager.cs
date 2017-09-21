@@ -36,7 +36,6 @@ namespace CardGame.DAL.Logic
                         decks.Add(d);
                     }
 
-
                     User newUser = new User()
                     {
                         Password = hashedAndSaltedPassword,

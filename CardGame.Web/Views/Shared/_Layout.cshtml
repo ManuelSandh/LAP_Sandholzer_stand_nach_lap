@@ -21,7 +21,6 @@
                 @Html.ActionLink("Clonestone", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-
                 @if (User.Identity.Name == "" || User.Identity.Name == null)
                 {
                     <ul class="nav navbar-nav navbar-right" style="margin-top:6px;">
