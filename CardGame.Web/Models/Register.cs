@@ -24,7 +24,7 @@ namespace CardGame.Web.Models
         [Compare("Password", ErrorMessage = "Die Passwörter stimmen nicht überein!")]
         public string confirmPassword { get; set; }
 
-        //[Required(ErrorMessage ="Bitte geben Sie Ihr Strasse an")]
+        //[Required(ErrorMessage = "Bitte geben Sie Ihr Strasse an")]
         //[MaxLength(50)]
         //public string Street { get; set; }
 
