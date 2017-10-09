@@ -15,7 +15,7 @@
             <p class="valimassage">@Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-warning" })</p></div>
         <br />
         <div class="editor-field">
-            <div>@Html.Label("Passwort")</div>
+            <div>@Html.LabelFor(model => model.Password)</div>
             <div>@Html.EditorFor(model => model.Password)</div>
             <p class="valimassage">@Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-warning" })</p> 
         </div>

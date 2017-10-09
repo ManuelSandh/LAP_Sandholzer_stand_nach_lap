@@ -108,5 +108,20 @@ namespace CardGame.Web.Controllers
             TempData["ConfirmMessage"] = "Erfolgreich registriert";
             return RedirectToAction("Index", "Home");
         }
+
+        [HttpGet]
+        public ActionResult Edit()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Edit(EditUserModel EM)
+        {
+            return View();
+        }
+
     }
+
+
 }

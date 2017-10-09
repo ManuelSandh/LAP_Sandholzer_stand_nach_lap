@@ -34,12 +34,7 @@ namespace CardGame.Web.Controllers
             return View(UserList);
         }
 
-        public ActionResult Edit()
-        {
-            //DAL.Model.User user = UserManager.editUser();
-            
-            return View();
-        }
+      
     }
 }
 
