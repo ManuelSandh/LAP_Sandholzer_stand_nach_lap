@@ -23,7 +23,17 @@ namespace CardGame.Web.Models
         public string Gamertag { get; set; }
         
         [DataType(DataType.Password)]
-        public string Password { get; set; }        
+        [DisplayName("Altes Passwort")]
+        public string CurrentPassword { get; set; }
+
+        [DataType(DataType.Password)]
+        [DisplayName("Neues Passwort")]
+        public string NewPassword { get; set; }
+
+        [DataType(DataType.Password)]
+        [Compare("Password")]
+        [DisplayName("Passwort Wiederholen")]
+        public string ConfirmPassword { get; set; }
 
         [MaxLength(50)]
         [DisplayName("Strasse")]
