@@ -97,7 +97,7 @@ namespace CardGame.Web.Controllers
                 return View(model);
             }
 
-            bool isRegistered = AuthManager.Register(model.Email, model.Password, model.Firstname, model.Lastname, model.Gamertag);
+            bool isRegistered = AuthManager.Register(model.Email, model.Password, model.Firstname, model.Lastname, model.Gamertag, model.Street, model.Streetnumber, model.PLZ, model.City);
 
             //Authentifizierung
             if (!isRegistered)
@@ -110,18 +110,56 @@ namespace CardGame.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult Edit()
+        public ActionResult UserProfile()
         {
-            return View();
+            DAL.Model.User dbuser = DAL.Logic.UserManager.GetUserByEmail(User.Identity.Name);
+            Web.Models.EditUserModel vmUser = new Models.EditUserModel();
+
+            vmUser.Firstname = dbuser.FirstName;
+            vmUser.Lastname = dbuser.LastName;
+            vmUser.Gamertag = dbuser.GamerTag;
+            vmUser.Street = dbuser.Street;
+            vmUser.Streetnumber = dbuser.Streetnumber ?? -1;
+            vmUser.PLZ = dbuser.Post_Code;
+            vmUser.City = dbuser.City;
+            
+            return View(vmUser);
+        }
+
+
+        [HttpGet]
+        public ActionResult EditUser()
+        {
+            DAL.Model.User dbuser = DAL.Logic.UserManager.GetUserByEmail(User.Identity.Name);
+            Web.Models.EditUserModel vmUser = new Models.EditUserModel();
+
+            vmUser.Firstname = dbuser.FirstName;
+            vmUser.Lastname = dbuser.LastName;
+            vmUser.Gamertag = dbuser.GamerTag;
+            vmUser.Street = dbuser.Street;
+            vmUser.Streetnumber = dbuser.Streetnumber ?? -1;
+            vmUser.PLZ = dbuser.Post_Code;
+            vmUser.City = dbuser.City;
+
+            return View(vmUser);
         }
 
         [HttpPost]
-        public ActionResult Edit(EditUserModel EM)
+        public ActionResult EditUser(EditUserModel EM)
         {
+            DAL.Model.User dbUser = DAL.Logic.UserManager.GetUserByEmail(User.Identity.Name);
 
+            dbUser.FirstName = EM.Firstname;
+            dbUser.LastName = EM.Lastname;
+            dbUser.GamerTag = EM.Gamertag;
+            dbUser.Street = EM.Street;
+            dbUser.Streetnumber = EM.Streetnumber;
+            dbUser.Post_Code = EM.PLZ;
+            dbUser.City = EM.City;
 
+            DAL.Logic.UserManager.SaveUser(dbUser);
 
-            return View();
+            return RedirectToAction("UserProfile");
         }
 
     }

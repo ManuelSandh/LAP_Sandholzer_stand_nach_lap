@@ -21,30 +21,16 @@ namespace CardGame.Web.Models
         [MaxLength(20)]
         [DisplayName("Gamertag")]
         public string Gamertag { get; set; }
-        
-        [DataType(DataType.Password)]
-        [DisplayName("Altes Passwort")]
-        public string CurrentPassword { get; set; }
-
-        [DataType(DataType.Password)]
-        [DisplayName("Neues Passwort")]
-        public string NewPassword { get; set; }
-
-        [DataType(DataType.Password)]
-        [Compare("Password")]
-        [DisplayName("Passwort Wiederholen")]
-        public string ConfirmPassword { get; set; }
 
         [MaxLength(50)]
         [DisplayName("Strasse")]
         public string Street { get; set; }
 
-        [MaxLength(15)]
         [DisplayName("Hausnummer")]
         public int Streetnumber { get; set; }
         
         [MaxLength(15)]
-        [DisplayName("postleitzahl")]
+        [DisplayName("Postleitzahl")]
         public string PLZ { get; set; }
         
         [MaxLength(30)]

@@ -1,0 +1,71 @@
+﻿@model CardGame.Web.Models.EditUserModel
+@{
+    ViewBag.Title = "EditUser";
+}
+
+<div class="editaccountbackground">
+    <h2 class="editaccountHeader">Account bearbeiten</h2>
+    <div class="editaccountbody">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @*@Html.HiddenFor(model => model.ID)*@
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Firstname, "Vorname", htmlAttributes: new { @class = "control-label col-md-2" })
+                    @*<div class="col-md-10">*@
+                        @Html.EditorFor(model => model.Firstname)
+                    @*</div>*@
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Lastname, "Nachname", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Lastname)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Gamertag, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Gamertag)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Street, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Street)
+                    </div>
+                </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Streetnumber, "Hausnummer", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Streetnumber)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.PLZ, "PLZ", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.PLZ)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.City, "Stadt")
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Ändern" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>       
+    </div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -79,7 +79,7 @@ body {
 }
 .editaccountbackground {
     margin-top: 80px;
-    text-align: center;
+    /*text-align: center;*/
     height: 640px;
     width: 1000px; 
     background-image: url(../Content/Images/Dark-Background.jpg);
@@ -89,7 +89,8 @@ body {
 }
 
 .editaccountHeader{
-    margin-top: 20px;
+    margin-top: 25px;
+    margin-bottom:25px;
     /*color: #6B90DB;*/
     color: #FEE9E4;
     text-align: center;

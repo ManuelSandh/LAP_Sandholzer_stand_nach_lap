@@ -31,17 +31,21 @@ namespace CardGame.Web.Models
 
         [Required(ErrorMessage = "Bitte geben Sie Ihr Strasse an")]
         [MaxLength(50)]
+        [DisplayName("Straße")]
         public string Street { get; set; }
 
         [Required(ErrorMessage = "Bitte geben Sie Ihre Hausnummer an")]
+        [DisplayName("Hausnummer")]
         public int Streetnumber { get; set; }
 
         [Required(ErrorMessage = "Bitte geben Sie Ihre PLZ an")]
         [MaxLength(15)]
+        [DisplayName("Postleitzahl")]
         public string PLZ { get; set; }
 
         [Required(ErrorMessage = "Bitte geben Sie Ihre Stadt an")]
         [MaxLength(30)]
+        [DisplayName("Stadt")]
         public string City { get; set; }
     }
 }

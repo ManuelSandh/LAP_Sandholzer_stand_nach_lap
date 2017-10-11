@@ -168,6 +168,7 @@ namespace CardGame.DAL.Logic
             return numDecks;
         }
 
+       
         public static int GetBalanceByEmail(string email)
         {
             return GetUserByEmail(email).AmountMoney;
@@ -291,7 +292,6 @@ namespace CardGame.DAL.Logic
                     {
                         throw new Exception("NoDecksFound");
                     }
-
                     return dbDecks;
                 }
             }
@@ -300,7 +300,19 @@ namespace CardGame.DAL.Logic
                 Writer.LogError(e);
                 return null;
             }
-        }       
+        }
+
+        public static void SaveUser(User dbUser)
+        {
+            using (var db = new CardGame_v2Entities())
+            {
+                db.Entry(dbUser).State = EntityState.Modified;
+                db.SaveChanges();
+                
+            }
+        }
+
+
     }
 }
 

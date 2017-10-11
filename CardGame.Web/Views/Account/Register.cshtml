@@ -37,26 +37,22 @@
         <div>@Html.EditorFor(u => u.confirmPassword)</div>
         <p class="valimassage">@Html.ValidationMessageFor(model => model.confirmPassword, "", new { @class = "text-warning" })</p>
         <br />
-       
-        @*<div>@Html.LabelFor("Strasse")</div>
-    <div>@Html.EditorFor(u => u.Street)</div>
-    <p class="valimassage">@Html.ValidationMessageFor(model => model.Street, "", new { @class = "text-warning" })</p>
-
-    <br />
-    <div>@Html.LabelFor("Hausnummer")</div>
-    <div>@Html.EditorFor(u => u.Streetnumber)</div>
-    <p class="valimassage">@Html.ValidationMessageFor(model => model.Streetnumber, "", new { @class = "text-warning" })</p>
-
-    <br />
-    <div>@Html.LabelFor("Postleitzahl")</div>
-    <div>@Html.EditorFor(u => u.PLZ)</div>
-    <p class="valimassage">@Html.ValidationMessageFor(model => model.PLZ, "", new { @class = "text-warning" })</p>
-
-    <br />
-    <div>@Html.LabelFor("Ort")</div>
-    <div>@Html.EditorFor(u => u.City)</div>
-    <p class="valimassage">@Html.ValidationMessageFor(model => model.City, "", new { @class = "text-warning" })</p>
-    <br />*@
+        <div>@Html.LabelFor(u => u.Street)</div>
+        <div>@Html.EditorFor(u => u.Street)</div>
+        <p class="valimassage">@Html.ValidationMessageFor(model => model.Street, "", new { @class = "text-warning" })</p>
+        <br />
+        <div>@Html.LabelFor(u => u.Streetnumber)</div>
+        <div>@Html.EditorFor(u => u.Streetnumber)</div>
+        <p class="valimassage">@Html.ValidationMessageFor(model => model.Streetnumber, "", new { @class = "text-warning" })</p>
+        <br />
+        <div>@Html.LabelFor(u => u.PLZ)</div>
+        <div>@Html.EditorFor(u => u.PLZ)</div>
+        <p class="valimassage">@Html.ValidationMessageFor(model => model.PLZ, "", new { @class = "text-warning" })</p>
+        <br />
+        <div>@Html.LabelFor(u => u.City)</div>
+        <div>@Html.EditorFor(u => u.City)</div>
+        <p class="valimassage">@Html.ValidationMessageFor(model => model.City, "", new { @class = "text-warning" })</p>
+        <br />
         <p>
             <input type="submit" class="btn btn-submit" value="Registrieren" style="padding-top:1px">
         </p>
