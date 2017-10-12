@@ -1128,8 +1128,9 @@ pre code {
   .col-md-11 {
     width: 91.66666666666666%;
   }
+  /*TODO Fals es probleme mit Bootsstrap col-md-12 gibt ich habe es von 100% auf 50% reduziert*/ 
   .col-md-12 {
-    width: 100%;
+    width: 50%;
   }
   .col-md-push-0 {
     left: auto;

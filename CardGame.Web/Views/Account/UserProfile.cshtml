@@ -7,64 +7,63 @@
 <div class="editaccountbackground">
     <h2 class="editaccountHeader">Account Übersicht</h2>
     <div class="editaccountbody">
-
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
             <div class="form-horizental">
-                
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                @*@Html.HiddenFor(model => model.ID)*@
+
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Firstname, "Vorname", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-12">
+                        @Html.LabelFor(model => model.Firstname, htmlAttributes: new { @class = "control-label col-md-2" })
                         @Html.ValueFor(model => model.Firstname)
                     </div>
                 </div>
-                <form class="form-inline">
+                <div class="form-group">
                     <div class="form-group">
-                        @Html.LabelFor(model => model.Lastname, "Nachname", htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-12">
+                            @Html.LabelFor(model => model.Lastname, htmlAttributes: new { @class = "control-label col-md-2" })
                             @Html.ValueFor(model => model.Lastname)
                         </div>
                     </div>
-                </form>
+                </div>
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Gamertag, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-12">
+                        @Html.LabelFor(model => model.Gamertag, htmlAttributes: new { @class = "control-label col-md-2" })
                         @Html.ValueFor(model => model.Gamertag)
                     </div>
                 </div>
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Street, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-12">
+                        @Html.LabelFor(model => model.Street, htmlAttributes: new { @class = "control-label col-md-2" })
                         @Html.ValueFor(model => model.Street)
                     </div>
                 </div>
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Streetnumber, "Hausnummer", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-12">
+                        @Html.LabelFor(model => model.Streetnumber, htmlAttributes: new { @class = "control-label col-md-2" })
                         @Html.ValueFor(model => model.Streetnumber)
                     </div>
                 </div>
                 <div class="form-group">
-                    @Html.LabelFor(model => model.PLZ, "PLZ", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-12">
+                        @Html.LabelFor(model => model.PLZ, htmlAttributes: new { @class = "control-label col-md-2" })
                         @Html.ValueFor(model => model.PLZ)
                     </div>
                 </div>
                 <div class="form-group">
-                    @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-12">
-                        @Html.ValueFor(model => model.City, "Stadt")
+                        @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.ValueFor(model => model.City)
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        @Html.ActionLink("Account bearbeiten", "EditUser", "Account")
+                    <div class="col-md-12">
+                        @Html.ActionLink("Bearbeiten", "EditUser", "Account", new { @class = "btn btn-submit" })
                     </div>
                 </div>
             </div>
+
         }
     </div>
 </div>

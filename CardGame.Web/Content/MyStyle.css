@@ -77,8 +77,11 @@ body {
     opacity: 0.8;
     border: solid #2A292B;
 }
+
 .editaccountbackground {
     margin-top: 80px;
+    margin-left: 100px;
+    /*padding-left:200px;*/    
     /*text-align: center;*/
     height: 640px;
     width: 1000px; 
@@ -90,7 +93,7 @@ body {
 
 .editaccountHeader{
     margin-top: 25px;
-    margin-bottom:25px;
+    margin-bottom:25px;    
     /*color: #6B90DB;*/
     color: #FEE9E4;
     text-align: center;
