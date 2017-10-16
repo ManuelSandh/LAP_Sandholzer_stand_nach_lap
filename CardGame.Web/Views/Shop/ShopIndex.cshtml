@@ -3,6 +3,9 @@
 @{
     ViewBag.Title = "ShopIndex";
 }
+<head>
+    <link href="~/Content/MyStyle.css" rel="stylesheet" type="text/css" />
+</head>
 <div class="ShopBackGround">
     <div class="ShopIndex">
         <h3>Willkommen im Shop</h3>
@@ -39,9 +42,9 @@
                         <input type="submit" value="Kaufen" class="btn btn-submit" />
                     </td>
                     }
-                }
-            </tr>            
-            <tr>
+                }               
+            </tr>           
+            @*<tr>
                 @foreach (var cp in Model.diamantPacks)
                 {
                     <td>
@@ -72,7 +75,8 @@
                         </td>
                     }
                 }
-            </tr>   
-        </table>
+            </tr>*@   
+        </table> 
+
     </div>
 </div>

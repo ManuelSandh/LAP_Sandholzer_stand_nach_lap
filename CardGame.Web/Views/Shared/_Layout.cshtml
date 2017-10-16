@@ -31,7 +31,7 @@
                 else
                 {
                     <ul class="nav navbar-nav navbar-right" style="margin-top:6px;">
-                        <li>@Html.ActionLink(CardGame.DAL.Logic.UserManager.GetUserByEmail(User.Identity.Name).GamerTag, "UserProfile", "Account")</li>
+                        <li>@Html.ActionLink("<<" + CardGame.DAL.Logic.UserManager.GetUserByEmail(User.Identity.Name).GamerTag + ">>", "UserProfile", "Account")</li>
                         <li>@Html.ActionLink("Bestseller", "Bestseller", "Statistic")</li>
                         <li>@Html.ActionLink("Shop", "ShopIndex", "Shop")</li>
                         <li>@Html.ActionLink("Deckbuilder", "Index", "DeckBuilder")</li>
