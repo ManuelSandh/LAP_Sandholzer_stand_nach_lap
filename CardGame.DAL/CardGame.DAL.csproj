@@ -97,6 +97,9 @@
     <Compile Include="Model\UserCardCollection.cs">
       <DependentUpon>CardGameModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\UserRanking.cs">
+      <DependentUpon>CardGameModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\UserRole.cs">
       <DependentUpon>CardGameModel.tt</DependentUpon>
     </Compile>

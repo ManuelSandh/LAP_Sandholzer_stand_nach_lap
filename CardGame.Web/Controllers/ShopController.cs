@@ -7,6 +7,7 @@ using CardGame.Web.Models;
 using CardGame.DAL.Model;
 using CardGame.DAL.Logic;
 using CardGame.Log;
+using System.Diagnostics;
 
 namespace CardGame.Web.Controllers
 {
@@ -89,6 +90,13 @@ namespace CardGame.Web.Controllers
             diamantenpack.PackPrice = dbDiamantenPack.PackPrice;
 
             return View(diamantenpack);
-        }        
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "player,admin")]
+        public ActionResult AddRating(string ratingSubmit, int? star)
+        {
+            return RedirectToAction("ShopIndex");
+        }
     }
 }

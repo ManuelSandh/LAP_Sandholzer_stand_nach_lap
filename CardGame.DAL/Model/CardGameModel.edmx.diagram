@@ -25,6 +25,8 @@
         <AssociationConnector Association="CardGame_v2Model.FK_tblVirtualPurchase_tblUser" ManuallyRouted="false" />
         <EntityTypeShape EntityType="CardGame_v2Model.DiamantenPack" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="CardGame_v2Model.FK__tblVirtua__fkDia__151B244E" />
+        <EntityTypeShape EntityType="CardGame_v2Model.UserRanking" Width="1.5" PointX="7.5" PointY="2" />
+        <AssociationConnector Association="CardGame_v2Model.FK__UserRanki__pack___3D2915A8" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

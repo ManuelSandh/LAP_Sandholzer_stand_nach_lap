@@ -105,6 +105,17 @@
           <Property Name="numpacks" Type="int" Nullable="false" />
           <Property Name="fkDiamantenPack" Type="int" />
         </EntityType>
+        <!--Während der Generierung sind Fehler aufgetreten:
+Warnung 6002: Für Tabelle/Sicht 'CardGame_v2.dbo.UserRanking' ist kein Primärschlüssel definiert. Der Schlüssel wurde abgeleitet, und die Definition wurde als schreibgeschützte Tabelle/Sicht erstellt.-->
+        <EntityType Name="UserRanking">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="pack_id" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pack_id" Type="int" Nullable="false" />
+          <Property Name="rating" Type="smallint" />
+        </EntityType>
         <Association Name="FK__tblVirtua__fkDia__151B244E">
           <End Role="tblDiamantenPack" Type="Self.tblDiamantenPack" Multiplicity="0..1" />
           <End Role="tblVirtualPurchase" Type="Self.tblVirtualPurchase" Multiplicity="*" />
@@ -114,6 +125,18 @@
             </Principal>
             <Dependent Role="tblVirtualPurchase">
               <PropertyRef Name="fkDiamantenPack" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserRanki__pack___3D2915A8">
+          <End Role="tblCardPack" Type="Self.tblCardPack" Multiplicity="1" />
+          <End Role="UserRanking" Type="Self.UserRanking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCardPack">
+              <PropertyRef Name="idCardPack" />
+            </Principal>
+            <Dependent Role="UserRanking">
+              <PropertyRef Name="pack_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -225,9 +248,20 @@
           <EntitySet Name="tblUserCardCollection" EntityType="Self.tblUserCardCollection" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblUserRole" EntityType="Self.tblUserRole" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblVirtualPurchase" EntityType="Self.tblVirtualPurchase" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRanking" EntityType="Self.UserRanking" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [UserRanking].[ID] AS [ID], 
+    [UserRanking].[pack_id] AS [pack_id], 
+    [UserRanking].[rating] AS [rating]
+    FROM [dbo].[UserRanking] AS [UserRanking]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK__tblVirtua__fkDia__151B244E" Association="Self.FK__tblVirtua__fkDia__151B244E">
             <End Role="tblDiamantenPack" EntitySet="tblDiamantenPack" />
             <End Role="tblVirtualPurchase" EntitySet="tblVirtualPurchase" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserRanki__pack___3D2915A8" Association="Self.FK__UserRanki__pack___3D2915A8">
+            <End Role="tblCardPack" EntitySet="tblCardPack" />
+            <End Role="UserRanking" EntitySet="UserRanking" />
           </AssociationSet>
           <AssociationSet Name="FK_tblCard_tblCardType" Association="Self.FK_tblCard_tblCardType">
             <End Role="tblCardType" EntitySet="tblCardType" />
@@ -290,6 +324,7 @@
           <Property Name="NumCards" Type="Int32" Nullable="false" />
           <Property Name="PackPrice" Type="Int32" Nullable="false" />
           <NavigationProperty Name="AllVirtualPurchase" Relationship="Self.FK_tblVirtualPurchase_tblCardPack" FromRole="tblCardPack" ToRole="tblVirtualPurchase" />
+          <NavigationProperty Name="UserRanking" Relationship="CardGame_v2Model.FK__UserRanki__pack___3D2915A8" FromRole="CardPack" ToRole="UserRanking" />
         </EntityType>
         <EntityType Name="CardType">
           <Key>
@@ -536,6 +571,11 @@
             <End Role="VirtualPurchase" EntitySet="AllVirtualPurchases" />
           </AssociationSet>
           <FunctionImport Name="ptopdreiPacks" ReturnType="Collection(Int32)" />
+          <EntitySet Name="UserRanking" EntityType="CardGame_v2Model.UserRanking" />
+          <AssociationSet Name="FK__UserRanki__pack___3D2915A8" Association="CardGame_v2Model.FK__UserRanki__pack___3D2915A8">
+            <End Role="CardPack" EntitySet="AllCardPacks" />
+            <End Role="UserRanking" EntitySet="UserRanking" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="DiamantenPack">
           <Key>
@@ -556,6 +596,28 @@
             </Principal>
             <Dependent Role="VirtualPurchase">
               <PropertyRef Name="ID_DiamantenPack" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="UserRanking">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="pack_id" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pack_id" Type="Int32" Nullable="false" />
+          <Property Name="rating" Type="Int16" />
+          <NavigationProperty Name="tblCardPack" Relationship="CardGame_v2Model.FK__UserRanki__pack___3D2915A8" FromRole="UserRanking" ToRole="CardPack" />
+        </EntityType>
+        <Association Name="FK__UserRanki__pack___3D2915A8">
+          <End Type="CardGame_v2Model.CardPack" Role="CardPack" Multiplicity="1" />
+          <End Type="CardGame_v2Model.UserRanking" Role="UserRanking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CardPack">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserRanking">
+              <PropertyRef Name="pack_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -674,6 +736,15 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="ptopdreiPacks" FunctionName="CardGame_v2Model.Store.ptopdreiPacks" />
+          <EntitySetMapping Name="UserRanking">
+            <EntityTypeMapping TypeName="CardGame_v2Model.UserRanking">
+              <MappingFragment StoreEntitySet="UserRanking">
+                <ScalarProperty Name="rating" ColumnName="rating" />
+                <ScalarProperty Name="pack_id" ColumnName="pack_id" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

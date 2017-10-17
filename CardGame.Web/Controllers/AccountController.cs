@@ -28,7 +28,6 @@ namespace CardGame.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
-
                 return View(login);
             }
             else

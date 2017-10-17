@@ -24,6 +24,7 @@
     <Property Name="NumCards" Type="Int32" Nullable="false" />
     <Property Name="PackPrice" Type="Int32" Nullable="false" />
     <NavigationProperty Name="AllVirtualPurchase" Relationship="Self.FK_tblVirtualPurchase_tblCardPack" FromRole="tblCardPack" ToRole="tblVirtualPurchase" />
+    <NavigationProperty Name="UserRanking" Relationship="CardGame_v2Model.FK__UserRanki__pack___3D2915A8" FromRole="CardPack" ToRole="UserRanking" />
   </EntityType>
   <EntityType Name="CardType">
     <Key>
@@ -270,6 +271,11 @@
       <End Role="VirtualPurchase" EntitySet="AllVirtualPurchases" />
     </AssociationSet>
     <FunctionImport Name="ptopdreiPacks" ReturnType="Collection(Int32)" />
+    <EntitySet Name="UserRanking" EntityType="CardGame_v2Model.UserRanking" />
+    <AssociationSet Name="FK__UserRanki__pack___3D2915A8" Association="CardGame_v2Model.FK__UserRanki__pack___3D2915A8">
+      <End Role="CardPack" EntitySet="AllCardPacks" />
+      <End Role="UserRanking" EntitySet="UserRanking" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="DiamantenPack">
     <Key>
@@ -290,6 +296,28 @@
       </Principal>
       <Dependent Role="VirtualPurchase">
         <PropertyRef Name="ID_DiamantenPack" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="UserRanking">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="pack_id" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pack_id" Type="Int32" Nullable="false" />
+    <Property Name="rating" Type="Int16" />
+    <NavigationProperty Name="tblCardPack" Relationship="CardGame_v2Model.FK__UserRanki__pack___3D2915A8" FromRole="UserRanking" ToRole="CardPack" />
+  </EntityType>
+  <Association Name="FK__UserRanki__pack___3D2915A8">
+    <End Type="CardGame_v2Model.CardPack" Role="CardPack" Multiplicity="1" />
+    <End Type="CardGame_v2Model.UserRanking" Role="UserRanking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CardPack">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserRanking">
+        <PropertyRef Name="pack_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

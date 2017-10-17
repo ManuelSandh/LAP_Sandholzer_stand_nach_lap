@@ -110,5 +110,14 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="ptopdreiPacks" FunctionName="CardGame_v2Model.Store.ptopdreiPacks" />
+    <EntitySetMapping Name="UserRanking">
+      <EntityTypeMapping TypeName="CardGame_v2Model.UserRanking">
+        <MappingFragment StoreEntitySet="UserRanking">
+          <ScalarProperty Name="rating" ColumnName="rating" />
+          <ScalarProperty Name="pack_id" ColumnName="pack_id" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
