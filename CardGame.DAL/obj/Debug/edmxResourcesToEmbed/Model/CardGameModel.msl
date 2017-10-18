@@ -53,6 +53,8 @@
     <EntitySetMapping Name="AllUsers">
       <EntityTypeMapping TypeName="CardGame_v2Model.User">
         <MappingFragment StoreEntitySet="tblUser">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="activationCode" ColumnName="activationCode" />
           <ScalarProperty Name="City" ColumnName="City" />
           <ScalarProperty Name="Post_Code" ColumnName="Post_Code" />
           <ScalarProperty Name="Streetnumber" ColumnName="Streetnumber" />

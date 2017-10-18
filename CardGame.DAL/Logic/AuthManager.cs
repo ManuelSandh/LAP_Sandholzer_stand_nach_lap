@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using CardGame.DAL.Model;
 using CardGame.Log;
+using System.Net.Mail;
+using System.Net;
 
 namespace CardGame.DAL.Logic
 {
@@ -36,8 +38,13 @@ namespace CardGame.DAL.Logic
                         decks.Add(d);
                     }
 
+                    Guid guid = Guid.NewGuid();
+
+                    SendActivationCodeToUser(mail, guid.ToString());
+
                     User newUser = new User()
                     {
+                        //Standart werte an den neu registrierten User übergeben
                         Password = hashedAndSaltedPassword,
                         UserSalt = salt,
                         FirstName = firstName,
@@ -50,10 +57,11 @@ namespace CardGame.DAL.Logic
                         City = city,
                         AmountMoney = 300,
                         ID_UserRole = 2,
-                        AllDecks = decks
+                        AllDecks = decks,
+                        Active = false,
+                        activationCode = guid // Hier wird der Aktivierungscode erzeugt
                        
                     };
-
                     db.AllUsers.Add(newUser);
                     db.SaveChanges();
                 }
@@ -65,9 +73,50 @@ namespace CardGame.DAL.Logic
 
             return true;
         }
+        //TODO wenn das in der LAP nicht gefordert ist nicht vergessen zu deaktivieren
+        private static void SendActivationCodeToUser(string email, string guid)
+        {
+            string host = "smtp.gmail.com";
+            int port = 456;
+            string betreff = "Ihr Clonestone Aktivierungscode";
+            string nachricht = "Bitte klicken Sie auf folgenden Link um Ihren" +
+                "Clonestone Account zu Aktivieren";
+            string clonestoneURL = "http://localhost:56538";
+
+
+            string link = "<a href='"
+                + clonestoneURL
+                + "Account/Activate/" 
+                + guid 
+                + "'>Hier klicken!</a>'";
+
+            string sender = "test.sharkesh@gmail.com";
+
+
+            SmtpClient smtp = new SmtpClient();
+
+            MailMessage mm = new MailMessage(sender, email);          
+          
+            mm.Body = nachricht + link; //Nachricht der Emal
+            mm.Subject = betreff; //Betreff der Email
+
+            NetworkCredential nc = new NetworkCredential(sender, "123user!");
+            //Login und Passwort füer SMTP Server in ctor
+
+            smtp.Host = host;
+            smtp.Port = port;
+            smtp.UseDefaultCredentials = false;
+            smtp.Credentials = nc;
+            smtp.EnableSsl = true;
+
+            //smtp.Send(mm);
+
+        }
+
 
         public static bool AuthUser(string email, string password)
         {
+            bool ergebnis = false;
             try
             {
                 using (var db = new CardGame_v2Entities())
@@ -76,7 +125,10 @@ namespace CardGame.DAL.Logic
                     if (user == null)
                         throw new Exception("UserDoesNotExist");
                     
-                    return user.Password.SequenceEqual(Helper.GenerateHash(password + user.UserSalt));
+                     var pwGleich = user.Password.SequenceEqual(Helper.GenerateHash(password + user.UserSalt));
+                    if (user.Active == true && pwGleich == true)
+                        ergebnis = true;
+                    return ergebnis;
                 }
             }
             catch (Exception e)
@@ -87,5 +139,4 @@ namespace CardGame.DAL.Logic
         }
     }
 }
-
-//            
+         

@@ -36,6 +36,8 @@ namespace CardGame.DAL.Model
         public Nullable<int> Streetnumber { get; set; }
         public string Post_Code { get; set; }
         public string City { get; set; }
+        public Nullable<System.Guid> activationCode { get; set; }
+        public Nullable<bool> Active { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Deck> AllDecks { get; set; }

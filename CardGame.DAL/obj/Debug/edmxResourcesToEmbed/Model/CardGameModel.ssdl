@@ -72,6 +72,8 @@
     <Property Name="Streetnumber" Type="int" />
     <Property Name="Post_Code" Type="varchar" MaxLength="15" />
     <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="activationCode" Type="uniqueidentifier" />
+    <Property Name="Active" Type="bit" />
   </EntityType>
   <EntityType Name="tblUserCardCollection">
     <Key>

@@ -8,6 +8,7 @@ using CardGame.DAL.Logic;
 using CardGame.DAL.Model;
 using CardGame.Log;
 using System.Web.Security;
+using System.Data.Entity;
 
 namespace CardGame.Web.Controllers
 {
@@ -121,7 +122,7 @@ namespace CardGame.Web.Controllers
             vmUser.Streetnumber = dbuser.Streetnumber ?? -1;
             vmUser.PLZ = dbuser.Post_Code;
             vmUser.City = dbuser.City;
-            
+
             return View(vmUser);
         }
 
@@ -159,6 +160,43 @@ namespace CardGame.Web.Controllers
             DAL.Logic.UserManager.SaveUser(dbUser);
 
             return RedirectToAction("UserProfile");
+        }
+
+        [HttpGet]
+        public ActionResult ActivateUser(string id)
+        {
+            try
+            {
+                //1. In DB nach entsprechenden String suchen
+                //2. Wenn gefunden, den zugehörigen Benutzer aktivieren,
+                //3. GUID aus DB loeschen
+                using (var db = new CardGame_v2Entities())
+                {
+                    //1
+                    var dbUser = db.AllUsers.Where(u => u.activationCode.ToString() == id).FirstOrDefault();
+
+                    if (dbUser == null)
+                        return RedirectToAction("Index", "Home");
+
+                    //2
+                    dbUser.Active = true;
+
+                    //3
+                    dbUser.activationCode = null;
+
+                    //4
+                    db.Entry(dbUser).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+            }
+            catch
+            {
+
+                return RedirectToAction("Index", "Home");
+            }
+
+
+            return RedirectToAction("Login");
         }
 
     }
