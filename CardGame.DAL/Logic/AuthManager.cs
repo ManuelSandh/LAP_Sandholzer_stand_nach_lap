@@ -77,7 +77,7 @@ namespace CardGame.DAL.Logic
         private static void SendActivationCodeToUser(string email, string guid)
         {
             string host = "smtp.gmail.com";
-            int port = 456;
+            int port = 587;
             string betreff = "Ihr Clonestone Aktivierungscode";
             string nachricht = "Bitte klicken Sie auf folgenden Link um Ihren" +
                 "Clonestone Account zu Aktivieren";
@@ -90,7 +90,7 @@ namespace CardGame.DAL.Logic
                 + guid 
                 + "'>Hier klicken!</a>'";
 
-            string sender = "test.sharkesh@gmail.com";
+            string sender = "htmanus23@gmail.com";
 
 
             SmtpClient smtp = new SmtpClient();
@@ -105,11 +105,11 @@ namespace CardGame.DAL.Logic
 
             smtp.Host = host;
             smtp.Port = port;
-            smtp.UseDefaultCredentials = false;
+            smtp.UseDefaultCredentials = true;
             smtp.Credentials = nc;
             smtp.EnableSsl = true;
 
-            //smtp.Send(mm);
+            smtp.Send(mm);
 
         }
 
