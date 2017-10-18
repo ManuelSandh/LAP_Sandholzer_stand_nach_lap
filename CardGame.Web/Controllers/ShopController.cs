@@ -96,6 +96,7 @@ namespace CardGame.Web.Controllers
         [Authorize(Roles = "player,admin")]
         public ActionResult AddRating(string ratingSubmit, int? star)
         {
+            
             return RedirectToAction("ShopIndex");
         }
     }

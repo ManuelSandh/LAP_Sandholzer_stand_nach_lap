@@ -1,0 +1,22 @@
+<Xcpt>
+  <Time>18.10.2017 11:16:08</Time>
+  <Exception>
+    <Source>System</Source>
+    <Message>Fehler beim Senden von Mail.</Message>
+    <Stack>   bei System.Net.Mail.SmtpClient.Send(MailMessage message)
+   bei CardGame.DAL.Logic.AuthManager.SendActivationCodeToUser(String email, String guid) in C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.DAL\Logic\AuthManager.cs:Zeile 112.
+   bei CardGame.DAL.Logic.AuthManager.Register(String mail, String password, String firstName, String lastName, String gamerTag, String street, Int32 streetnumber, String PLZ, String city) in C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.DAL\Logic\AuthManager.cs:Zeile 43.</Stack>
+    <InnerException>
+      <Source>System</Source>
+      <Message>Die Verbindung mit dem Remoteserver kann nicht hergestellt werden.</Message>
+      <Stack>   bei System.Net.ServicePoint.GetConnection(PooledStream PooledStream, Object owner, Boolean async, IPAddress&amp; address, Socket&amp; abortSocket, Socket&amp; abortSocket6)
+   bei System.Net.PooledStream.Activate(Object owningObject, Boolean async, GeneralAsyncDelegate asyncCallback)
+   bei System.Net.PooledStream.Activate(Object owningObject, GeneralAsyncDelegate asyncCallback)
+   bei System.Net.ConnectionPool.GetConnection(Object owningObject, GeneralAsyncDelegate asyncCallback, Int32 creationTimeout)
+   bei System.Net.Mail.SmtpConnection.GetConnection(ServicePoint servicePoint)
+   bei System.Net.Mail.SmtpTransport.GetConnection(ServicePoint servicePoint)
+   bei System.Net.Mail.SmtpClient.GetConnection()
+   bei System.Net.Mail.SmtpClient.Send(MailMessage message)</Stack>
+    </InnerException>
+  </Exception>
+</Xcpt>

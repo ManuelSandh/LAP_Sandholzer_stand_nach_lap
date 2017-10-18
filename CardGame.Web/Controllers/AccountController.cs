@@ -177,13 +177,10 @@ namespace CardGame.Web.Controllers
 
                     if (dbUser == null)
                         return RedirectToAction("Index", "Home");
-
                     //2
                     dbUser.Active = true;
-
                     //3
                     dbUser.activationCode = null;
-
                     //4
                     db.Entry(dbUser).State = EntityState.Modified;
                     db.SaveChanges();
@@ -191,11 +188,8 @@ namespace CardGame.Web.Controllers
             }
             catch
             {
-
                 return RedirectToAction("Index", "Home");
             }
-
-
             return RedirectToAction("Login");
         }
 
