@@ -58,6 +58,7 @@ body {
 .navbar-brand {
     margin-top: 10px !important;
     color: #6C89C1 !important;
+    margin-left:-350px !important;
 }
 
 #LoginForm,
@@ -65,7 +66,7 @@ body {
     width: 290px;
     font-size: 16px !important;
     text-align: center;
-    margin-top: 70px;
+    margin-top: 55px;
     padding-top: 5px;
     float: right;
     color: #6C89C1;
@@ -241,19 +242,17 @@ body {
     margin-left: 250px;
 }
 
-div.stars {
-    width: 270px;
-    display: inline-block;
+.stars{
+    margin-top:50px;   
+}
+.cardInfo{
+    margin-bottom:10px !important;
 }
 
-
-
 div.stars {
-    width: 270px;
+    width: 120px;
     display: inline-block;
 }
-
-
 
 input.star {
     display: none;

@@ -10,6 +10,5 @@ namespace CardGame.Web.Models
     {
         public List<CardPackModel> cardPacks { get; set; }
         public List<DiamantenModel> diamantPacks { get; set; }
-        public string test { get; set; }
     }
 }

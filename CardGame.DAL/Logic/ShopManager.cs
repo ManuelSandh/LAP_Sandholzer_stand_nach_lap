@@ -192,8 +192,8 @@ namespace CardGame.DAL.Logic
                 User user = db.AllUsers.FirstOrDefault(x => x.ID == idPerson);
                 DiamantenPack pack = db.AllDiamantenPacks.FirstOrDefault(x => x.ID == idDiaPack);
 
-                if (user.AmountMoney < pack.PackPrice)               
-                    result = BuyResult.NotEnoughMoney;                
+                if (user.AmountMoney < pack.PackPrice)
+                    result = BuyResult.NotEnoughMoney;
                 else
                 {
                     /// ziehe Preis vom pack beim User ab!
@@ -204,7 +204,26 @@ namespace CardGame.DAL.Logic
             }
             return result;
         }
+        //TODO public static UserRanking saveRatinginDB(string ratingSubmit, int? star)
+        //    {
+        //        var userRanking = new UserRanking();
+        //        try
+        //        {
+        //            using (var db = new CardGame_v2Entities())
+        //            {
+        //                userRanking.rating = (short)star;
 
-        
+
+        //                db.UserRanking.Add(userRanking);
+        //                db.SaveChanges();
+        //            }
+        //        }
+        //        catch (Exception)
+        //        {
+
+        //            throw;
+        //        }
+
+        //    }
     }
 }

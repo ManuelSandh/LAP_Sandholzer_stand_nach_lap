@@ -284,9 +284,6 @@ C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.Web\bin\zh-Hant\Syste
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.Web\obj\Debug\CardGame.Web.csprojResolveAssemblyReference.cache
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.Web\obj\Debug\CardGame.Web.dll
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.Web\obj\Debug\CardGame.Web.pdb
-C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.Web\obj\Debug\CardGame.Web.csprojResolveAssemblyReference.cache
-C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.Web\obj\Debug\CardGame.Web.dll
-C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.Web\obj\Debug\CardGame.Web.pdb
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.Web\bin\ApplicationInsights.config
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.Web\bin\roslyn\csc.exe
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -387,3 +384,6 @@ C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.Web\bi
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.Web\bin\ru\System.Spatial.resources.dll
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.Web\bin\zh-Hans\System.Spatial.resources.dll
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.Web\bin\zh-Hant\System.Spatial.resources.dll
+C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.Web\obj\Debug\CardGame.Web.csprojResolveAssemblyReference.cache
+C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.Web\obj\Debug\CardGame.Web.dll
+C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.Web\obj\Debug\CardGame.Web.pdb

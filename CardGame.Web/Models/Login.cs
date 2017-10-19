@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
@@ -14,6 +15,7 @@ namespace CardGame.Web.Models
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Bitte geben Sie Ihr Passwort ein!")]
+        [DisplayName("Passwort")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
     }

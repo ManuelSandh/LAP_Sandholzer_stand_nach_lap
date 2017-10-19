@@ -9,9 +9,7 @@
 </head>
 <div class="ShopBackGround">
     <div class="ShopIndex">
-        <h3>Willkommen im Shop</h3>
-        @Html.RadioButtonFor(m => m.test, "Answer1")
-
+        <h3>Willkommen im Shop</h3>       
         <table class="ShopTable">
             <tr>
                 @foreach (var cp in @Model.cardPacks)
@@ -31,7 +29,6 @@
                 }
             </tr>
             <tr>
-
                 @for (int i = 0; i < Model.cardPacks.Count; i++)
                 {
                     string name = "pack" + (i + 1);
@@ -46,75 +43,62 @@
                             @*@Html.ActionLink("kaufen", "ShopIndex", "Shop", new { id = Model.cardPacks.ToList()[i].CardPackID } , new { @class = "btn btn-submit" })*@
                             <input type="submit" value="Kaufen" class="btn btn-submit" />
                         </td>
-                    }
 
+                    }
                     <td>
                         <div class="stars">
                             <form method=post action="@Url.Action("AddRating", "Shop")">
                                 @*<input id="test" name="test" value="Answer1" type="radio />*@
-                                <input class="star star-5" id="@id-5" type="radio" name="star" value="5")/>
-                                <label class="star star-5" for="@id-5"></label>          
-                                <input class="star star-4" id="@id-4" type="radio" name="star" value="4"/>
-                                <label class="star star-4" for="@id-4"></label>          
-                                <input class="star star-3" id="@id-3" type="radio" name="star" value="3"/>
-                                <label class="star star-3" for="@id-3"></label>          
-                                <input class="star star-2" id="@id-2" type="radio" name="star" value="2"/>
-                                <label class="star star-2" for="@id-2"></label>          
-                                <input class="star star-1" id="@id-1" type="radio" name="star" value="1"/>
+                                <input class="star star-5" id="@id-5" type="radio" name="star" value="5" ) />
+                                <label class="star star-5" for="@id-5"></label>
+                                <input class="star star-4" id="@id-4" type="radio" name="star" value="4" />
+                                <label class="star star-4" for="@id-4"></label>
+                                <input class="star star-3" id="@id-3" type="radio" name="star" value="3" />
+                                <label class="star star-3" for="@id-3"></label>
+                                <input class="star star-2" id="@id-2" type="radio" name="star" value="2" />
+                                <label class="star star-2" for="@id-2"></label>
+                                <input class="star star-1" id="@id-1" type="radio" name="star" value="1" />
                                 <label class="star star-1" for="@id-1"></label>
                                 <br />
                                 <button type="submit" action="AddRating" name="ratingSubmit" value="@(i+1)">Bewerten</button>
                             </form>
                         </div>
                     </td>
+
                 }
+            </tr>
+            @*<tr>
+                    @foreach (var cp in Model.diamantPacks)
+                    {
+                        <td>
+                            <img class="diamantenBündel" src="~/Content/Images/Diamant Beutel für Shop.png" /> <br />
+                            @Html.DisplayFor(diamantenpack => cp.Diamanten) Stk.
+                        </td>
+                    }
                 </tr>
-                @*<tr>
-                        @foreach (var cp in Model.diamantPacks)
+                <tr>
+                    @foreach (var cp in Model.diamantPacks)
+                    {
+                        <td>
+                            @Html.DisplayFor(diamantenpack => cp.Price)€ <br />
+                        </td>
+                    }
+                </tr>
+                <tr>
+
+                    @for (int i = 0; i < Model.diamantPacks.Count; i++)
+                    {
+                        using (Html.BeginForm())
                         {
                             <td>
-                                <img class="diamantenBündel" src="~/Content/Images/Diamant Beutel für Shop.png" /> <br />
-                                @Html.DisplayFor(diamantenpack => cp.Diamanten) Stk.
+
+                                <input type="hidden" name="idCardPack" value="@Model.diamantPacks.ToList()[i].DiamantenPackId" />
+                                <input type="hidden" name="Packprice" value="@Model.cardPacks.ToList()[i].Price" />
+                                <input type="submit" value="Kaufen" class="btn btn-submit" />
                             </td>
                         }
-                    </tr>
-                    <tr>
-                        @foreach (var cp in Model.diamantPacks)
-                        {
-                            <td>
-                                @Html.DisplayFor(diamantenpack => cp.Price)€ <br />
-                            </td>
-                        }
-                    </tr>
-                    <tr>
-
-                        @for (int i = 0; i < Model.diamantPacks.Count; i++)
-                        {
-                            using (Html.BeginForm())
-                            {
-                                <td>
-
-                                    <input type="hidden" name="idCardPack" value="@Model.diamantPacks.ToList()[i].DiamantenPackId" />
-                                    <input type="hidden" name="Packprice" value="@Model.cardPacks.ToList()[i].Price" />
-                                    <input type="submit" value="Kaufen" class="btn btn-submit" />
-                                </td>
-                            }
-                        }
-                    </tr>*@
-            </table>
-            @*<div class="stars">
-                    <form action="">
-                        <input class="star star-5" id="star-5" type="radio" name="star" />
-                        <label class="star star-5" for="star-5"></label>
-                        <input class="star star-4" id="star-4" type="radio" name="star" />
-                        <label class="star star-4" for="star-4"></label>
-                        <input class="star star-3" id="star-3" type="radio" name="star" />
-                        <label class="star star-3" for="star-3"></label>
-                        <input class="star star-2" id="star-2" type="radio" name="star" />
-                        <label class="star star-2" for="star-2"></label>
-                        <input class="star star-1" id="star-1" type="radio" name="star" />
-                        <label class="star star-1" for="star-1"></label>
-                    </form>
-                </div>*@
-        </div>
+                    }
+                </tr>*@
+        </table>
     </div>
+</div>
