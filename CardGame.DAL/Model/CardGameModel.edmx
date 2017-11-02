@@ -25,6 +25,7 @@
           <Property Name="packname" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="numcards" Type="int" Nullable="false" />
           <Property Name="packprice" Type="int" Nullable="false" />
+          <Property Name="Aktiv" Type="bit" />
         </EntityType>
         <EntityType Name="tblCardType">
           <Key>
@@ -79,6 +80,7 @@
           <Property Name="City" Type="varchar" MaxLength="50" />
           <Property Name="activationCode" Type="uniqueidentifier" />
           <Property Name="Active" Type="bit" />
+          <Property Name="gekauftePakete" Type="int" />
         </EntityType>
         <EntityType Name="tblUserCardCollection">
           <Key>
@@ -107,12 +109,9 @@
           <Property Name="numpacks" Type="int" Nullable="false" />
           <Property Name="fkDiamantenPack" Type="int" />
         </EntityType>
-        <!--Während der Generierung sind Fehler aufgetreten:
-Warnung 6002: Für Tabelle/Sicht 'CardGame_v2.dbo.UserRanking' ist kein Primärschlüssel definiert. Der Schlüssel wurde abgeleitet, und die Definition wurde als schreibgeschützte Tabelle/Sicht erstellt.-->
         <EntityType Name="UserRanking">
           <Key>
             <PropertyRef Name="ID" />
-            <PropertyRef Name="pack_id" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="pack_id" Type="int" Nullable="false" />
@@ -250,13 +249,7 @@ Warnung 6002: Für Tabelle/Sicht 'CardGame_v2.dbo.UserRanking' ist kein Primärs
           <EntitySet Name="tblUserCardCollection" EntityType="Self.tblUserCardCollection" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblUserRole" EntityType="Self.tblUserRole" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblVirtualPurchase" EntityType="Self.tblVirtualPurchase" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="UserRanking" EntityType="Self.UserRanking" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [UserRanking].[ID] AS [ID], 
-    [UserRanking].[pack_id] AS [pack_id], 
-    [UserRanking].[rating] AS [rating]
-    FROM [dbo].[UserRanking] AS [UserRanking]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="UserRanking" EntityType="Self.UserRanking" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__tblVirtua__fkDia__151B244E" Association="Self.FK__tblVirtua__fkDia__151B244E">
             <End Role="tblDiamantenPack" EntitySet="tblDiamantenPack" />
             <End Role="tblVirtualPurchase" EntitySet="tblVirtualPurchase" />
@@ -327,6 +320,7 @@ Warnung 6002: Für Tabelle/Sicht 'CardGame_v2.dbo.UserRanking' ist kein Primärs
           <Property Name="PackPrice" Type="Int32" Nullable="false" />
           <NavigationProperty Name="AllVirtualPurchase" Relationship="Self.FK_tblVirtualPurchase_tblCardPack" FromRole="tblCardPack" ToRole="tblVirtualPurchase" />
           <NavigationProperty Name="UserRanking" Relationship="CardGame_v2Model.FK__UserRanki__pack___3D2915A8" FromRole="CardPack" ToRole="UserRanking" />
+          <Property Name="Aktiv" Type="Boolean" />
         </EntityType>
         <EntityType Name="CardType">
           <Key>
@@ -381,6 +375,7 @@ Warnung 6002: Für Tabelle/Sicht 'CardGame_v2.dbo.UserRanking' ist kein Primärs
           <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="activationCode" Type="Guid" />
           <Property Name="Active" Type="Boolean" />
+          <Property Name="gekauftePakete" Type="Int32" />
         </EntityType>
         <EntityType Name="UserCardCollection">
           <Key>
@@ -606,7 +601,6 @@ Warnung 6002: Für Tabelle/Sicht 'CardGame_v2.dbo.UserRanking' ist kein Primärs
         <EntityType Name="UserRanking">
           <Key>
             <PropertyRef Name="ID" />
-            <PropertyRef Name="pack_id" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="pack_id" Type="Int32" Nullable="false" />
@@ -647,6 +641,7 @@ Warnung 6002: Für Tabelle/Sicht 'CardGame_v2.dbo.UserRanking' ist kein Primärs
           <EntitySetMapping Name="AllCardPacks">
             <EntityTypeMapping TypeName="CardGame_v2Model.CardPack">
               <MappingFragment StoreEntitySet="tblCardPack">
+                <ScalarProperty Name="Aktiv" ColumnName="Aktiv" />
                 <ScalarProperty Name="ID" ColumnName="idCardPack" />
                 <ScalarProperty Name="PackName" ColumnName="packname" />
                 <ScalarProperty Name="NumCards" ColumnName="numcards" />
@@ -683,6 +678,7 @@ Warnung 6002: Für Tabelle/Sicht 'CardGame_v2.dbo.UserRanking' ist kein Primärs
           <EntitySetMapping Name="AllUsers">
             <EntityTypeMapping TypeName="CardGame_v2Model.User">
               <MappingFragment StoreEntitySet="tblUser">
+                <ScalarProperty Name="gekauftePakete" ColumnName="gekauftePakete" />
                 <ScalarProperty Name="Active" ColumnName="Active" />
                 <ScalarProperty Name="activationCode" ColumnName="activationCode" />
                 <ScalarProperty Name="City" ColumnName="City" />

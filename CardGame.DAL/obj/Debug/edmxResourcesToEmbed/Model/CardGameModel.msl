@@ -17,6 +17,7 @@
     <EntitySetMapping Name="AllCardPacks">
       <EntityTypeMapping TypeName="CardGame_v2Model.CardPack">
         <MappingFragment StoreEntitySet="tblCardPack">
+          <ScalarProperty Name="Aktiv" ColumnName="Aktiv" />
           <ScalarProperty Name="ID" ColumnName="idCardPack" />
           <ScalarProperty Name="PackName" ColumnName="packname" />
           <ScalarProperty Name="NumCards" ColumnName="numcards" />
@@ -53,6 +54,7 @@
     <EntitySetMapping Name="AllUsers">
       <EntityTypeMapping TypeName="CardGame_v2Model.User">
         <MappingFragment StoreEntitySet="tblUser">
+          <ScalarProperty Name="gekauftePakete" ColumnName="gekauftePakete" />
           <ScalarProperty Name="Active" ColumnName="Active" />
           <ScalarProperty Name="activationCode" ColumnName="activationCode" />
           <ScalarProperty Name="City" ColumnName="City" />

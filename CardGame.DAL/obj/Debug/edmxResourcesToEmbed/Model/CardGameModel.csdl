@@ -25,6 +25,7 @@
     <Property Name="PackPrice" Type="Int32" Nullable="false" />
     <NavigationProperty Name="AllVirtualPurchase" Relationship="Self.FK_tblVirtualPurchase_tblCardPack" FromRole="tblCardPack" ToRole="tblVirtualPurchase" />
     <NavigationProperty Name="UserRanking" Relationship="CardGame_v2Model.FK__UserRanki__pack___3D2915A8" FromRole="CardPack" ToRole="UserRanking" />
+    <Property Name="Aktiv" Type="Boolean" />
   </EntityType>
   <EntityType Name="CardType">
     <Key>
@@ -79,6 +80,7 @@
     <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="activationCode" Type="Guid" />
     <Property Name="Active" Type="Boolean" />
+    <Property Name="gekauftePakete" Type="Int32" />
   </EntityType>
   <EntityType Name="UserCardCollection">
     <Key>
@@ -304,7 +306,6 @@
   <EntityType Name="UserRanking">
     <Key>
       <PropertyRef Name="ID" />
-      <PropertyRef Name="pack_id" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="pack_id" Type="Int32" Nullable="false" />

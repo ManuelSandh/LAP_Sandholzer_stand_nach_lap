@@ -38,6 +38,7 @@ namespace CardGame.DAL.Model
         public string City { get; set; }
         public Nullable<System.Guid> activationCode { get; set; }
         public Nullable<bool> Active { get; set; }
+        public Nullable<int> gekauftePakete { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Deck> AllDecks { get; set; }

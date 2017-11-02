@@ -9,7 +9,7 @@
 </head>
 <div class="ShopBackGround">
     <div class="ShopIndex">
-        <h3>Willkommen im Shop</h3>       
+        <h3>Willkommen im Shop</h3>
         <table class="ShopTable">
             <tr>
                 @foreach (var cp in @Model.cardPacks)
@@ -31,9 +31,9 @@
             <tr>
                 @for (int i = 0; i < Model.cardPacks.Count; i++)
                 {
-                    string name = "pack" + (i + 1);
-                    string id = name + "-star";
-                    string buttonName = "Bewerten" + (i + 1);
+                    //string name = "pack" + (i + 1);
+                    //string id = name + "-star";
+                    //string buttonName = "Bewerten" + (i + 1);
                     using (Html.BeginForm())
                     {
                         <td>
@@ -42,9 +42,30 @@
                             <input type="hidden" name="Packprice" value="@Model.cardPacks.ToList()[i].Price" />
                             @*@Html.ActionLink("kaufen", "ShopIndex", "Shop", new { id = Model.cardPacks.ToList()[i].CardPackID } , new { @class = "btn btn-submit" })*@
                             <input type="submit" value="Kaufen" class="btn btn-submit" />
+                           
                         </td>
-
                     }
+                }
+            </tr>
+
+            <tr>
+                @foreach (var cp in @Model.cardPacks)
+                {
+                    <td>
+                        @Html.ValueFor(cardpack => cp.AveragePack)
+                    </td>
+                }
+            </tr>
+
+
+
+            <tr>
+
+                @for (int i = 0; i < 3; i++)
+                {
+                    string name = "pack" + (i + 1);
+                    string id = name + "-star";
+                    string buttonName = "Bewerten" + (i + 1);
                     <td>
                         <div class="stars">
                             <form method=post action="@Url.Action("AddRating", "Shop")">
@@ -64,9 +85,10 @@
                             </form>
                         </div>
                     </td>
-
                 }
+
             </tr>
+          
             @*<tr>
                     @foreach (var cp in Model.diamantPacks)
                     {

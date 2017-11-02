@@ -210,6 +210,7 @@
     <Compile Include="Models\Shop.cs" />
     <Compile Include="Models\Statistic.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserRanking.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

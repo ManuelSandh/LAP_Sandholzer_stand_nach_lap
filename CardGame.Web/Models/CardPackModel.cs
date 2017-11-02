@@ -11,5 +11,6 @@ namespace CardGame.Web.Models
         public string PackName { get; set; }
         public int NumCards { get; set; }
         public int Price { get; set; }
+        public double AveragePack { get; set; }
     }
 }

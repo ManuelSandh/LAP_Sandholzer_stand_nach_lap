@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using CardGame.Web.Models;
 using CardGame.DAL.Model;
 using CardGame.DAL.Logic;
+using CardGame.DAL;
 using CardGame.Log;
 using System.Diagnostics;
 
@@ -22,6 +23,7 @@ namespace CardGame.Web.Controllers
             shop.cardPacks = new List<CardPackModel>();
             shop.diamantPacks = new List<DiamantenModel>();
 
+
             var dbCardPacks = ShopManager.getAllCardPacks();
             var dbDiamantenPacks = ShopManager.getAllDiamantenPacks();
 
@@ -32,7 +34,9 @@ namespace CardGame.Web.Controllers
                 cardPack.PackName = cont.PackName;
                 cardPack.NumCards = cont.NumCards;
                 cardPack.Price = cont.PackPrice;
+                cardPack.AveragePack = GetRating(cont.ID);
                 shop.cardPacks.Add(cardPack);
+                
             }
             foreach (var cont in dbDiamantenPacks)
             {
@@ -96,8 +100,20 @@ namespace CardGame.Web.Controllers
         [Authorize(Roles = "player,admin")]
         public ActionResult AddRating(string ratingSubmit, int? star)
         {
-            
+            int parsedRatingSubmit;
+
+            parsedRatingSubmit = Int32.Parse(ratingSubmit);
+
+            DAL.Logic.ShopManager.saveRatinginDB(parsedRatingSubmit, star);
             return RedirectToAction("ShopIndex");
+        }
+
+        
+        [Authorize(Roles = "player,admin")]
+        public double GetRating(int id)
+        {
+            double result = DAL.Logic.ShopManager.GetPackRatingAverageById(id);
+            return result;
         }
     }
 }

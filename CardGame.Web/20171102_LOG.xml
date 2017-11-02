@@ -1,0 +1,39 @@
+<Xcpt>
+  <Time>02.11.2017 12:28:29</Time>
+  <Exception>
+    <Source>EntityFramework</Source>
+    <Message>Unable to update the EntitySet 'UserRanking' because it has a DefiningQuery and no &lt;InsertFunction&gt; element exists in the &lt;ModificationFunctionMapping&gt; element to support the current operation.</Message>
+    <Stack>   bei System.Data.Entity.Internal.InternalContext.SaveChanges()
+   bei System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   bei System.Data.Entity.DbContext.SaveChanges()
+   bei CardGame.DAL.Logic.ShopManager.saveRatinginDB(Int32 ratingSubmit, Nullable`1 star) in C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.DAL\Logic\ShopManager.cs:Zeile 219.</Stack>
+    <InnerException>
+      <Source>EntityFramework.SqlServer</Source>
+      <Message>Unable to update the EntitySet 'UserRanking' because it has a DefiningQuery and no &lt;InsertFunction&gt; element exists in the &lt;ModificationFunctionMapping&gt; element to support the current operation.</Message>
+      <Stack>   bei System.Data.Entity.SqlServer.SqlGen.DmlSqlGenerator.ExpressionTranslator.Visit(DbScanExpression expression)
+   bei System.Data.Entity.Core.Common.CommandTrees.DbScanExpression.Accept(DbExpressionVisitor visitor)
+   bei System.Data.Entity.SqlServer.SqlGen.DmlSqlGenerator.GenerateInsertSql(DbInsertCommandTree tree, SqlGenerator sqlGenerator, List`1&amp; parameters, Boolean generateReturningSql, Boolean upperCaseKeywords, Boolean createParameters)
+   bei System.Data.Entity.SqlServer.SqlGen.SqlGenerator.GenerateSql(DbCommandTree tree, SqlVersion sqlVersion, List`1&amp; parameters, CommandType&amp; commandType, HashSet`1&amp; paramsToForceNonUnicode)
+   bei System.Data.Entity.SqlServer.SqlProviderServices.CreateCommand(DbProviderManifest providerManifest, DbCommandTree commandTree)
+   bei System.Data.Entity.SqlServer.SqlProviderServices.CreateDbCommandDefinition(DbProviderManifest providerManifest, DbCommandTree commandTree)
+   bei System.Data.Entity.Core.Common.DbProviderServices.CreateDbCommandDefinition(DbProviderManifest providerManifest, DbCommandTree commandTree, DbInterceptionContext interceptionContext)
+   bei System.Data.Entity.Core.Common.DbProviderServices.CreateCommandDefinition(DbCommandTree commandTree, DbInterceptionContext interceptionContext)
+   bei System.Data.Entity.Core.Common.DbProviderServices.CreateCommand(DbCommandTree commandTree, DbInterceptionContext interceptionContext)
+   bei System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.CreateCommand(DbModificationCommandTree commandTree)
+   bei System.Data.Entity.Core.Mapping.Update.Internal.DynamicUpdateCommand.CreateCommand(Dictionary`2 identifierValues)
+   bei System.Data.Entity.Core.Mapping.Update.Internal.DynamicUpdateCommand.Execute(Dictionary`2 identifierValues, List`1 generatedValues)
+   bei System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()
+   bei System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.&lt;Update&gt;b__2(UpdateTranslator ut)
+   bei System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update[T](T noChangesResult, Func`2 updateFunction)
+   bei System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update()
+   bei System.Data.Entity.Core.Objects.ObjectContext.&lt;SaveChangesToStore&gt;b__35()
+   bei System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   bei System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction)
+   bei System.Data.Entity.Core.Objects.ObjectContext.&lt;&gt;c__DisplayClass2a.&lt;SaveChangesInternal&gt;b__27()
+   bei System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   bei System.Data.Entity.Core.Objects.ObjectContext.SaveChangesInternal(SaveOptions options, Boolean executeInExistingTransaction)
+   bei System.Data.Entity.Core.Objects.ObjectContext.SaveChanges(SaveOptions options)
+   bei System.Data.Entity.Internal.InternalContext.SaveChanges()</Stack>
+    </InnerException>
+  </Exception>
+</Xcpt>

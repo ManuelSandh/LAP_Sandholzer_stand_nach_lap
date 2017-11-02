@@ -25,6 +25,7 @@ namespace CardGame.DAL.Model
         public string PackName { get; set; }
         public int NumCards { get; set; }
         public int PackPrice { get; set; }
+        public Nullable<bool> Aktiv { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VirtualPurchase> AllVirtualPurchase { get; set; }

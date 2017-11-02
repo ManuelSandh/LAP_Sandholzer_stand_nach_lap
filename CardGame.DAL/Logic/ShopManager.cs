@@ -204,26 +204,54 @@ namespace CardGame.DAL.Logic
             }
             return result;
         }
-        //TODO public static UserRanking saveRatinginDB(string ratingSubmit, int? star)
-        //    {
-        //        var userRanking = new UserRanking();
-        //        try
-        //        {
-        //            using (var db = new CardGame_v2Entities())
-        //            {
-        //                userRanking.rating = (short)star;
+        public static void saveRatinginDB(int ratingSubmit, int? star)
+        {
+            UserRanking userranking = new UserRanking();
+            try
+            {
+                using (var db = new CardGame_v2Entities())
+                {
+                    userranking.pack_id = ratingSubmit;
+                    userranking.rating = (short)star;
 
 
-        //                db.UserRanking.Add(userRanking);
-        //                db.SaveChanges();
-        //            }
-        //        }
-        //        catch (Exception)
-        //        {
+                    db.UserRanking.Add(userranking);
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
 
-        //            throw;
-        //        }
+        }
+        public static double GetPackRatingAverageById(int id)
+        {
+            double ratingResult = 0;
+            double countedRating = 0;
+            try
+            {
+                using (var db = new CardGame_v2Entities())
+                {
+                    var result = db.UserRanking.Where(u => u.pack_id == id).ToList();
 
-        //    }
+                    double number = result.Count();
+
+                    foreach (var item in result)
+                    {
+                        countedRating = countedRating + item.rating ?? -1;
+                    }
+                    ratingResult = countedRating / number;
+                    ratingResult = Math.Round(ratingResult, 2);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return ratingResult;
+        }
+
     }
 }
