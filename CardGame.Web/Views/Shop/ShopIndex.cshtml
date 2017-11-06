@@ -42,7 +42,7 @@
                             <input type="hidden" name="Packprice" value="@Model.cardPacks.ToList()[i].Price" />
                             @*@Html.ActionLink("kaufen", "ShopIndex", "Shop", new { id = Model.cardPacks.ToList()[i].CardPackID } , new { @class = "btn btn-submit" })*@
                             <input type="submit" value="Kaufen" class="btn btn-submit" />
-                           
+
                         </td>
                     }
                 }
@@ -51,14 +51,15 @@
             <tr>
                 @foreach (var cp in @Model.cardPacks)
                 {
+                    
                     <td>
+                        <i>Bewertungen</i><br/>
+                        <i class="fa fa-star" style="color:#CFC064" aria-hidden="true"></i>
                         @Html.ValueFor(cardpack => cp.AveragePack)
+
                     </td>
                 }
             </tr>
-
-
-
             <tr>
 
                 @for (int i = 0; i < 3; i++)
@@ -88,7 +89,7 @@
                 }
 
             </tr>
-          
+
             @*<tr>
                     @foreach (var cp in Model.diamantPacks)
                     {
