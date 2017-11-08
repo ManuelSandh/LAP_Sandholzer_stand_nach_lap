@@ -24,7 +24,9 @@ body {
     color: white;
 }
 
-
+.PasswortÄndernLink {
+    color: white !important;
+}
 
 #menueleiste {
     background-color: #231514;
@@ -39,6 +41,7 @@ body {
 
 .DiamantAnzeige {
     margin-top: 10px;
+    margin-left: 250px;
     text-align: center;
     color: #fff;
 }
@@ -58,7 +61,7 @@ body {
 .navbar-brand {
     margin-top: 10px !important;
     color: #6C89C1 !important;
-    margin-left:-350px !important;
+    margin-left: -350px !important;
 }
 
 #LoginForm,
@@ -98,12 +101,48 @@ body {
     text-align: center;
 }
 
+
 .editaccountbody {
     text-align: center;
     font-size: 20px;
     color: #6B90DB;
 }
 
+.EditAktiveCardPackBackGround {
+    margin-top: 80px;
+    margin-left: 100px;
+    height: 640px;
+    width: 1000px;
+    background-image: url(../Content/Images/Dark-Background.jpg);
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    border: solid;
+}
+
+.EditAktiveCardPackBody {
+    text-align: center;
+    font-size: 20px;
+     text-align:center;
+    color: #6B90DB;
+}
+
+.DatenPflegeBackGround {
+    margin-top: 80px;
+    margin-left: 100px;   
+    height: 640px;
+    width: 1000px;
+    background-image: url(../Content/Images/Dark-Background.jpg);
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    border: solid;
+}
+
+.DatenPflegeBody {
+    text-align: center;
+     text-align:center;
+    font-size: 20px;
+    color: #6B90DB;
+}
 
 .valimassage {
     margin-top: 5px;
@@ -112,7 +151,9 @@ body {
 .CardPacks {
     width: 140px;
     height: 180px;
+    margin-top: 25px;
 }
+
 
 .diamantenBündel {
     width: 100px;
@@ -150,6 +191,7 @@ body {
 
 .AGBBody {
     margin-top: 20px;
+    margin-bottom:20px;
     color: #6B90DB;
 }
 
@@ -242,11 +284,12 @@ body {
     margin-left: 250px;
 }
 
-.stars{
-    margin-top:50px;   
+.stars {
+    /*margin-top:50px;*/
 }
-.cardInfo{
-    margin-bottom:10px !important;
+
+.cardInfo {
+    margin-bottom: 10px !important;
 }
 
 div.stars {

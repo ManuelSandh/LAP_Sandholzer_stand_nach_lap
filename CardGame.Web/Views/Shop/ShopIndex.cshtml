@@ -24,39 +24,34 @@
                 @foreach (var cp in @Model.cardPacks)
                 {
                     <td>
-                        @Html.DisplayFor(cardpack => cp.NumCards) Karten
+                        @Html.DisplayFor(cardpack => cp.NumCards) Karten                        
                     </td>
                 }
             </tr>
             <tr>
                 @for (int i = 0; i < Model.cardPacks.Count; i++)
-                {
-                    //string name = "pack" + (i + 1);
-                    //string id = name + "-star";
-                    //string buttonName = "Bewerten" + (i + 1);
+                {                  
                     using (Html.BeginForm())
                     {
                         <td>
+                            <br/>
                             <img src="~/Content/Images/Diamant.png" />@Model.cardPacks.ToList()[i].Price<br />
                             <input type="hidden" name="idCardPack" value="@Model.cardPacks.ToList()[i].CardPackID" />
                             <input type="hidden" name="Packprice" value="@Model.cardPacks.ToList()[i].Price" />
                             @*@Html.ActionLink("kaufen", "ShopIndex", "Shop", new { id = Model.cardPacks.ToList()[i].CardPackID } , new { @class = "btn btn-submit" })*@
-                            <input type="submit" value="Kaufen" class="btn btn-submit" />
-
+                            <input type="submit" style="margin-top:15px; margin-bottom:50px" value="Kaufen" class="btn btn-submit" />
                         </td>
                     }
                 }
             </tr>
-
+           
             <tr>
                 @foreach (var cp in @Model.cardPacks)
-                {
-                    
-                    <td>
+                {                   
+                    <td>                        
                         <i>Bewertungen</i><br/>
                         <i class="fa fa-star" style="color:#CFC064" aria-hidden="true"></i>
                         @Html.ValueFor(cardpack => cp.AveragePack)
-
                     </td>
                 }
             </tr>
@@ -67,7 +62,7 @@
                     string name = "pack" + (i + 1);
                     string id = name + "-star";
                     string buttonName = "Bewerten" + (i + 1);
-                    <td>
+                    <td style="padding-right:28px">
                         <div class="stars">
                             <form method=post action="@Url.Action("AddRating", "Shop")">
                                 @*<input id="test" name="test" value="Answer1" type="radio />*@
@@ -80,9 +75,8 @@
                                 <input class="star star-2" id="@id-2" type="radio" name="star" value="2" />
                                 <label class="star star-2" for="@id-2"></label>
                                 <input class="star star-1" id="@id-1" type="radio" name="star" value="1" />
-                                <label class="star star-1" for="@id-1"></label>
-                                <br />
-                                <button type="submit" action="AddRating" name="ratingSubmit" value="@(i+1)">Bewerten</button>
+                                <label class="star star-1" for="@id-1"></label>                             
+                                <button type="submit" class="btn btn-submit" action="AddRating" name="ratingSubmit" value="@(i+1)">Bewerten</button>
                             </form>
                         </div>
                     </td>

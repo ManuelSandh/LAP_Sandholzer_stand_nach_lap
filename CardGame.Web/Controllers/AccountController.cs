@@ -192,8 +192,11 @@ namespace CardGame.Web.Controllers
             }
             return RedirectToAction("Login");
         }
+        [HttpGet]
+        public ActionResult ChangePassword()
+        {
+            return View();
+        }
 
     }
-
-
 }

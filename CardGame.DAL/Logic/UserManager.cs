@@ -15,9 +15,7 @@ namespace CardGame.DAL.Logic
         {
             List<User> ReturnList = null;
             using (var db = new CardGame_v2Entities())
-            {
-                // TODO - Include
-                // .Include(t => t.tabelle) um einen Join zu machen !
+            {              
                 ReturnList = db.AllUsers.ToList();
             }
             return ReturnList;
@@ -307,11 +305,9 @@ namespace CardGame.DAL.Logic
             using (var db = new CardGame_v2Entities())
             {
                 db.Entry(dbUser).State = EntityState.Modified;
-                db.SaveChanges();
-                
+                db.SaveChanges();                
             }
         }
-
 
     }
 }

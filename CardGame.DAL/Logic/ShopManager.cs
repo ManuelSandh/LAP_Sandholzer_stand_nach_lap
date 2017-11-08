@@ -18,6 +18,23 @@ namespace CardGame.DAL.Logic
 
     public class ShopManager
     {
+        public static List<CardPack> AlleMeineCardpacks()
+        {
+            using (CardGame_v2Entities db = new CardGame_v2Entities())
+            {
+                return db.AllCardPacks.ToList();
+            }
+        }
+
+        public static CardPack LiefereCardPack(int? id)
+        {
+            using (CardGame_v2Entities db = new CardGame_v2Entities())
+            {
+                return db.AllCardPacks.Find(id);
+            }
+        }
+
+
         public static List<CardPack> getAllCardPacks()
         {
             var allCardPacks = new List<CardPack>();
@@ -27,6 +44,26 @@ namespace CardGame.DAL.Logic
                 using (var db = new CardGame_v2Entities())
                 {
                     allCardPacks = db.AllCardPacks.ToList();
+                }
+                if (allCardPacks == null)
+                    throw new Exception("NoCardPacksFound");
+            }
+            catch (Exception e)
+            {
+                Writer.LogError(e);
+            }
+            return allCardPacks;
+        }
+
+        public static List<CardPack> getAllAktiveCardPacks()
+        {
+            var allCardPacks = new List<CardPack>();
+
+            try
+            {
+                using (var db = new CardGame_v2Entities())
+                {
+                    allCardPacks = db.AllCardPacks.Where(x=>x.Aktiv==true).ToList();
                 }
                 if (allCardPacks == null)
                     throw new Exception("NoCardPacksFound");
@@ -242,7 +279,7 @@ namespace CardGame.DAL.Logic
                         countedRating = countedRating + item.rating ?? -1;
                     }
                     ratingResult = countedRating / number;
-                    ratingResult = Math.Round(ratingResult, 2);
+                    ratingResult = Math.Round(ratingResult, 1);
                 }
             }
             catch (Exception)
@@ -251,6 +288,21 @@ namespace CardGame.DAL.Logic
                 throw;
             }
             return ratingResult;
+        }
+
+        public static void UpdateCardPackAktiv(int idCardpack, bool? aktiv)
+        {
+            using (var db = new CardGame_v2Entities())
+            {
+                //suchen cardpack anhand der id
+                CardPack gefundenesPaket = db.AllCardPacks.Find(idCardpack);
+
+                gefundenesPaket.Aktiv = aktiv;
+
+                //db.Entry(gefundenesPaket).State = EntityState.Modified;
+
+                db.SaveChanges();
+            }
         }
 
     }

@@ -24,7 +24,7 @@ namespace CardGame.Web.Controllers
             shop.diamantPacks = new List<DiamantenModel>();
 
 
-            var dbCardPacks = ShopManager.getAllCardPacks();
+            var dbCardPacks = ShopManager.getAllAktiveCardPacks();
             var dbDiamantenPacks = ShopManager.getAllDiamantenPacks();
 
             foreach (var cont in dbCardPacks)
@@ -36,7 +36,7 @@ namespace CardGame.Web.Controllers
                 cardPack.Price = cont.PackPrice;
                 cardPack.AveragePack = GetRating(cont.ID);
                 shop.cardPacks.Add(cardPack);
-                
+
             }
             foreach (var cont in dbDiamantenPacks)
             {
@@ -108,12 +108,70 @@ namespace CardGame.Web.Controllers
             return RedirectToAction("ShopIndex");
         }
 
-        
+
         [Authorize(Roles = "player,admin")]
         public double GetRating(int id)
         {
             double result = DAL.Logic.ShopManager.GetPackRatingAverageById(id);
             return result;
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "admin")]
+        public ActionResult DatenPflege()
+        {
+            List<CardPack> dbCardpacks = ShopManager.getAllCardPacks();
+
+            CardPackViewModel viewCardPack;
+            List<CardPackViewModel> listeCardPackViewModel = new List<CardPackViewModel>();
+
+            foreach (CardPack dbCardPack in dbCardpacks)
+            {
+                viewCardPack = new CardPackViewModel();
+
+                viewCardPack.PacketName = dbCardPack.PackName;
+                viewCardPack.Anzahlkarten = dbCardPack.NumCards;
+                viewCardPack.Preis = dbCardPack.PackPrice;
+                viewCardPack.Aktiv = (bool)dbCardPack.Aktiv;
+                viewCardPack.IDCardPack = dbCardPack.ID;
+
+                listeCardPackViewModel.Add(viewCardPack);
+            }
+
+            return View(listeCardPackViewModel);
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "admin")]
+        public ActionResult EditAktivCardpack(int id)
+        {
+            CardPack dbCardPack = ShopManager.GetCardPackById(id);
+
+            CardPackViewModel viewCardPack = new CardPackViewModel();
+
+            viewCardPack.IDCardPack = dbCardPack.ID;
+            viewCardPack.PacketName = dbCardPack.PackName;
+            viewCardPack.Anzahlkarten = dbCardPack.NumCards;
+            viewCardPack.Preis = dbCardPack.PackPrice;
+            viewCardPack.Aktiv = (bool)dbCardPack.Aktiv;
+
+            return View(viewCardPack);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "admin")]
+        public ActionResult EditAktivCardpack(CardPackViewModel viewCardPack)
+        {
+            ShopManager.UpdateCardPackAktiv(viewCardPack.IDCardPack, viewCardPack.Aktiv);
+
+            return RedirectToAction("Datenpflege");
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "player")]
+        public ActionResult ChangePassword(ChangePasswordModel passModel)
+        {
+            return View();
         }
     }
 }

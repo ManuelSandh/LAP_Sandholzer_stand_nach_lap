@@ -10,7 +10,7 @@ namespace CardGame.Web.Models
         public int CardPackID { get; set; }
         public string PackName { get; set; }
         public int NumCards { get; set; }
-        public int Price { get; set; }
+        public double Price { get; set; }
         public double AveragePack { get; set; }
     }
 }

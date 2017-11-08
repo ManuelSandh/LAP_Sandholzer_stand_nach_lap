@@ -199,6 +199,8 @@
     <Compile Include="Models\BestsellerModel.cs" />
     <Compile Include="Models\Card.cs" />
     <Compile Include="Models\CardPackModel.cs" />
+    <Compile Include="Models\CardPackViewModel.cs" />
+    <Compile Include="Models\ChangePasswordModel.cs" />
     <Compile Include="Models\DeckDetailModel.cs" />
     <Compile Include="Models\DeckModel.cs" />
     <Compile Include="Models\DeckOverViewModel.cs" />
@@ -279,6 +281,9 @@
     <Content Include="Views\Statistic\Bestseller.cshtml" />
     <Content Include="Views\Account\UserProfile.cshtml" />
     <Content Include="Views\Account\EditUser.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Shop\DatenPflege.cshtml" />
+    <Content Include="Views\Shop\EditAktivCardpack.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

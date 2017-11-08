@@ -10,7 +10,7 @@
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
-            <div class="form-horizental">
+            <div class="form-horizental" style="margin-left:345px; margin-top:30px;">
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
                 <div class="form-group">
@@ -57,9 +57,12 @@
                         @Html.ValueFor(model => model.City)
                     </div>
                 </div>
+
+                @Html.ActionLink("Passwort ändern", "ChangePassword", "Account", new { @class = "PasswortÄndernLink" })
+
                 <div class="form-group">
                     <div class="col-md-12">
-                        @Html.ActionLink("Bearbeiten", "EditUser", "Account", new { @class = "btn btn-submit" })
+                        @Html.ActionLink("Bearbeiten", "EditUser", "Account", new { @class = "btn btn-submit"})
                     </div>
                 </div>
             </div>
