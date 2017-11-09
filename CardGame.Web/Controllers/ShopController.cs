@@ -167,11 +167,6 @@ namespace CardGame.Web.Controllers
             return RedirectToAction("Datenpflege");
         }
 
-        [HttpGet]
-        [Authorize(Roles = "player")]
-        public ActionResult ChangePassword(ChangePasswordModel passModel)
-        {
-            return View();
-        }
+     
     }
 }

@@ -63,7 +63,7 @@ namespace CardGame.DAL.Logic
             {
                 using (var db = new CardGame_v2Entities())
                 {
-                    allCardPacks = db.AllCardPacks.Where(x=>x.Aktiv==true).ToList();
+                    allCardPacks = db.AllCardPacks.Where(x => x.Aktiv == true).ToList();
                 }
                 if (allCardPacks == null)
                     throw new Exception("NoCardPacksFound");
@@ -305,5 +305,6 @@ namespace CardGame.DAL.Logic
             }
         }
 
+       
     }
 }

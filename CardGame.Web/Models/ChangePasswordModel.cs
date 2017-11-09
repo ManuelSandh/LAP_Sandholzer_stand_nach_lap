@@ -8,7 +8,7 @@ namespace CardGame.Web.Models
 {
     public class ChangePasswordModel
     {
-        public string Email { get; set; }
+        //public string Email { get; set; } //Benötige ich nur für fremde Benutzerkonten
 
         [Required, Display(Name = "Aktuelles Password")]
         public string CurrentPassword { get; set; }

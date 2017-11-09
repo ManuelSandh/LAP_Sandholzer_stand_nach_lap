@@ -308,6 +308,25 @@ namespace CardGame.DAL.Logic
                 db.SaveChanges();                
             }
         }
+                
+        public static byte[] getCurrentPassword(string email)
+        {
+            using (var db = new CardGame_v2Entities())
+            {
+                var result = db.AllUsers.Where(x => x.Mail == email).FirstOrDefault();
+                return result.Password;
+            }
+        }
+
+        public static void setNewPasswort(string email, byte[] newpassword)
+        {
+            using (var db = new CardGame_v2Entities())
+            {
+                var result = db.AllUsers.Where(x => x.Mail == email).FirstOrDefault();
+                result.Password = newpassword;
+                db.SaveChanges();
+            }
+        }
 
     }
 }

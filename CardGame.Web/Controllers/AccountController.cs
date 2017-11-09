@@ -192,9 +192,37 @@ namespace CardGame.Web.Controllers
             }
             return RedirectToAction("Login");
         }
+       
         [HttpGet]
+        [Authorize(Roles = "player")]
         public ActionResult ChangePassword()
         {
+            return View();
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "player")]
+        public ActionResult ChangePassword(ChangePasswordModel neuesPasswortDaten)
+        {
+            byte[] dbHashPasswort = UserManager.getCurrentPassword(User.Identity.Name);
+            CardGame.DAL.Model.User dbUser = UserManager.GetUserByEmail(User.Identity.Name);
+
+            
+            byte[] altesOberflächeHashPasswort = Helper.GenerateHash(neuesPasswortDaten.CurrentPassword + dbUser.UserSalt);
+
+            byte[] neuesOberflächenHashPasswort = Helper.GenerateHash(neuesPasswortDaten.NewPassword + dbUser.UserSalt);
+
+            if(dbHashPasswort.SequenceEqual(altesOberflächeHashPasswort) == true)
+            {
+                //Passwörter sind gleich
+                if(ModelState.IsValid)
+                {
+                    //Validierung ist ok - deswegen sind passwort und passwort wiederholen gleich
+                    //setze das neue Passwort
+                    UserManager.setNewPasswort(User.Identity.Name, neuesOberflächenHashPasswort);
+                }
+            }
+
             return View();
         }
 
