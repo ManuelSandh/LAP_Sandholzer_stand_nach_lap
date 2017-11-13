@@ -39,8 +39,8 @@ namespace CardGame.DAL.Logic
                     }
 
                     Guid guid = Guid.NewGuid();
-
-                    SendActivationCodeToUser(mail, guid.ToString());
+                    //TODO Aufruf von Aktivierungslink - Einkommentieren wenn gebraucht
+                    //SendActivationCodeToUser(mail, guid.ToString());
 
                     User newUser = new User()
                     {
@@ -73,45 +73,45 @@ namespace CardGame.DAL.Logic
 
             return true;
         }
-        //TODO wenn das in der LAP nicht gefordert ist nicht vergessen zu deaktivieren
-        private static void SendActivationCodeToUser(string email, string guid)
-        {
-            string host = "smtp.gmail.com";
-            int port = 587;
-            string betreff = "Ihr Clonestone Aktivierungscode";
-            string nachricht = "Bitte klicken Sie auf folgenden Link um Ihren" +
-                "Clonestone Account zu Aktivieren";
-            string clonestoneURL = "http://localhost:56538";
+        //TODO Methode für Aktivierungslink
+        //private static void SendActivationCodeToUser(string email, string guid)
+        //{
+        //    string host = "smtp.gmail.com";
+        //    int port = 587;
+        //    string betreff = "Ihr Clonestone Aktivierungscode";
+        //    string nachricht = "Bitte klicken Sie auf folgenden Link um Ihren" +
+        //        "Clonestone Account zu Aktivieren";
+        //    string clonestoneURL = "http://localhost:56538";
 
 
-            string link = "<a href='"
-                + clonestoneURL
-                + "Account/Activate/" 
-                + guid 
-                + "'>Hier klicken!</a>'";
+        //    string link = "<a href='"
+        //        + clonestoneURL
+        //        + "Account/Activate/" 
+        //        + guid 
+        //        + "'>Hier klicken!</a>'";
 
-            string sender = "htmanus23@gmail.com";
+        //    string sender = "htmanus23@gmail.com";
 
 
-            SmtpClient smtp = new SmtpClient();
+        //    SmtpClient smtp = new SmtpClient();
 
-            MailMessage mm = new MailMessage(sender, email);          
+        //    MailMessage mm = new MailMessage(sender, email);          
           
-            mm.Body = nachricht + link; //Nachricht der Emal
-            mm.Subject = betreff; //Betreff der Email
+        //    mm.Body = nachricht + link; //Nachricht der Emal
+        //    mm.Subject = betreff; //Betreff der Email
 
-            NetworkCredential nc = new NetworkCredential(sender, "123user!");
-            //Login und Passwort füer SMTP Server in ctor
+        //    NetworkCredential nc = new NetworkCredential(sender, "123user!");
+        //    //Login und Passwort füer SMTP Server in ctor
 
-            smtp.Host = host;
-            smtp.Port = port;
-            smtp.UseDefaultCredentials = true;
-            smtp.Credentials = nc;
-            smtp.EnableSsl = true;
+        //    smtp.Host = host;
+        //    smtp.Port = port;
+        //    smtp.UseDefaultCredentials = true;
+        //    smtp.Credentials = nc;
+        //    smtp.EnableSsl = true;
 
-            smtp.Send(mm);
+        //    smtp.Send(mm);
 
-        }
+        //}
 
 
         public static bool AuthUser(string email, string password)

@@ -9,11 +9,12 @@
 </head>
 <div class="ShopBackGround">
     <div class="ShopIndex">
-        <h3>Willkommen im Shop</h3>
+        <h3>Willkommen im Shop</h3><br/>
+        <h4> Kartenpacks:</h4>
         <table class="ShopTable">
             <tr>
                 @foreach (var cp in @Model.cardPacks)
-            {
+                {
                     <td>
                         <img class="CardPacks" src="~/Content/Images/Card Pack.png" /> <br />
                         @Html.DisplayFor(cardpack => cp.PackName)
@@ -24,17 +25,17 @@
                 @foreach (var cp in @Model.cardPacks)
                 {
                     <td>
-                        @Html.DisplayFor(cardpack => cp.NumCards) Karten                        
+                        @Html.DisplayFor(cardpack => cp.NumCards) Karten
                     </td>
                 }
             </tr>
             <tr>
                 @for (int i = 0; i < Model.cardPacks.Count; i++)
-                {                  
+                {
                     using (Html.BeginForm())
                     {
                         <td>
-                            <br/>
+                            <br />
                             <img src="~/Content/Images/Diamant.png" />@Model.cardPacks.ToList()[i].Price<br />
                             <input type="hidden" name="idCardPack" value="@Model.cardPacks.ToList()[i].CardPackID" />
                             <input type="hidden" name="Packprice" value="@Model.cardPacks.ToList()[i].Price" />
@@ -44,18 +45,16 @@
                     }
                 }
             </tr>
-           
             <tr>
                 @foreach (var cp in @Model.cardPacks)
-                {                   
-                    <td>                        
-                        <i>Bewertungen</i><br/>
+                {
+                    <td style="font-size:18px">
+                        <i>Bewertungen</i><br />
                         <i class="fa fa-star" style="color:#CFC064" aria-hidden="true"></i>
                         @Html.ValueFor(cardpack => cp.AveragePack)
                     </td>
                 }
             </tr>
-
             <tr>
 
                 @for (int i = 0; i < 3; i++)
@@ -63,7 +62,7 @@
                     string name = "pack" + (i + 1);
                     string id = name + "-star";
                     string buttonName = "Bewerten" + (i + 1);
-                    <td style="padding-right:28px">
+                    <td style="padding-right:28px; font-size:18px">
                         <div class="stars">
                             <form method=post action="@Url.Action("AddRating", "Shop")">
                                 @*<input id="test" name="test" value="Answer1" type="radio />*@
@@ -76,47 +75,48 @@
                                 <input class="star star-2" id="@id-2" type="radio" name="star" value="2" />
                                 <label class="star star-2" for="@id-2"></label>
                                 <input class="star star-1" id="@id-1" type="radio" name="star" value="1" />
-                                <label class="star star-1" for="@id-1"></label>                             
+                                <label class="star star-1" for="@id-1"></label>
                                 <button type="submit" class="btn btn-submit" action="AddRating" name="ratingSubmit" value="@(i+1)">Bewerten</button>
                             </form>
                         </div>
                     </td>
                 }
-
+            </tr>
+        </table>
+        <br/>
+        <h4 style="margin-top:10px">Diamantenpacks:</h4><br/>
+        <table class="ShopTable">           
+            <tr>
+                @foreach (var cp in Model.diamantPacks)
+                {
+                    <td>
+                        <img class="diamantenBündel" src="~/Content/Images/Diamant Beutel für Shop.png" /> <br />
+                        @Html.DisplayFor(diamantenpack => cp.Diamanten) Stk.
+                    </td>
+                }
+            </tr>
+            <tr>
+                @foreach (var cp in Model.diamantPacks)
+                {
+                    <td>
+                        @Html.DisplayFor(diamantenpack => cp.Price)€ <br />
+                    </td>
+                }
+            </tr>
+            <tr>
+                @for (int i = 0; i < Model.diamantPacks.Count; i++)
+                {
+                    using (Html.BeginForm())
+                    {
+                        <td>
+                            <input type="hidden" name="idCardPack" value="@Model.diamantPacks.ToList()[i].DiamantenPackId" />
+                            <input type="hidden" name="Packprice" value="@Model.cardPacks.ToList()[i].Price" />
+                            <input type="submit" value="Kaufen" class="btn btn-submit" />
+                        </td>
+                    }
+                }
             </tr>
 
-            @*<tr>
-                    @foreach (var cp in Model.diamantPacks)
-                    {
-                        <td>
-                            <img class="diamantenBündel" src="~/Content/Images/Diamant Beutel für Shop.png" /> <br />
-                            @Html.DisplayFor(diamantenpack => cp.Diamanten) Stk.
-                        </td>
-                    }
-                </tr>
-                <tr>
-                    @foreach (var cp in Model.diamantPacks)
-                    {
-                        <td>
-                            @Html.DisplayFor(diamantenpack => cp.Price)€ <br />
-                        </td>
-                    }
-                </tr>
-                <tr>
-
-                    @for (int i = 0; i < Model.diamantPacks.Count; i++)
-                    {
-                        using (Html.BeginForm())
-                        {
-                            <td>
-
-                                <input type="hidden" name="idCardPack" value="@Model.diamantPacks.ToList()[i].DiamantenPackId" />
-                                <input type="hidden" name="Packprice" value="@Model.cardPacks.ToList()[i].Price" />
-                                <input type="submit" value="Kaufen" class="btn btn-submit" />
-                            </td>
-                        }
-                    }
-                </tr>*@
         </table>
     </div>
 </div>

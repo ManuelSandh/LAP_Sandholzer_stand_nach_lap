@@ -158,7 +158,6 @@ body {
 .diamantenBündel {
     width: 100px;
     height: 110px;
-    margin-top: 50px;
 }
 
 .CardPacksBackground {
@@ -178,7 +177,7 @@ body {
     font-size: 16px;
     height: 40px;
     width: 160px;
-    padding-bottom: 8px;
+    padding-top: 1px;
     text-align: center;
     color: #FBCB74;
 }
@@ -281,7 +280,8 @@ body {
 .ShopTable {
     color: #6B90DB;
     text-align: center;
-    margin-left: 250px;
+    margin-left: 310px;
+   
 }
 
 .stars {
