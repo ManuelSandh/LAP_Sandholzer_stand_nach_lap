@@ -115,6 +115,37 @@ namespace CardGame.DAL.Logic
             return dbCardPack;
         }
 
+        public static void InsertVirtualDiamondPurchase(string email, int idDiamondPack)
+        {
+            int idUser = UserManager.GetUserByEmail(email).ID;
+
+            using (CardGame_v2Entities cont = new CardGame_v2Entities())
+            {
+                VirtualPurchase vp = new VirtualPurchase();
+
+                vp.ID_DiamantenPack = idDiamondPack;
+                vp.ID_User = idUser;
+                vp.NumberOfPacks = 1;
+                vp.PurchaseDate = DateTime.Now;
+
+                cont.AllVirtualPurchases.Add(vp);
+
+                cont.SaveChanges();
+            }
+        }
+
+        public static void AddDiamondsToUser(string userEmail, int diamonds)
+        {
+            using (CardGame_v2Entities cont = new CardGame_v2Entities())
+            {
+                User u = cont.AllUsers.Where(x => x.Mail == userEmail).FirstOrDefault();
+
+                u.AmountMoney = u.AmountMoney + diamonds;
+
+                cont.SaveChanges();
+            }
+        }
+
         public static DiamantenPack GetDiamantenPackById(int id)
         {
             var dbDiamantenPack = new DiamantenPack();
@@ -241,7 +272,7 @@ namespace CardGame.DAL.Logic
             }
             return result;
         }
-        public static void saveRatinginDB(int ratingSubmit, int? star)
+        public static bool saveRatinginDB(int ratingSubmit, int? star, string emailVomUser)
         {
             UserRanking userranking = new UserRanking();
             try
@@ -251,6 +282,9 @@ namespace CardGame.DAL.Logic
                     userranking.pack_id = ratingSubmit;
                     userranking.rating = (short)star;
 
+                    User aktuellerUser = DAL.Logic.UserManager.GetUserByEmail(emailVomUser);
+                     
+                    userranking.user_id = aktuellerUser.ID;
 
                     db.UserRanking.Add(userranking);
                     db.SaveChanges();
@@ -258,9 +292,11 @@ namespace CardGame.DAL.Logic
             }
             catch (Exception)
             {
-                throw;
+                return false;
             }
 
+
+            return true;
         }
         public static double GetPackRatingAverageById(int id)
         {

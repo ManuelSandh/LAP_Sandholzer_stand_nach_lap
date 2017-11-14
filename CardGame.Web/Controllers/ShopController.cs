@@ -23,7 +23,6 @@ namespace CardGame.Web.Controllers
             shop.cardPacks = new List<CardPackModel>();
             shop.diamantPacks = new List<DiamantenModel>();
 
-
             var dbCardPacks = ShopManager.getAllAktiveCardPacks();
             var dbDiamantenPacks = ShopManager.getAllDiamantenPacks();
 
@@ -67,6 +66,23 @@ namespace CardGame.Web.Controllers
             return RedirectToAction("ShopIndex");
         }
 
+        [HttpPost]
+        [Authorize(Roles ="player,admin")]
+        public ActionResult DiamantenpackErwerben(int idDiamantenPack)
+        {
+
+            //hole Diamenteninfos über id
+            DiamantenPack diamanten = ShopManager.GetDiamantenPackById(idDiamantenPack);
+
+            KreditKartenZahlungVM kvm = new KreditKartenZahlungVM();
+            kvm.Preis = diamanten.PackPrice;
+            kvm.AnzahlDiamanten = (int)diamanten.Diamanten;
+            kvm.IdDiamantenPack = diamanten.ID;
+            //return RedirectToAction("KreditKartenZahlung", idDiamantenPack);
+
+            return View("KreditKartenZahlung",kvm);
+        }
+
         [HttpGet]
         [Authorize(Roles = "player")]
         public ActionResult Buy(int idCardPack)
@@ -104,7 +120,13 @@ namespace CardGame.Web.Controllers
 
             parsedRatingSubmit = Int32.Parse(ratingSubmit);
 
-            DAL.Logic.ShopManager.saveRatinginDB(parsedRatingSubmit, star);
+            bool hatFunktioniert = DAL.Logic.ShopManager.saveRatinginDB(parsedRatingSubmit, star, User.Identity.Name);
+            if (!hatFunktioniert)
+            {
+                TempData["ErrorMessage"] = "Sie haben dieses Pack bereits bewertet";
+
+            }        
+
             return RedirectToAction("ShopIndex");
         }
 
@@ -167,6 +189,40 @@ namespace CardGame.Web.Controllers
             return RedirectToAction("Datenpflege");
         }
 
-     
+
+        public ActionResult KreditKartenZahlung()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult KreditKartenZahlung(KreditKartenZahlungVM vm)
+        {
+            var result = DAL.Logic.Helper.IsCCValid(vm.KartenNr);
+
+            if (result == true)
+            {
+                //Hier muss man nun anhand der Diamantenpackid den Eintrag in die DB machen
+                //1. Hole alle Diamantenpackinfos
+                DiamantenPack diamantenpack = ShopManager.GetDiamantenPackById(vm.IdDiamantenPack);
+
+                //2. Addiere die Anzahl an Diamanten vom Diamantenpack zum User
+                ShopManager.AddDiamondsToUser(User.Identity.Name, (int)diamantenpack.Diamanten);
+
+                //3. Trage den Kauf des Diamantenpacks in VirtualPurchases ein
+                ShopManager.InsertVirtualDiamondPurchase(User.Identity.Name, vm.IdDiamantenPack);
+
+                //TODO Kauf als abgeschlossen und bezahlt markieren
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ViewBag.ErrorMSG = "Ungültige KartenNummer";
+                return View(vm);
+            }
+
+          
+        }
+
     }
 }

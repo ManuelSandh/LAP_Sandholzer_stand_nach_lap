@@ -35,7 +35,7 @@
                         <li>@Html.ActionLink("Bestseller", "Bestseller", "Statistic")</li>
                         <li>@Html.ActionLink("Shop", "ShopIndex", "Shop")</li> 
                         <li>@Html.ActionLink("Deckbuilder", "Index", "DeckBuilder")</li>
-                        <li>@Html.ActionLink("Statistik", "BestellStatistik", "LAP")</li>
+                        <li>@Html.ActionLink("Statistik", "BestellStatistik", "LAP")</li>                      
                         <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
                     </ul>
                         <p class="DiamantAnzeige"><img src="~/Content/Images/Diamant.png" /> @CardGame.DAL.Logic.UserManager.GetUserByEmail(User.Identity.Name).AmountMoney.ToString()</p>

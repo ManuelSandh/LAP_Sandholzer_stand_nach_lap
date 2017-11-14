@@ -35,9 +35,9 @@ namespace CardGame.DAL.Model
         public virtual DbSet<User> AllUsers { get; set; }
         public virtual DbSet<UserCardCollection> AllUserCardCollections { get; set; }
         public virtual DbSet<UserRole> AllUserRoles { get; set; }
-        public virtual DbSet<VirtualPurchase> AllVirtualPurchases { get; set; }
         public virtual DbSet<DiamantenPack> AllDiamantenPacks { get; set; }
         public virtual DbSet<UserRanking> UserRanking { get; set; }
+        public virtual DbSet<VirtualPurchase> AllVirtualPurchases { get; set; }
     
         public virtual ObjectResult<Nullable<int>> ptopdreiPacks()
         {

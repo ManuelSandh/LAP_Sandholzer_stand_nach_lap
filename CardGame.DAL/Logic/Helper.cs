@@ -9,6 +9,32 @@ namespace CardGame.DAL.Logic
 {
     public class Helper
     {
+        public static bool IsCCValid(string cc)
+        {
+            int totalSum = 0;
+            bool odd = false;
+            for (int i = cc.Length - 1; i >= 0; i--)
+            {
+                int num = int.Parse(cc[i].ToString());
+                if (odd)
+                {
+                    num *= 2;
+                    if (num > 9)
+                        num -= 9;
+                    totalSum += num;
+                }
+                else
+                {
+                    totalSum += num;
+                }
+                odd = !odd;
+            }
+            return totalSum % 10 == 0;
+
+        }
+
+
+
 
         public static byte[] GenerateHash(string s)
         {

@@ -99,7 +99,7 @@
     </Key>
     <Property Name="idVirtualPurchase" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="fkUser" Type="int" Nullable="false" />
-    <Property Name="fkCardPack" Type="int" Nullable="false" />
+    <Property Name="fkCardPack" Type="int" />
     <Property Name="timeofpurchase" Type="datetime" Nullable="false" />
     <Property Name="numpacks" Type="int" Nullable="false" />
     <Property Name="fkDiamantenPack" Type="int" />
@@ -111,6 +111,7 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="pack_id" Type="int" Nullable="false" />
     <Property Name="rating" Type="smallint" />
+    <Property Name="user_id" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="FK__tblVirtua__fkDia__151B244E">
     <End Role="tblDiamantenPack" Type="Self.tblDiamantenPack" Multiplicity="0..1" />
@@ -124,7 +125,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__UserRanki__pack___3D2915A8">
+  <Association Name="FK_Cardpack_UserRanking">
     <End Role="tblCardPack" Type="Self.tblCardPack" Multiplicity="1" />
     <End Role="UserRanking" Type="Self.UserRanking" Multiplicity="*" />
     <ReferentialConstraint>
@@ -221,7 +222,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_tblVirtualPurchase_tblCardPack">
-    <End Role="tblCardPack" Type="Self.tblCardPack" Multiplicity="1" />
+    <End Role="tblCardPack" Type="Self.tblCardPack" Multiplicity="0..1" />
     <End Role="tblVirtualPurchase" Type="Self.tblVirtualPurchase" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="tblCardPack">
@@ -244,6 +245,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_User_UserRanking">
+    <End Role="tblUser" Type="Self.tblUser" Multiplicity="1" />
+    <End Role="UserRanking" Type="Self.UserRanking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUser">
+        <PropertyRef Name="idUser" />
+      </Principal>
+      <Dependent Role="UserRanking">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Function Name="ptopdreiPacks" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="CardGame_v2ModelStoreContainer">
     <EntitySet Name="tblCard" EntityType="Self.tblCard" Schema="dbo" store:Type="Tables" />
@@ -261,7 +274,7 @@
       <End Role="tblDiamantenPack" EntitySet="tblDiamantenPack" />
       <End Role="tblVirtualPurchase" EntitySet="tblVirtualPurchase" />
     </AssociationSet>
-    <AssociationSet Name="FK__UserRanki__pack___3D2915A8" Association="Self.FK__UserRanki__pack___3D2915A8">
+    <AssociationSet Name="FK_Cardpack_UserRanking" Association="Self.FK_Cardpack_UserRanking">
       <End Role="tblCardPack" EntitySet="tblCardPack" />
       <End Role="UserRanking" EntitySet="UserRanking" />
     </AssociationSet>
@@ -300,6 +313,10 @@
     <AssociationSet Name="FK_tblVirtualPurchase_tblUser" Association="Self.FK_tblVirtualPurchase_tblUser">
       <End Role="tblUser" EntitySet="tblUser" />
       <End Role="tblVirtualPurchase" EntitySet="tblVirtualPurchase" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_UserRanking" Association="Self.FK_User_UserRanking">
+      <End Role="tblUser" EntitySet="tblUser" />
+      <End Role="UserRanking" EntitySet="UserRanking" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

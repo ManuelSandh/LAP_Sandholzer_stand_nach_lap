@@ -17,8 +17,8 @@ namespace CardGame.DAL.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CardPack()
         {
-            this.AllVirtualPurchase = new HashSet<VirtualPurchase>();
             this.UserRanking = new HashSet<UserRanking>();
+            this.tblVirtualPurchase = new HashSet<VirtualPurchase>();
         }
     
         public int ID { get; set; }
@@ -28,8 +28,8 @@ namespace CardGame.DAL.Model
         public Nullable<bool> Aktiv { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<VirtualPurchase> AllVirtualPurchase { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserRanking> UserRanking { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<VirtualPurchase> tblVirtualPurchase { get; set; }
     }
 }

@@ -1,0 +1,26 @@
+﻿@model CardGame.Web.Models.KreditKartenZahlungVM
+@{
+    ViewBag.Title = "KreditKartenZahlung";
+}
+<div class="ShopBackGround">
+    <div class="ShopIndex">
+        <h2>KreditKartenZahlung</h2>
+
+        <p>Du erwirbst bei dieser Zahlung von @Model.Preis &euro; @Model.AnzahlDiamanten Diamanten</p>
+
+        @using (Html.BeginForm("KreditKartenZahlung", "Shop"))
+        {
+            <p>@Html.LabelFor(m => m.Vorname): @Html.EditorFor(m => m.Vorname)</p>
+            <p>@Html.LabelFor(m => m.Nachname): @Html.EditorFor(m => m.Nachname)</p>
+            <p>@Html.LabelFor(m => m.KartenNr): @Html.EditorFor(m => m.KartenNr)</p>
+            <p>@Html.LabelFor(m => m.CVV): @Html.EditorFor(m => m.CVV)</p>
+            <p>@Html.LabelFor(m => m.AblaufDatum): @Html.EditorFor(m => m.AblaufDatum)</p>
+            <button type="submit">Daten absenden</button>
+
+            @Html.HiddenFor(m=>m.IdDiamantenPack)
+
+        }
+
+        <h3>@ViewBag.ErrorMsg</h3>
+    </div>
+</div>

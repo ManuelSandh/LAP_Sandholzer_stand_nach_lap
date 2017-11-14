@@ -189,7 +189,6 @@
     <Compile Include="Controllers\CardController.cs" />
     <Compile Include="Controllers\DeckBuilderController.cs" />
     <Compile Include="Controllers\DeckController.cs" />
-    <Compile Include="Controllers\LAPController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Controllers\StatisticController.cs" />
@@ -197,7 +196,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\BestellStatisticVM.cs" />
     <Compile Include="Models\BestsellerModel.cs" />
     <Compile Include="Models\Card.cs" />
     <Compile Include="Models\CardPackModel.cs" />
@@ -208,6 +206,7 @@
     <Compile Include="Models\DeckOverViewModel.cs" />
     <Compile Include="Models\DiamantenModel.cs" />
     <Compile Include="Models\EditUserModel.cs" />
+    <Compile Include="Models\KreditKartenZahlungVM.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Register.cs" />
@@ -287,6 +286,7 @@
     <Content Include="Views\Shop\DatenPflege.cshtml" />
     <Content Include="Views\Shop\EditAktivCardpack.cshtml" />
     <Content Include="Views\LAP\BestellStatistik.cshtml" />
+    <Content Include="Views\Shop\KreditKartenZahlung.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

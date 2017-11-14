@@ -1,0 +1,8 @@
+<Xcpt>
+  <Time>14.11.2017 14:21:53</Time>
+  <Exception>
+    <Source>CardGame.DAL</Source>
+    <Message>CardPackNotFound</Message>
+    <Stack>   bei CardGame.DAL.Logic.ShopManager.GetCardPackById(Int32 id) in C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.DAL\Logic\ShopManager.cs:Zeile 109.</Stack>
+  </Exception>
+</Xcpt>

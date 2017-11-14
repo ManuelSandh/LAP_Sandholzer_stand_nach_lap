@@ -91,18 +91,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="AllVirtualPurchases">
-      <EntityTypeMapping TypeName="CardGame_v2Model.VirtualPurchase">
-        <MappingFragment StoreEntitySet="tblVirtualPurchase">
-          <ScalarProperty Name="ID_DiamantenPack" ColumnName="fkDiamantenPack" />
-          <ScalarProperty Name="ID" ColumnName="idVirtualPurchase" />
-          <ScalarProperty Name="ID_User" ColumnName="fkUser" />
-          <ScalarProperty Name="ID_CardPack" ColumnName="fkCardPack" />
-          <ScalarProperty Name="PurchaseDate" ColumnName="timeofpurchase" />
-          <ScalarProperty Name="NumberOfPacks" ColumnName="numpacks" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="AllDiamantenPacks">
       <EntityTypeMapping TypeName="CardGame_v2Model.DiamantenPack">
         <MappingFragment StoreEntitySet="tblDiamantenPack">
@@ -117,9 +105,22 @@
     <EntitySetMapping Name="UserRanking">
       <EntityTypeMapping TypeName="CardGame_v2Model.UserRanking">
         <MappingFragment StoreEntitySet="UserRanking">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
           <ScalarProperty Name="rating" ColumnName="rating" />
           <ScalarProperty Name="pack_id" ColumnName="pack_id" />
           <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllVirtualPurchases">
+      <EntityTypeMapping TypeName="CardGame_v2Model.VirtualPurchase">
+        <MappingFragment StoreEntitySet="tblVirtualPurchase">
+          <ScalarProperty Name="ID_DiamantenPack" ColumnName="fkDiamantenPack" />
+          <ScalarProperty Name="NumberOfPacks" ColumnName="numpacks" />
+          <ScalarProperty Name="PurchaseDate" ColumnName="timeofpurchase" />
+          <ScalarProperty Name="ID_CardPack" ColumnName="fkCardPack" />
+          <ScalarProperty Name="ID_User" ColumnName="fkUser" />
+          <ScalarProperty Name="ID" ColumnName="idVirtualPurchase" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -8,6 +8,6 @@ namespace CardGame.Web.Models
     public class UserRanking
     {
         public int pack_Id { get; set; }
-        public int raitingSubmit { get; set; }
+        public int raitingSubmit { get; set; }        
     }
 }

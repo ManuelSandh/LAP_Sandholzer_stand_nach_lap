@@ -13,21 +13,22 @@
         <EntityTypeShape EntityType="CardGame_v2Model.User" Width="1.5" PointX="3.375" PointY="4.625" IsExpanded="true" />
         <EntityTypeShape EntityType="CardGame_v2Model.UserCardCollection" Width="1.5" PointX="5.75" PointY="7.25" IsExpanded="true" />
         <EntityTypeShape EntityType="CardGame_v2Model.UserRole" Width="1.5" PointX="1" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="CardGame_v2Model.VirtualPurchase" Width="1.5" PointX="3.375" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="CardGame_v2Model.FK_tblCard_tblCardType" ManuallyRouted="false" />
         <AssociationConnector Association="CardGame_v2Model.FK_tblDeckCard_tblCard" ManuallyRouted="false" />
         <AssociationConnector Association="CardGame_v2Model.FK_tblUserCardCollection_tblCard" ManuallyRouted="false" />
-        <AssociationConnector Association="CardGame_v2Model.FK_tblVirtualPurchase_tblCardPack" ManuallyRouted="false" />
         <AssociationConnector ManuallyRouted="false" Association="CardGame_v2Model.FK_tblDeck_tblUser" />
         <AssociationConnector ManuallyRouted="false" Association="CardGame_v2Model.FK_tblDeckCard_tblDeck" />
         <AssociationConnector Association="CardGame_v2Model.FK_tblUser_tblUserRole" ManuallyRouted="false" />
         <AssociationConnector Association="CardGame_v2Model.FK_tblUserCardCollection_tblUser" ManuallyRouted="false" />
-        <AssociationConnector Association="CardGame_v2Model.FK_tblVirtualPurchase_tblUser" ManuallyRouted="false" />
         <EntityTypeShape EntityType="CardGame_v2Model.DiamantenPack" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CardGame_v2Model.UserRanking" Width="1.5" PointX="12" PointY="1.375" />
+        <AssociationConnector Association="CardGame_v2Model.FK_CardPack_UserRanking" />
+        <AssociationConnector Association="CardGame_v2Model.FK_User_UserRanking" />
+        <EntityTypeShape EntityType="CardGame_v2Model.VirtualPurchase" Width="1.5" PointX="3.25" PointY="1.125" />
+        <AssociationConnector Association="CardGame_v2Model.FK_tblVirtualPurchase_tblCardPack" />
         <AssociationConnector Association="CardGame_v2Model.FK__tblVirtua__fkDia__151B244E" />
-        <EntityTypeShape EntityType="CardGame_v2Model.UserRanking" Width="1.5" PointX="7.5" PointY="2" />
-        <AssociationConnector Association="CardGame_v2Model.FK__UserRanki__pack___3D2915A8" />
-      </Diagram>
+        <AssociationConnector Association="CardGame_v2Model.FK_tblVirtualPurchase_tblUser" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

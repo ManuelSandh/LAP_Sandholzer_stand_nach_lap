@@ -17,7 +17,9 @@ namespace CardGame.DAL.Model
         public int ID { get; set; }
         public int pack_id { get; set; }
         public Nullable<short> rating { get; set; }
+        public int user_id { get; set; }
     
         public virtual CardPack tblCardPack { get; set; }
+        public virtual User tblUser { get; set; }
     }
 }
