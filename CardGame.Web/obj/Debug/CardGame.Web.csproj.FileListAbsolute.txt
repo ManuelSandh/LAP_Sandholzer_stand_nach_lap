@@ -387,3 +387,4 @@ C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.Web\bi
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.Web\obj\Debug\CardGame.Web.csprojResolveAssemblyReference.cache
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.Web\obj\Debug\CardGame.Web.dll
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.Web\obj\Debug\CardGame.Web.pdb
+C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.Web\bin\de\EntityFramework.SqlServer.resources.dll

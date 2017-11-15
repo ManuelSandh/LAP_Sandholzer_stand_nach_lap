@@ -209,6 +209,7 @@
     <Compile Include="Models\KreditKartenZahlungVM.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\RechnungVM.cs" />
     <Compile Include="Models\Register.cs" />
     <Compile Include="Models\Shop.cs" />
     <Compile Include="Models\Statistic.cs" />
@@ -235,6 +236,10 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Rotativa\help-wkhtmltoimage.txt" />
+    <Content Include="Rotativa\help-wkhtmltopdf.txt" />
+    <Content Include="Rotativa\wkhtmltoimage.exe" />
+    <Content Include="Rotativa\wkhtmltopdf.exe" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -244,6 +249,7 @@
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
     <Content Include="fonts\Mermaid1001.ttf" />
+    <Content Include="App_Browsers\qt.browser" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -287,6 +293,8 @@
     <Content Include="Views\Shop\EditAktivCardpack.cshtml" />
     <Content Include="Views\LAP\BestellStatistik.cshtml" />
     <Content Include="Views\Shop\KreditKartenZahlung.cshtml" />
+    <Content Include="Views\Shop\BestellungAbgeschlossen.cshtml" />
+    <Content Include="Views\Shop\Rechnung.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -59,6 +59,7 @@ namespace CardGame.Web.Controllers
             {
                 ShopManager.ExecuteOrder(userID, idCardPack);
                 TempData["ConfirmMessage"] = "Kauf erfolgreich ";
+                return RedirectToAction("BestellungAbgeschlossen","Shop");
             }
             else
                 TempData["ErrorMessage"] = "Nicht genug Diamanten";
@@ -191,7 +192,7 @@ namespace CardGame.Web.Controllers
 
 
         public ActionResult KreditKartenZahlung()
-        {
+        {            
             return View();
         }
 
@@ -211,17 +212,35 @@ namespace CardGame.Web.Controllers
 
                 //3. Trage den Kauf des Diamantenpacks in VirtualPurchases ein
                 ShopManager.InsertVirtualDiamondPurchase(User.Identity.Name, vm.IdDiamantenPack);
-
-                //TODO Kauf als abgeschlossen und bezahlt markieren
-                return RedirectToAction("Index", "Home");
+               
+                TempData["ConfirmMessage"] = "Sie haben" + " " + diamantenpack.Diamanten + " "+ "Diamanten gekauft";
+                return RedirectToAction("BestellungDanke", "Shop");
             }
             else
             {
-                ViewBag.ErrorMSG = "Ungültige KartenNummer";
+                TempData["ErrorMessage"] = "Ungültige Kartennummer!";
                 return View(vm);
-            }
+            }         
+        }
+        
+        public ActionResult BestellungAbgeschlossen()
+        {
+            return View();
+        }
+        [HttpGet]
+        public ActionResult Rechnung(int id)
+        {
+            //TODO brauche noch den aktuellen Preises des Packs - Card oder Diamanten, und die bezeichnung des Packs
+            RechnungVM rvm = new RechnungVM();          
+            CardPack cardpack = ShopManager.GetCardPackById(id);
+            var user = UserManager.GetUserByEmail(User.Identity.Name);
+            rvm.Vorname = user.FirstName;
+            rvm.Nachname = user.LastName;
+            rvm.Pack = cardpack.PackName;
+            //rvm.Preis = ;
+            
 
-          
+            return View(rvm);
         }
 
     }
