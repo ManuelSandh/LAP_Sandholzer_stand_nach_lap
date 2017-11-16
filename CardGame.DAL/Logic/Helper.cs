@@ -30,11 +30,7 @@ namespace CardGame.DAL.Logic
                 odd = !odd;
             }
             return totalSum % 10 == 0;
-
         }
-
-
-
 
         public static byte[] GenerateHash(string s)
         {

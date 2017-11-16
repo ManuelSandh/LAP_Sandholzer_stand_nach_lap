@@ -208,8 +208,8 @@ namespace CardGame.DAL.Logic
                     for (int i = 0; i < pack.NumCards; i++)
                     {
                         /// ermittle einen zufälligen Index einer möglichen Karte
-                        int rng = rnd.Next(0, numberOfAllCards);
-
+                        int rng = rnd.Next(1, numberOfAllCards);
+                        
                         /// überspringe alle karten VOR diesem Index (daher auch: rng-1)
                         /// und nimm danach die nächste Karte
                         var card = db.AllCards.OrderBy(x => x.ID).Skip(rng - 1).Take(1).Single();

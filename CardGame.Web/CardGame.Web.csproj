@@ -291,14 +291,12 @@
     <Content Include="Views\Account\ChangePassword.cshtml" />
     <Content Include="Views\Shop\DatenPflege.cshtml" />
     <Content Include="Views\Shop\EditAktivCardpack.cshtml" />
-    <Content Include="Views\LAP\BestellStatistik.cshtml" />
     <Content Include="Views\Shop\KreditKartenZahlung.cshtml" />
     <Content Include="Views\Shop\BestellungAbgeschlossen.cshtml" />
     <Content Include="Views\Shop\Rechnung.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Extension\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -14,8 +14,6 @@ C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.Log\obj\Debug\CardGam
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer\CardGame.Log\obj\Debug\CardGame.Log.pdb
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.Log\bin\Debug\CardGame.Log.dll
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.Log\bin\Debug\CardGame.Log.pdb
-C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.Log\obj\Debug\CardGame.Log.dll
-C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.Log\obj\Debug\CardGame.Log.pdb
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.Log\bin\Debug\Microsoft.Web.Infrastructure.dll
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.Log\bin\Debug\System.Web.Helpers.dll
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.Log\bin\Debug\System.Web.Mvc.dll
@@ -30,3 +28,5 @@ C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.Log\bi
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.Log\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.Log\bin\Debug\System.Web.WebPages.Razor.xml
 C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.Log\obj\Debug\CardGame.Log.csprojResolveAssemblyReference.cache
+C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.Log\obj\Debug\CardGame.Log.dll
+C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.Log\obj\Debug\CardGame.Log.pdb

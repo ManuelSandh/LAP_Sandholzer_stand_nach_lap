@@ -58,8 +58,9 @@ namespace CardGame.DAL.Logic
                         AmountMoney = 300,
                         ID_UserRole = 2,
                         AllDecks = decks,
-                        Active = false,
-                        activationCode = guid // Hier wird der Aktivierungscode erzeugt
+                        //TODO Wenn ich den aktivierungslink setzte muss ich active auf false auf false setzen 
+                       Active = true,
+                       // activationCode = guid // Hier wird der Aktivierungscode erzeugt
                        
                     };
                     db.AllUsers.Add(newUser);
