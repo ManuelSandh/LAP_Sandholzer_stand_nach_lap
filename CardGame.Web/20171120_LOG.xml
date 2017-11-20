@@ -1,0 +1,43 @@
+<Xcpt>
+  <Time>20.11.2017 09:26:40</Time>
+  <Exception>
+    <Source>CardGame.DAL</Source>
+    <Message>UserDoesNotExist</Message>
+    <Stack>   bei CardGame.DAL.Logic.UserManager.GetRoleByEmail(String email) in C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.DAL\Logic\UserManager.cs:Zeile 113.
+   bei CardGame.Web.Controllers.AccountController.Login(Login login) in C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.Web\Controllers\AccountController.cs:Zeile 38.</Stack>
+  </Exception>
+</Xcpt>
+<Xcpt>
+  <Time>20.11.2017 09:26:40</Time>
+  <Exception>
+    <Source>CardGame.DAL</Source>
+    <Message>UserDoesNotExists</Message>
+    <Stack>   bei CardGame.DAL.Logic.UserManager.GetRoleNamesByEMail(String email) in C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.DAL\Logic\UserManager.cs:Zeile 79.</Stack>
+  </Exception>
+</Xcpt>
+<Xcpt>
+  <Time>20.11.2017 09:26:40</Time>
+  <Exception>
+    <Source>CardGame.DAL</Source>
+    <Message>UserDoesNotExist</Message>
+    <Stack>   bei CardGame.DAL.Logic.AuthManager.AuthUser(String email, String password) in C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.DAL\Logic\AuthManager.cs:Zeile 127.</Stack>
+  </Exception>
+</Xcpt>
+<Xcpt>
+  <Time>20.11.2017 09:28:12</Time>
+  <Exception>
+    <Source>CardGame.DAL</Source>
+    <Message>UserDoesNotExist</Message>
+    <Stack>   bei CardGame.DAL.Logic.UserManager.GetRoleByEmail(String email) in C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.DAL\Logic\UserManager.cs:Zeile 113.
+   bei CardGame.Web.Controllers.AccountController.Login(Login login) in C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.Web\Controllers\AccountController.cs:Zeile 39.</Stack>
+  </Exception>
+</Xcpt>
+<Xcpt>
+  <Time>20.11.2017 09:31:03</Time>
+  <Exception>
+    <Source>CardGame.DAL</Source>
+    <Message>UserDoesNotExist</Message>
+    <Stack>   bei CardGame.DAL.Logic.UserManager.GetRoleByEmail(String email) in C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.DAL\Logic\UserManager.cs:Zeile 113.
+   bei CardGame.Web.Controllers.AccountController.Login(Login login) in C:\Users\SandManu\Documents\GitHub\LAP_Sandholzer_stand_nach_lap\CardGame.Web\Controllers\AccountController.cs:Zeile 39.</Stack>
+  </Exception>
+</Xcpt>

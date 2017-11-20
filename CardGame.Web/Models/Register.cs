@@ -39,8 +39,7 @@ namespace CardGame.Web.Models
         public int Streetnumber { get; set; }
 
         [Required(ErrorMessage = "Bitte geben Sie Ihre PLZ an")]
-        [MaxLength(15)]
-        [DisplayName("Postleitzahl")]
+        [DisplayName("PLZ")]
         public string PLZ { get; set; }
 
         [Required(ErrorMessage = "Bitte geben Sie Ihre Stadt an")]

@@ -27,25 +27,27 @@ namespace CardGame.Web.Controllers
         [HttpPost]
         public ActionResult Login(Login login)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return View(login);
-            }
-            else
-            {
-                login.Role = UserManager.GetRoleByEmail(login.Email);
-                bool hasAccess = AuthManager.AuthUser(login.Email, login.Password);
-
-                //Authentifizierung
-                if (!hasAccess)
+                if (!ModelState.IsValid)
                 {
-                    TempData["ErrorMessage"] = "Email oder Passwort falsch!";
                     return View(login);
                 }
                 else
                 {
-                    try
+
+                    login.Role = UserManager.GetRoleByEmail(login.Email);
+                    bool hasAccess = AuthManager.AuthUser(login.Email, login.Password);
+
+                    //Authentifizierung
+                    if (!hasAccess)
                     {
+                        TempData["ErrorMessage"] = "Email oder Passwort falsch!";
+                        return View(login);
+                    }
+                    else
+                    {
+
                         var authTicket = new FormsAuthenticationTicket(
                                         1,                              //Ticketversion
                                         login.Email,                    //UserIdentifizierung
@@ -60,20 +62,27 @@ namespace CardGame.Web.Controllers
                         var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
 
                         System.Web.HttpContext.Current.Response.Cookies.Add(authCookie);
-                    }
-                    catch (Exception e)
-                    {
-                        Writer.LogError(e);
+
+
                     }
                 }
+
+
+
+
+                string rolle = UserManager.GetRoleNamesByEMail(login.Email);
+                AuthManager.AuthUser(login.Email, login.Password);
+                string gamertag = UserManager.getGamerTagByEmail(login.Email);
+
+                TempData["ConfirmMessage"] = "Willkomen" + " " + gamertag;
             }
-
-            string rolle = UserManager.GetRoleNamesByEMail(login.Email);
-            AuthManager.AuthUser(login.Email, login.Password);
-            string gamertag = UserManager.getGamerTagByEmail(login.Email);
-
-            TempData["ConfirmMessage"] = "Willkomen" + " " + gamertag;
-
+            catch (Exception e)
+            {
+                if (e.Message == "UserDoesNotExist")
+                    TempData["ErrorMessage"] = "Email oder Passwort falsch!";
+                Writer.LogError(e);
+                return View(login);
+            }
             return RedirectToAction("Index", "Home");
         }
         public ActionResult Logout()
@@ -192,7 +201,7 @@ namespace CardGame.Web.Controllers
             }
             return RedirectToAction("Login");
         }
-       
+
         [HttpGet]
         [Authorize(Roles = "player")]
         public ActionResult ChangePassword()
@@ -207,15 +216,15 @@ namespace CardGame.Web.Controllers
             byte[] dbHashPasswort = UserManager.getCurrentPassword(User.Identity.Name);
             CardGame.DAL.Model.User dbUser = UserManager.GetUserByEmail(User.Identity.Name);
 
-            
+
             byte[] altesOberflächeHashPasswort = Helper.GenerateHash(neuesPasswortDaten.CurrentPassword + dbUser.UserSalt);
 
             byte[] neuesOberflächenHashPasswort = Helper.GenerateHash(neuesPasswortDaten.NewPassword + dbUser.UserSalt);
 
-            if(dbHashPasswort.SequenceEqual(altesOberflächeHashPasswort) == true)
+            if (dbHashPasswort.SequenceEqual(altesOberflächeHashPasswort) == true)
             {
                 //Passwörter sind gleich
-                if(ModelState.IsValid)
+                if (ModelState.IsValid)
                 {
                     //Validierung ist ok - deswegen sind passwort und passwort wiederholen gleich
                     //setze das neue Passwort
